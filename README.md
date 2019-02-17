@@ -10,3 +10,4 @@ npm install -g bower
 bower install bootstrap jquery
 npm install --save express-messages express-session connect-flash express-validator
 npm install --save passport passport-local bcrypt
+
