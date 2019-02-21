@@ -16,6 +16,9 @@ html
             a.nav-link(href='/')
               | Home
               span.sr-only (current)
+          if user
+            a.nav-link(href='/GeneralInformation')
+              | General Information
         ul.nav.navbar-nav.navbar-right
           if user
             li.nav-item
