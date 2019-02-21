@@ -1,4 +1,4 @@
 module.exports = {
-    database: 'mongodb://localhost:27017/clickHotelDB',
+    database: 'mongodb://193.106.55.121:23777/ClickHotel',
     secret:'secret'
 }
