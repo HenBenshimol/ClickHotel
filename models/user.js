@@ -33,7 +33,7 @@ const Base = mongoose.model('Base', new mongoose.Schema({
 const User = Base.discriminator('User', new mongoose.Schema({}));
 
 //Guest schema
-const Guest = Base.discriminator('Guest', new mongoose.Schema({
+const Guest = mongoose.model('Guest', new mongoose.Schema({
     hotelID: {
         type: String,
         required: true
@@ -46,14 +46,18 @@ const Guest = Base.discriminator('Guest', new mongoose.Schema({
         type: String,
         required: true
     },
-    recommendations: {
+    numOfGuests: {
         type: String,
         required: true
     },
-    smoke: {
-        type: Boolean,
+    purpose: {
+        type: String,
         required: true
-    }
+    },
+    recommendations: {
+        type: String,
+        required: false
+    },
 }));
 
 //Employee schema

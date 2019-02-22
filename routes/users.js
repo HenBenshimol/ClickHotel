@@ -1,10 +1,11 @@
 const express = require('express');
+const session = require('express-session')
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const passport = require('passport');
 
-// Bring in User and Guest model
+// Bring in User and hotel model
 const {User, Guest} = require('../models/user');
 const {Hotel, Room} = require('../models/hotel');
 
@@ -112,12 +113,74 @@ router.get('/checkin', function (req, res) {
       console.log(hotels);
       res.render('checkin', {
         title:'Check-In',
-        hotels : hotels
+        hotels : hotels,
+        currentUser : req.user
       });
     }
   });
 });
 
+//Checkin process
+router.post('/checkin', function (req, res) {
+
+  console.log('post checkin form');
+
+  const hotelName = req.body.hotelName;
+  const currentUser = req.user;
+  const status = req.body.status;
+  const numOfGuests = req.body.numOfGuests;
+  const purpose = req.body.purpose;
+  const roomID = "1";
+  const hotelID = hotelName;
+
+  req.checkBody('hotelName', 'Hotel name is required').notEmpty();
+  req.checkBody('status', 'Status is required').notEmpty();
+  req.checkBody('numOfGuests', 'Number of guests is required').notEmpty();
+  req.checkBody('purpose', 'Purpose is required').notEmpty();
+
+  // Get Errors
+  let errors = req.validationErrors();
+
+  if(errors){
+    Hotel.find({}, function(err, hotels){
+      if(err)
+      {
+        console.log(err);
+      }
+      else {
+        console.log(hotels);
+        res.render('checkin', {
+          title:'Check-In',
+          hotels : hotels,
+          currentUser : currentUser
+        });
+      }
+    });
+  } else {
+    let newGuest = new Guest({
+      firstName:currentUser.firstName,
+      lastName:currentUser.lastName,
+      email:currentUser.email,
+      phoneNum:currentUser.phoneNum,
+      password:currentUser.password,
+      status:status,
+      numOfGuests:numOfGuests,
+      purpose:purpose,
+      hotelID:hotelID,
+      roomID:roomID,
+    });
+
+    newGuest.save(function (err) {
+      if (err){
+        console.log(err);
+        return;
+      } else {
+        req.flash('success','You are now guest on the hotel');
+        res.redirect('/');
+      }
+    });
+  }
+});
 
 //Checkout form
 router.get('/checkout', function (req, res) {

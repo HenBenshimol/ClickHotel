@@ -5,15 +5,39 @@ block content
     form(method='POST', action='/users/checkin')
         #form-group
             label Hotel:
-            select.form-control(name='hotel')
+            select.form-control(name='hotelName' id="list")
                 each hotel, i in hotels
-                    option #{hotel.name}
+                    option(value=hotel) #{hotel.name}
         #form-group
             label First Name:
-            input.form-control(name='firstName', type='text')
+            input.form-control(name='firstName', type='text', value=currentUser.firstName, disabled)
         #form-group
             label Last Name:
-            input.form-control(name='lastName', type='text')
-  
+            input.form-control(name='lastName', type='text', value=currentUser.lastName, disabled)
+        #form-group
+            label Email:
+            input.form-control(name='email', type='text', value=currentUser.email, disabled)
+        #form-group
+            label Status:
+            .form-check.form-check-inline
+                input.form-check-input(type='radio', name='status', value='single')
+                label.form-check-label(for='Single') Single 
+            .form-check.form-check-inline
+                input.form-check-input(type='radio', name='status', value='couple')
+                label.form-check-label(for='Couple') Couple 
+            .form-check.form-check-inline
+                input.form-check-input(type='radio', name='status', value='family')
+                label.form-check-label(for='Family') Family 
+        #form-group
+            label Number of guests:
+            input.form-control(name='numOfGuests', type='text')
+        #form-group
+            label Purpose:
+            .form-check.form-check-inline
+                input.form-check-input(type='radio', name='purpose', value='vacation')
+                label.form-check-label(for='Single') Vacation 
+            .form-check.form-check-inline
+                input.form-check-input(type='radio', name='purpose', value='business')
+                label.form-check-label(for='Couple') Business    
         br
         input.btn.btn-primary(type='submit', value='Submit')
