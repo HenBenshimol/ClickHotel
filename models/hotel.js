@@ -5,8 +5,8 @@ const baseOptions = {
     collection: 'hotels'
 };
 
-//Base schema
-const Base = mongoose.model('Base', new mongoose.Schema({
+//HotelBase schema
+const HotelBase = mongoose.model('HotelBase', new mongoose.Schema({
     Name: {
         type: String,
         required: true
@@ -22,7 +22,7 @@ const Base = mongoose.model('Base', new mongoose.Schema({
 }, baseOptions));
 
 //Hotel schema
-const Hotel = Base.discriminator('Hotel', new mongoose.Schema({
+const Hotel = HotelBase.discriminator('Hotel', new mongoose.Schema({
     "Phone number": {
         type: String,
         required: true
@@ -40,21 +40,21 @@ const Hotel = Base.discriminator('Hotel', new mongoose.Schema({
         required: true
     },
     Logo: {
-        type: ObjectId,
+        type: Object,
         required: true
     },
     Image1: {
-        type: ObjectId,
+        type: Object,
         required: true
     },
     Image2: {
-        type: ObjectId,
+        type: Object,
         required: true
     },
 }));
 
 //Room schema
-const Room = Base.discriminator('Room', new mongoose.Schema({
+const Room = HotelBase.discriminator('Room', new mongoose.Schema({
     roomNum: {
         type: String,
         required: true
