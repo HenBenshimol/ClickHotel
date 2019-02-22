@@ -4,9 +4,22 @@ var router = express.Router();
 const {Hotel, Room} = require('../models/hotel');
 
 /* GET General Information page. */  
-router.get('/GeneralInformation', function(req, res) { 
-  res.render('GeneralInformation', { title: 'General Information'});
+router.get('/GeneralInformation', function(req, res) {  
+    Hotel.find({}, function(err, hotels){
+    if(err)
+    {
+      console.log(err);
+    }
+    else {
+      console.log(hotels);
+      res.render('GeneralInformation', {
+        title:'General Information',
+        hotels : hotels
+      });
+    }
 });
+});
+
 
 /* GET hotel history page. */
 router.get('/hotelHistory', function(req, res) {
