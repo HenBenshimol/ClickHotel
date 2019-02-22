@@ -17,8 +17,11 @@ html
               | Home
               span.sr-only (current)
           if user
-            a.nav-link(href='/GeneralInformation')
+            a.nav-link(href='/hotel/GeneralInformation')
               | General Information
+          if user
+            a.nav-link(href='/hotel/hotelHistory')
+              | Hotel History
         ul.nav.navbar-nav.navbar-right
           if user
             li.nav-item
