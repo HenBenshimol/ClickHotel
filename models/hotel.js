@@ -2,54 +2,54 @@ const mongoose = require('mongoose');
 
 const baseOptions = {
     discriminatorKey: 'type',
-    collection: 'Hotels'
+    collection: 'hotels'
 };
 
 //HotelBase schema
 const hotelBase = mongoose.model('hotelBase', new mongoose.Schema({
-    Name: {
+    name: {
         type: String,
         required: true
     },
-    Location: {
+    location: {
         type: String,
         required: true
     },
-    Details: {
+    details: {
         type: String,
-        required: true
+        required: false
     }
 }, baseOptions));
 
 //Hotel schema
 const Hotel = hotelBase.discriminator('Hotel', new mongoose.Schema({
-    "Phone number": {
+    phoneNum: {
         type: String,
         required: true
     },
-    "Fax number": {
+    faxNum: {
         type: String,
         required: true
     },
-    "Check-in time": {
+    checkinTime: {
         type: String,
-        required: true
+        required: false
     },
-    "Check-out time": {
+    checkoutTime: {
         type: String,
-        required: true
+        required: false
     },
-    Logo: {
+    logo: {
         type: Object,
-        required: true
+        required: false
     },
-    Image1: {
+    image1: {
         type: Object,
-        required: true
+        required: false
     },
-    Image2: {
+    image2: {
         type: Object,
-        required: true
+        required: false
     },
 }));
 
