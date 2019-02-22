@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    h1 #{title}
+    form(method='POST', action='/users/checkin')
+        #form-group
+            label Hotel:
+            select.form-control(name='hotel')
+                each hotel, i in hotels
+                    option #{hotel.Name}
+        #form-group
+            label First Name:
+            input.form-control(name='firstName', type='text')
+        #form-group
+            label Last Name:
+            input.form-control(name='lastName', type='text')
+        #form-group
+            label Phone Number:
+            input.form-control(name='phoneNum', type='text')
+        #form-group
+            label Email:
+            input.form-control(name='email', type='text')
+        #form-group
+            label Password:
+            input.form-control(name='password', type='password')
+        #form-group
+            label Confirm Password:
+            input.form-control(name='password2', type='password')
+        br
+        input.btn.btn-primary(type='submit', value='Submit')

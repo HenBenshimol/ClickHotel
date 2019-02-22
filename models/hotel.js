@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const baseOptions = {
     discriminatorKey: 'type',
-    collection: 'hotels'
+    collection: 'Hotels'
 };
 
 //HotelBase schema
-const HotelBase = mongoose.model('HotelBase', new mongoose.Schema({
+const hotelBase = mongoose.model('hotelBase', new mongoose.Schema({
     Name: {
         type: String,
         required: true
@@ -22,7 +22,7 @@ const HotelBase = mongoose.model('HotelBase', new mongoose.Schema({
 }, baseOptions));
 
 //Hotel schema
-const Hotel = HotelBase.discriminator('Hotel', new mongoose.Schema({
+const Hotel = hotelBase.discriminator('Hotel', new mongoose.Schema({
     "Phone number": {
         type: String,
         required: true
@@ -54,7 +54,7 @@ const Hotel = HotelBase.discriminator('Hotel', new mongoose.Schema({
 }));
 
 //Room schema
-const Room = HotelBase.discriminator('Room', new mongoose.Schema({
+const Room = hotelBase.discriminator('Room', new mongoose.Schema({
     roomNum: {
         type: String,
         required: true

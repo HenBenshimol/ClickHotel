@@ -6,6 +6,7 @@ const passport = require('passport');
 
 // Bring in User and Guest model
 const {User, Guest} = require('../models/user');
+const {Hotel, Room} = require('../models/hotel');
 
 //Register form
 router.get('/register', function (req, res) {
@@ -97,6 +98,33 @@ router.get('/logout', function (req, res) {
   req.logout();
   req.flash('success', 'You are logged out');
   res.redirect('/users/login');
+});
+
+//Checkin form
+router.get('/checkin', function (req, res) {
+  console.log('get checkin form');
+  Hotel.find({}, function(err, hotels){
+    if(err)
+    {
+      console.log(err);
+    }
+    else {
+      console.log(hotels);
+      res.render('checkin', {
+        title:'Check-In',
+        hotels : hotels
+      });
+    }
+  });
+});
+
+
+//Checkout form
+router.get('/checkout', function (req, res) {
+  console.log('get checkout form');
+  res.render('checkout', {
+    title:'Check-Out'
+  });
 });
 
 module.exports = router;
