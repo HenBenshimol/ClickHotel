@@ -4,20 +4,4 @@ block content
 
   h1= title
   p Welcome to #{title}
-
-
-  .button-dropdown
-    select(id="list" onchange="a();")
-      option select
-      each hotel, i in hotels
-        option(value=hotel) #{hotel.hotelName}
-    p#text
-
-  script.
-    function a() {
-        var selectedValue = document.getElementById("list").value;
-        if(selectedValue != "select")
-          document.getElementById("text").innerHTML = selectedValue;
-        else
-          document.getElementById("text").innerHTML = "";
-    }
+  p hotel.Name

@@ -17,13 +17,20 @@ html
               | Home
               span.sr-only (current)
           if user
-            a.nav-link(href='/hotel/GeneralInformation')
-              | General Information
+            if user.isCheckedIn
+              a.nav-link(href='/hotel/GeneralInformation')
+               | General Information
           if user
             a.nav-link(href='/hotel/hotelHistory')
               | Hotel History
         ul.nav.navbar-nav.navbar-right
           if user
+            if user.isCheckedIn
+              li.nav-item
+                 a.nav-link(href='/users/checkout') Check-Out
+            else
+              li.nav-item
+                 a.nav-link(href='/users/checkin') Check-In
             li.nav-item
               a.nav-link(href='/users/logout') Logout
           else
