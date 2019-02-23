@@ -17,16 +17,15 @@ router.get('/GeneralInformation', function(req, res) {
         hotels : hotels
       });
     }
+  });
 });
-});
-
 
 /* GET hotel history page. */
 router.get('/hotelHistory', function(req, res) {
     res.render('hotelHistory', { title: 'Hotel History'});
-  });
+});
 
- //Add hotel form
+//Add hotel form
 router.get('/addHotel', function (req, res) {
   console.log('get add hotel form');
   res.render('addHotel', {
@@ -34,7 +33,7 @@ router.get('/addHotel', function (req, res) {
   });
 });
 
-//Register process
+//Register process - hotel
 router.post('/addHotel', function (req, res) {
 
   console.log('post add hotel form');
@@ -63,7 +62,59 @@ router.post('/addHotel', function (req, res) {
       return;
     } else{
       req.flash('success','Successfuly added the hotel');
-      res.redirect('/hotel/GeneralInformation');
+      res.redirect('/hotel/addHotel');
+    }
+  }); 
+});
+
+//Add room form
+router.get('/addRoom', function (req, res) {
+  console.log('get add room form');
+
+  Hotel.find({}, function(err, hotels){
+    if(err)
+    {
+      console.log(err);
+    }
+    else {
+      console.log(hotels);
+      res.render('addRoom', {
+        title:'Add room',
+        hotels : hotels
+      });
+    }  
+  });
+});
+
+//Register process - room
+router.post('/addRoom', function (req, res) {
+
+  console.log('post add room form');
+
+  const hotelName = req.body.hotelName;
+  const roomNum = req.body.roomNum;
+  const roomType = req.body.roomType;
+  const floorNum = req.body.floorNum;
+  const numOfGuests = req.body.numOfGuests;
+  const WIFIpass = req.body.WIFIpass;
+
+  let newRoom = new Room({
+    hotelName:hotelName,
+    roomNum:roomNum,
+    roomType:roomType,
+    floorNum:floorNum,
+    availability:true,
+    numOfGuests:numOfGuests,
+    WIFIpass:WIFIpass,
+  });
+
+  newRoom.save(function (err) {
+    if (err){
+      console.log(err);
+      return;
+    } else{
+      req.flash('success','Successfuly added the room');
+      res.redirect('/hotel/addRoom');
     }
   }); 
 });

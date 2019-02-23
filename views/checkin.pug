@@ -7,7 +7,7 @@ block content
             label Hotel:
             select.form-control(name='hotelName' id="list")
                 each hotel, i in hotels
-                    option(value=hotel) #{hotel.hotelName}
+                    option(value=hotel.hotelName) #{hotel.hotelName}
         #form-group
             label First Name:
             input.form-control(name='firstName', type='text', value=currentUser.firstName, disabled)
