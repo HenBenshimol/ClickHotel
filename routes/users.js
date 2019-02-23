@@ -24,15 +24,15 @@ router.post('/register', function (req, res) {
 
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
+  const userID = req.body.userID;
   const phoneNum = req.body.phoneNum;
   const email = req.body.email;
   const password = req.body.password;
   const password2 = req.body.password2;
 
-  console.log(firstName);
-
   req.checkBody('firstName', 'First name is required').notEmpty();
   req.checkBody('lastName', 'Last name is required').notEmpty();
+  req.checkBody('userID', 'Last name is required').notEmpty();
   req.checkBody('phoneNum', 'Phone number is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
@@ -51,9 +51,11 @@ router.post('/register', function (req, res) {
     let newUser = new User ({
       firstName:firstName,
       lastName:lastName,
+      userID:userID,
       phoneNum:phoneNum,
       email:email,
-      password:password
+      password:password,
+      isCheckedIn:false
     });
 
     bcrypt.genSalt(saltRounds, function (err, salt) {
@@ -127,11 +129,14 @@ router.post('/checkin', function (req, res) {
 
   const hotelName = req.body.hotelName;
   const currentUser = req.user;
+  const checkInDate = req.body.checkInDate;
+  const checkOutDate = req.body.checkOutDate;
   const status = req.body.status;
   const numOfGuests = req.body.numOfGuests;
+  const numOfRooms = req.body.numOfRooms;
+  const roomType = req.body.roomType;
   const purpose = req.body.purpose;
-  const roomID = "1";
-  const hotelID = hotelName;
+  const roomNum = "1";
 
   req.checkBody('hotelName', 'Hotel name is required').notEmpty();
   req.checkBody('status', 'Status is required').notEmpty();
@@ -158,16 +163,16 @@ router.post('/checkin', function (req, res) {
     });
   } else {
     let newGuest = new Guest({
-      firstName:currentUser.firstName,
-      lastName:currentUser.lastName,
-      email:currentUser.email,
-      phoneNum:currentUser.phoneNum,
-      password:currentUser.password,
+      userID:currentUser.userID,
+      hotelName:hotelName,
+      checkInDate:checkInDate,
+      checkOutDate:checkOutDate,
+      roomNum:roomNum,
       status:status,
       numOfGuests:numOfGuests,
+      numOfRooms:numOfRooms,
+      roomType:roomType,
       purpose:purpose,
-      hotelID:hotelID,
-      roomID:roomID,
     });
 
     newGuest.save(function (err) {

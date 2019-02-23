@@ -39,7 +39,7 @@ router.post('/addHotel', function (req, res) {
 
   console.log('post add hotel form');
 
-  const name = req.body.name;
+  const hotelName = req.body.hotelName;
   const location = req.body.location;
   const details = req.body.details;
   const phoneNum = req.body.phoneNum;
@@ -48,7 +48,7 @@ router.post('/addHotel', function (req, res) {
   const checkoutTime = req.body.checkoutTime;
 
   let newHotel = new Hotel({
-    name:name,
+    hotelName:hotelName,
     location:location,
     details:details,
     phoneNum:phoneNum,

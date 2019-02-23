@@ -7,7 +7,7 @@ block content
             label Hotel:
             select.form-control(name='hotelName' id="list")
                 each hotel, i in hotels
-                    option(value=hotel) #{hotel.name}
+                    option(value=hotel) #{hotel.hotelName}
         #form-group
             label First Name:
             input.form-control(name='firstName', type='text', value=currentUser.firstName, disabled)
@@ -15,8 +15,17 @@ block content
             label Last Name:
             input.form-control(name='lastName', type='text', value=currentUser.lastName, disabled)
         #form-group
+            label ID:
+            input.form-control(name='userID', type='text', value=currentUser.userID, disabled)
+        #form-group
             label Email:
             input.form-control(name='email', type='text', value=currentUser.email, disabled)
+        #form-group
+            label Check-In Date:
+            input.form-control(name='checkInDate', type='text')
+        #form-group
+            label Check-Out Date:
+            input.form-control(name='checkOutDate', type='text')
         #form-group
             label Status:
             .form-check.form-check-inline
@@ -31,6 +40,17 @@ block content
         #form-group
             label Number of guests:
             input.form-control(name='numOfGuests', type='text')
+        #form-group
+            label Number of rooms:
+            input.form-control(name='numOfRooms', type='text')
+        #form-group
+            label Room type:
+            .form-check.form-check-inline
+                input.form-check-input(type='radio', name='roomType', value='standard')
+                label.form-check-label(for='standard') Standard 
+            .form-check.form-check-inline
+                input.form-check-input(type='radio', name='roomType', value='suite')
+                label.form-check-label(for='suite') Suite 
         #form-group
             label Purpose:
             .form-check.form-check-inline

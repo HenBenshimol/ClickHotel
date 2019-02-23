@@ -1,12 +1,17 @@
 const mongoose = require('mongoose');
 
-const baseOptions = {
+const userOptions = {
     discriminatorKey: 'type',
-    collection: 'users'
+    collection: 'Users'
 };
 
-//Base schema
-const Base = mongoose.model('Base', new mongoose.Schema({
+const guestOptions = {
+    discriminatorKey: 'type',
+    collection: 'Guests'
+};
+
+//User schema
+const User = mongoose.model('User', new mongoose.Schema({
     firstName: {
         type: String,
         required: true
@@ -14,6 +19,11 @@ const Base = mongoose.model('Base', new mongoose.Schema({
     lastName: {
         type: String,
         required: true
+    },
+    userID:{
+        type: String,
+        required: true,
+        unique: true
     },
     phoneNum: {
         type: String,
@@ -27,18 +37,31 @@ const Base = mongoose.model('Base', new mongoose.Schema({
         type: String,
         required: true
     },
-}, baseOptions));
-
-//User schema
-const User = Base.discriminator('User', new mongoose.Schema({}));
+    isCheckedIn:{
+        type: Boolean,
+        require: true
+    },
+}, userOptions));
 
 //Guest schema
 const Guest = mongoose.model('Guest', new mongoose.Schema({
-    hotelID: {
+    userID: {
         type: String,
         required: true
     },
-    roomID: {
+    hotelName: {
+        type: String,
+        required: true
+    },
+    checkInDate: {
+        type: String,
+        required: true
+    },
+    checkOutDate: {
+        type: String,
+        required: true
+    },
+    roomNum: {
         type: String,
         required: true
     },
@@ -50,6 +73,14 @@ const Guest = mongoose.model('Guest', new mongoose.Schema({
         type: String,
         required: true
     },
+    numOfRooms: {
+        type: String,
+        required: true
+    },
+    roomType: {
+        type: String,
+        required: true
+    },
     purpose: {
         type: String,
         required: true
@@ -58,13 +89,13 @@ const Guest = mongoose.model('Guest', new mongoose.Schema({
         type: String,
         required: false
     },
-}));
+}, guestOptions));
 
 //Employee schema
-const Employee = Base.discriminator('Employee', new mongoose.Schema({}));
+//const Employee = Base.discriminator('Employee', new mongoose.Schema({}));
 
 module.exports = {
     User,
-    Guest,
-    Employee
+    Guest
+  //  Employee
 }

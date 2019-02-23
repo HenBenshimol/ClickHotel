@@ -1,13 +1,18 @@
 const mongoose = require('mongoose');
 
-const baseOptions = {
+const hotelOptions = {
     discriminatorKey: 'type',
-    collection: 'hotels'
+    collection: 'Hotels'
 };
 
-//HotelBase schema
-const hotelBase = mongoose.model('hotelBase', new mongoose.Schema({
-    name: {
+const roomOptions = {
+    discriminatorKey: 'type',
+    collection: 'Rooms'
+};
+
+//Hotel schema
+const Hotel = mongoose.model('Hotel', new mongoose.Schema({
+    hotelName: {
         type: String,
         required: true
     },
@@ -18,11 +23,7 @@ const hotelBase = mongoose.model('hotelBase', new mongoose.Schema({
     details: {
         type: String,
         required: false
-    }
-}, baseOptions));
-
-//Hotel schema
-const Hotel = hotelBase.discriminator('Hotel', new mongoose.Schema({
+    },
     phoneNum: {
         type: String,
         required: true
@@ -51,15 +52,23 @@ const Hotel = hotelBase.discriminator('Hotel', new mongoose.Schema({
         type: Object,
         required: false
     },
-}));
+}, hotelOptions));
 
 //Room schema
-const Room = hotelBase.discriminator('Room', new mongoose.Schema({
+const Room = mongoose.model('Room', new mongoose.Schema({
+    hotelName: {
+        type: String,
+        required: true
+    },
     roomNum: {
         type: String,
         required: true
     },
-    floor: {
+    roomType: {
+        type: String,
+        required: true
+    },
+    floorNum: {
         type: String,
         required: true
     },
@@ -71,7 +80,7 @@ const Room = hotelBase.discriminator('Room', new mongoose.Schema({
         type: Number,
         required: true
     },
-}));
+}, roomOptions));
 
 module.exports = {
     Hotel,
