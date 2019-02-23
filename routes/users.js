@@ -69,7 +69,7 @@ router.post('/register', function (req, res) {
             console.log(err);
             return;
           } else{
-            req.flash('success','You aer now register');
+            req.flash('success','You are now register');
             res.redirect('/users/login');
           }
         });
