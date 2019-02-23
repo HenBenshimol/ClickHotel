@@ -1,1 +1,30 @@
-sdadsasd
+extends layout
+
+block content
+    h1 #{title}
+
+    form(method='POST', action='/users/checkout')
+        #form-group
+            label Hotel Name:
+            input.form-control(name='hotelName', type='text', value=currentGuest.hotelName, disabled)
+        #form-group
+            label First Name:
+            input.form-control(name='firstName', type='text', value=currentUser.firstName, disabled)
+        #form-group
+            label Last Name:
+            input.form-control(name='lastName', type='text', value=currentUser.lastName, disabled)
+        #form-group
+            label ID:
+            input.form-control(name='userID', type='text', value=currentUser.userID, disabled)
+        #form-group
+            label Check-Out Date:
+            input.form-control(name='checkOutDate', type='text', value=currentGuest.checkOutDate)
+        #form-group
+            label Rank the hotel:
+            .slidecontainer
+            input.slider(name='rankHotel', type='range', min='1', max='5', value='2.5')
+        #form-group
+            label Comment:
+            input.form-control(name='comment', type='text') 
+        br
+        input.btn.btn-primary(type='submit', value='Submit')

@@ -5,7 +5,7 @@ block content
     form(method='POST', action='/users/checkin')
         #form-group
             label Hotel:
-            select.form-control(name='hotelName' id="list")
+            select.form-control(name='hotelName')
                 each hotel, i in hotels
                     option(value=hotel.hotelName) #{hotel.hotelName}
         #form-group
@@ -28,15 +28,10 @@ block content
             input.form-control(name='checkOutDate', type='text')
         #form-group
             label Status:
-            .form-check.form-check-inline
-                input.form-check-input(type='radio', name='status', value='single')
-                label.form-check-label(for='Single') Single 
-            .form-check.form-check-inline
-                input.form-check-input(type='radio', name='status', value='couple')
-                label.form-check-label(for='Couple') Couple 
-            .form-check.form-check-inline
-                input.form-check-input(type='radio', name='status', value='family')
-                label.form-check-label(for='Family') Family 
+            select.form-control(name='status')
+                option(value="single") Single
+                option(value="couple") Couple
+                option(value="family") Family 
         #form-group
             label Number of guests:
             input.form-control(name='numOfGuests', type='text')
@@ -45,19 +40,13 @@ block content
             input.form-control(name='numOfRooms', type='text')
         #form-group
             label Room type:
-            .form-check.form-check-inline
-                input.form-check-input(type='radio', name='roomType', value='standard')
-                label.form-check-label(for='standard') Standard 
-            .form-check.form-check-inline
-                input.form-check-input(type='radio', name='roomType', value='suite')
-                label.form-check-label(for='suite') Suite 
+            select.form-control(name='roomType')
+                option(value="standard") Standard
+                option(value="suite") Suite 
         #form-group
             label Purpose:
-            .form-check.form-check-inline
-                input.form-check-input(type='radio', name='purpose', value='vacation')
-                label.form-check-label(for='Single') Vacation 
-            .form-check.form-check-inline
-                input.form-check-input(type='radio', name='purpose', value='business')
-                label.form-check-label(for='Couple') Business    
+            select.form-control(name='purpose')
+                option(value="vacation") Vacation
+                option(value="business") Business
         br
         input.btn.btn-primary(type='submit', value='Submit')

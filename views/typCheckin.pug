@@ -1,12 +1,20 @@
 extends layout
 
 block content
-    h1 #{title}
-
-    table
-        tr
-            td Room number
-            td=room.roomNum
-        tr
-            td WIFI Password
-            td=room.WIFIpass
+    h1.text-center #{title}
+    .container
+        .row.mt-5.justify-content-center
+            .col-sm-4.text-center
+                .card-header
+                    h5.card-title Room number
+                    h6.card-text #{room.roomNum}
+        .row.mt-5.justify-content-center
+            .col-sm-4.text-center
+                .card-header
+                    h5.card-title Floor number
+                    h6.card-text #{room.floorNum}
+        .row.mt-5.justify-content-center
+            .col-sm-4.text-center
+                .card-header
+                    h5.card-title WIFI Password
+                    h6.card-text #{room.WIFIpass}

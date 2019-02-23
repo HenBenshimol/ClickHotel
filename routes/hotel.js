@@ -40,7 +40,26 @@ const {Hotel, Room} = require('../models/hotel');
 
 /* GET hotel history page. */
 router.get('/hotelHistory', function(req, res) {
-    res.render('hotelHistory', { title: 'Hotel History'});
+
+  console.log('get hotel history page');
+
+  const currentUser = req.user;
+  let query ={userID:currentUser.userID};
+
+  Guest.find(query, function (err, guests) {
+    if (err) throw err;
+    
+    if (!guests){
+        return done(null, false, {message: 'hotel history does not exists'});
+    }
+    else
+    {
+      res.render('hotelHistory', { 
+        title: 'Hotel History',
+        guests : guests
+      });
+    }    
+  });
 });
 
 //Add hotel form

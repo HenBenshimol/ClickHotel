@@ -188,7 +188,7 @@ router.post('/checkin', function (req, res) {
             return;
           } else {
             req.flash('success','You are now guest on the hotel');
-            res.redirect('/');
+            res.redirect('/users/typCheckin');
           }
         });
       }
@@ -198,9 +198,90 @@ router.post('/checkin', function (req, res) {
 
 //Checkout form
 router.get('/checkout', function (req, res) {
-  console.log('get checkout form');
-  res.render('checkout', {
-    title:'Check-Out'
+
+  const currentUser = req.user;
+
+  if(currentUser.isCheckedIn)
+  {
+    //Find current guest
+    let query ={userID:currentUser.userID, activeGuest:true};
+
+    Guest.findOne(query, function (err, guest) {
+      if (err) throw err;
+      
+      if (!guest){
+          return done(null, false, {message: 'No check-In found'});
+      }  
+      else 
+      {
+        console.log('get checkout form');
+        res.render('checkout', {
+          title:'Check-Out',
+          currentUser : currentUser,
+          currentGuest : guest
+        }); 
+      }  
+    });
+  }
+  else
+  {
+    Hotel.find({}, function(err, hotels){
+      if(err)
+      {
+        console.log(err);
+      }
+      else {
+        console.log(hotels);
+        res.render('checkin', {
+          title:'Check-In',
+          hotels : hotels,
+          currentUser : currentUser
+        });
+      }
+    });
+  }
+});
+
+//Checkout process
+router.post('/checkout', function (req, res) {
+ 
+  console.log('post checkout form');
+
+  const currentUser = req.user;
+  const checkOutDate = req.body.checkOutDate;
+  const rankHotel = req.body.rankHotel;
+  const comment = req.body.comment;
+
+  currentUser.isCheckedIn = false;
+  currentUser.save(function (err) {
+    if (err){
+      console.log(err);
+      return;
+    } 
+  });
+  
+  let query ={userID:currentUser.userID, activeGuest:true};
+
+  Guest.findOne(query, function (err, guest) {
+    if (err) throw err;
+    
+    if (!guest){
+        return done(null, false, {message: 'No check-In found'});
+    }  
+    else 
+    {
+      guest.activeGuest = false;
+      guest.checkOutDate = checkOutDate;
+      guest.save(function (err) {
+        if (err){
+          console.log(err);
+          return;
+        } else {
+          req.flash('success','You are checkd out');
+          res.redirect('/');
+        }
+      });
+    }
   });
 });
 
