@@ -222,24 +222,20 @@ router.get('/typCheckin', function (req, res) {
           return done(null, false, {message: 'No check-In found'});
       }  
 
-      let query ={userID:currentUser.userID, activeGuest:true};
+      let query ={hotelName:guest.hotelName, roomNum:guest.roomNum};
       
-      // add view
-      Room.find({}, function(err, hotels){
-        if(err)
-        {
-          console.log(err);
-        }
-        else {
-          console.log(hotels);
-          res.render('checkin', {
-            title:'Check-In',
-            hotels : hotels,
-            currentUser : currentUser
-          });
-        }
+      Room.findOne(query, function (err, room) {
+        if (err) throw err;
+        
+        if (!room){
+            return done(null, false, {message: 'Room not found'});
+        } else {
+          res.render('typCheckin', {
+            title:'You are checked in',
+            room : room
+          }); 
+        }  
       });
-
     });
   }
   else
