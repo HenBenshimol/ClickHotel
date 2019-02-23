@@ -173,6 +173,7 @@ router.post('/checkin', function (req, res) {
       numOfRooms:numOfRooms,
       roomType:roomType,
       purpose:purpose,
+      activeGuest:true
     });
 
     newGuest.save(function (err) {
@@ -180,8 +181,16 @@ router.post('/checkin', function (req, res) {
         console.log(err);
         return;
       } else {
-        req.flash('success','You are now guest on the hotel');
-        res.redirect('/');
+        currentUser.isCheckedIn = true;
+        currentUser.save(function (err) {
+          if (err){
+            console.log(err);
+            return;
+          } else {
+            req.flash('success','You are now guest on the hotel');
+            res.redirect('/');
+          }
+        });
       }
     });
   }
@@ -193,6 +202,65 @@ router.get('/checkout', function (req, res) {
   res.render('checkout', {
     title:'Check-Out'
   });
+});
+
+//Checkin thank you page
+router.get('/typCheckin', function (req, res) {
+  console.log('get thank you page');
+
+  const currentUser = req.user;
+
+  if(currentUser.isCheckedIn)
+  {
+    //Find current guest
+    let query ={userID:currentUser.userID, activeGuest:true};
+
+    Guest.findOne(query, function (err, guest) {
+      if (err) throw err;
+      
+      if (!guest){
+          return done(null, false, {message: 'No check-In found'});
+      }  
+
+      let query ={userID:currentUser.userID, activeGuest:true};
+      
+      // add view
+      Room.find({}, function(err, hotels){
+        if(err)
+        {
+          console.log(err);
+        }
+        else {
+          console.log(hotels);
+          res.render('checkin', {
+            title:'Check-In',
+            hotels : hotels,
+            currentUser : currentUser
+          });
+        }
+      });
+
+    });
+  }
+  else
+  {
+    console.log("user not checked in");
+
+    Hotel.find({}, function(err, hotels){
+      if(err)
+      {
+        console.log(err);
+      }
+      else {
+        console.log(hotels);
+        res.render('checkin', {
+          title:'Check-In',
+          hotels : hotels,
+          currentUser : currentUser
+        });
+      }
+    });
+  }
 });
 
 module.exports = router;

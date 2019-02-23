@@ -89,6 +89,10 @@ const Guest = mongoose.model('Guest', new mongoose.Schema({
         type: String,
         required: false
     },
+    activeGuest: {
+        type: Boolean,
+        required: true 
+    },
 }, guestOptions));
 
 //Employee schema
