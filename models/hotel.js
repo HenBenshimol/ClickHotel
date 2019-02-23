@@ -80,6 +80,10 @@ const Room = mongoose.model('Room', new mongoose.Schema({
         type: Number,
         required: true
     },
+    WIFIpass: {
+        type: String,
+        required: true
+    },
 }, roomOptions));
 
 module.exports = {
