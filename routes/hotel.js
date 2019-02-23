@@ -1,24 +1,42 @@
 var express = require('express');
 var router = express.Router();
 
+
+const {User, Guest} = require('../models/user');
 const {Hotel, Room} = require('../models/hotel');
 
-/* GET General Information page. */  
-router.get('/GeneralInformation', function(req, res) {  
-    Hotel.find({}, function(err, hotels){
-    if(err)
-    {
-      console.log(err);
-    }
-    else {
-      console.log(hotels);
-      res.render('GeneralInformation', {
-        title:'General Information',
-        hotels : hotels
+// GET General Information page.   
+    //Find current guest
+    router.get('/GeneralInformation', function(req, res) { 
+
+      const currentUser = req.user;
+
+      let query ={userID:currentUser.userID, activeGuest:true};
+
+      Guest.findOne(query, function (err, guest) {
+        if (err) throw err;
+        
+        if (!guest){
+            return done(null, false, {message: 'Not check-In'});
+        }  
+
+        console.log(guest.hotelName);
+        let query2 ={hotelName:guest.hotelName};
+
+        Hotel.findOne(query2, function (err, hotel) {
+          if (err) throw err;
+
+          if (!hotel){
+            return done(null, false, {message: 'Hotel not defined'});
+          }  
+          res.render('GeneralInformation', {
+            title:'General Information',
+            hotel: hotel
+          });
+        });
       });
-    }
-  });
-});
+    });
+
 
 /* GET hotel history page. */
 router.get('/hotelHistory', function(req, res) {
