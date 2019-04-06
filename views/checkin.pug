@@ -60,6 +60,11 @@ block content
             label Purpose:
             select.form-control(name='purpose')
                 option(value="vacation") Vacation
-                option(value="business") Business            
+                option(value="business") Business     
+        #form-group
+            p.confirm
+                input(type="checkbox", name="TandC", href="https://www.termsfeed.com/terms-conditions/7efa27e36727eb388c997dac23bf5cba")
+                | I agree to the Terms & Conditions of this Company
+       
         br
         input.btn.btn-primary(type='submit', value='Submit')

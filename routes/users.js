@@ -141,7 +141,8 @@ router.post('/checkin', function (req, res) {
 
   req.checkBody('checkInDate', 'checkIn Date is required').notEmpty();
   req.checkBody('checkOutDate', 'checkOut Date cannot be late from checkIn Date').isAfter(checkInDate);
-  
+  req.checkBody('TandC', 'Must agree to the terms and condistions').notEmpty();
+
   // Get Errors
   let errors = req.validationErrors();
 
