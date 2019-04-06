@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    h1 #{title}
+    form(method='POST', action='/services/addService')
+        #form-group
+            label Hotel Name:
+            select.form-control(name='hotelName')
+                each hotel, i in hotels
+                    option(value=hotel.hotelName) #{hotel.hotelName}
+        #form-group
+            label Service Name:
+            input.form-control(name='serviceName', type='text')
+        #form-group
+            label Service Type:
+                select.form-control(name='serviceType')
+                    option(value="spa") Spa
+                    option(value="room") Room 
+        #form-group
+            label Open Hour:
+            input.form-control(name='openHour', type='time', min='7:00', max='22:00')
+        #form-group
+            label Close Hour:
+            input.form-control(name='closeHour', type='time', min='7:00', max='22:00')
+        br
+        input.btn.btn-primary(type='submit', value='Submit')
+

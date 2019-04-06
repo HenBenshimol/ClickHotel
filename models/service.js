@@ -58,7 +58,7 @@ const HotelService = mongoose.model('HotelService', new mongoose.Schema({
 }, hotelServiceOptions));
 
 // Availability service type time
-const AvailableService = mongoose.model('HotelService', new mongoose.Schema({
+const AvailableService = mongoose.model('AvailableService', new mongoose.Schema({
     hotelName: {
         type: String,
         required: true
@@ -80,11 +80,11 @@ const AvailableService = mongoose.model('HotelService', new mongoose.Schema({
         required: true
     },
     startTime: {
-        type: TimeRanges,
+        type: Date,
         required: true
     },
     finishTime: {
-        type: TimeRanges,
+        type: Date,
         required: true
     },
     availability: {
@@ -94,7 +94,7 @@ const AvailableService = mongoose.model('HotelService', new mongoose.Schema({
 }, availableServiceOptions));
 
 //Order service schema
-const OrderService = mongoose.model('HotelService', new mongoose.Schema({
+const OrderService = mongoose.model('OrderService', new mongoose.Schema({
     userID: {
         type: String,
         required: true
@@ -120,7 +120,7 @@ const OrderService = mongoose.model('HotelService', new mongoose.Schema({
         required: true
     },
     orderTime: {
-        type: TimeRanges,
+        type: Date,
         required: true
     },
     comment: {

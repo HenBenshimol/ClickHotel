@@ -29,6 +29,7 @@ db.on('error', function (err) {
 var indexRouter = require('./routes/index');
 var hotelRouter = require('./routes/hotel');
 var usersRouter = require('./routes/users');
+var servicesRouter = require('./routes/services');
 
 var app = express();
 
@@ -91,6 +92,7 @@ app.get('*', function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/hotel', hotelRouter);
+app.use('/services', servicesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
