@@ -1,13 +1,33 @@
 const mongoose = require('mongoose');
 
-const baseOptions = {
+
+const hotelServiceOptions = {
     discriminatorKey: 'type',
-    collection: 'services'
+    collection: 'hotelServices'
+};
+
+const availableServiceOptions = {
+    discriminatorKey: 'type',
+    collection: 'availableServices'
+};
+
+const orderServiceOptions = {
+    discriminatorKey: 'type',
+    collection: 'orderServices'
 };
 
 //Base schema
-const Base = mongoose.model('Base', new mongoose.Schema({
-    Name: {
+const HotelService = mongoose.model('HotelService', new mongoose.Schema({
+    hotelName:
+    {
+        type: String,
+        required: true
+    },
+    serviceName: {
+        type: String,
+        required: true
+    },
+    serviceType: {
         type: String,
         required: true
     },
@@ -21,86 +41,96 @@ const Base = mongoose.model('Base', new mongoose.Schema({
     },
     location: {
         type: String,
+        required: false
+    },
+    ranking: {
+        type: String,
+        required: false
+    },
+    price: {
+        type: String,
+        required: false
+    },
+    timeRange: {
+        type: Number,
+        required: false
+    },
+}, hotelServiceOptions));
+
+// Availability service type time
+const AvailableService = mongoose.model('HotelService', new mongoose.Schema({
+    hotelName: {
+        type: String,
+        required: true
+    },
+    roomNum: {
+        type: String,
+        required: true
+    },
+    serviceType: {
+        type: String,
+        required: true
+    },
+    serviceName: {
+        type: String,
+        required: true
+    },
+    day: {
+        type: Date,
+        required: true
+    },
+    startTime: {
+        type: TimeRanges,
+        required: true
+    },
+    finishTime: {
+        type: TimeRanges,
+        required: true
+    },
+    availability: {
+        type: Boolean,
+        required: true
+    },
+}, availableServiceOptions));
+
+//Order service schema
+const OrderService = mongoose.model('HotelService', new mongoose.Schema({
+    userID: {
+        type: String,
+        required: true
+    },
+    hotelName: {
+        type: String,
+        required: true
+    },
+    roomNum: {
+        type: String,
+        required: true
+    },
+    serviceType: {
+        type: String,
+        required: true
+    },
+    serviceName: {
+        type: String,
+        required: true
+    },
+    day: {
+        type: Date,
+        required: true
+    },
+    orderTime: {
+        type: TimeRanges,
         required: true
     },
     comment: {
         type: String,
         required: true
     },
-    ranking: {
-        type: String,
-        required: true
-    }
-}, baseOptions));
-
-//Service schema
-const Service = Base.discriminator('Service', new mongoose.Schema({}));
-
-//Room service schema
-const RoomService = Base.discriminator('RoomService', new mongoose.Schema({
-    roomNum: {
-        type: String,
-        required: true
-    },
-    availableDate: {
-        type: Date,
-        required: true
-    },
-    availableTime: {
-        type: TimeRanges,
-        required: true
-    },
-    facilitiesList: {
-        type: String,
-        required: true
-    },
-}));
-
-//Hotel service schema
-const HotelService = Base.discriminator('HotelService', new mongoose.Schema({
-    guestID: {
-        type: String,
-        required: true
-    },
-}));
-
-//BabySitting schema
-const BabySitting = RoomService.discriminator('BabySitting ', new mongoose.Schema({
-    numOfChildren: {
-        type: Number,
-        required: true
-    },
-}));
-
-//Laundry schema
-const Laundry = RoomService.discriminator('Laundry ', new mongoose.Schema({
-    KG: {
-        type: Number,
-        required: true
-    },
-    specialRequests: {
-        type: String,
-        required: true
-    },
-}));
-
-//Cleaning schema
-const Cleaning = RoomService.discriminator('Cleaning ', new mongoose.Schema({
-    clean: {
-        type: Boolean,
-        required: true
-    },
-    cleaningHoures: {
-        type: String,
-        required: true
-    },
-}));
+},orderServiceOptions));
 
 module.exports = {
-    RoomService,
     HotelService,
-    BabySitting,
-    Laundry,
-    Cleaning
+    AvailableService,
+    OrderService
 }
-
