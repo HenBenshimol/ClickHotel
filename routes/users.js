@@ -139,10 +139,9 @@ router.post('/checkin', function (req, res) {
   const purpose = req.body.purpose;
   const roomNum = "1";
 
-  req.checkBody('hotelName', 'Hotel name is required').notEmpty();
-  req.checkBody('status', 'Status is required').notEmpty();
-  req.checkBody('numOfGuests', 'Number of guests is required').notEmpty();
-  req.checkBody('purpose', 'Purpose is required').notEmpty();
+  req.checkBody('checkInDate', 'checkIn Date is required').notEmpty();
+  req.checkBody('checkOutDate', 'checkOut Date cannot be late from checkIn Date').isAfter(checkInDate);
+  req.checkBody('TandC', 'Must agree to the terms and condistions').notEmpty();
 
   // Get Errors
   let errors = req.validationErrors();
@@ -158,7 +157,8 @@ router.post('/checkin', function (req, res) {
         res.render('checkin', {
           title:'Check-In',
           hotels : hotels,
-          currentUser : currentUser
+          currentUser : currentUser,
+          errors:errors
         });
       }
     });
