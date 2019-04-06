@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const session = require('express-session')
 const router = express.Router();
@@ -32,9 +34,8 @@ router.post('/register', function (req, res) {
 
   req.checkBody('firstName', 'First name is required').notEmpty();
   req.checkBody('lastName', 'Last name is required').notEmpty();
-  req.checkBody('userID', 'Last name is required').notEmpty();
-  req.checkBody('phoneNum', 'Phone number is required').notEmpty();
-  req.checkBody('email', 'Email is required').notEmpty();
+  req.checkBody('userID', 'ID can contains only numbers').isNumeric();
+  req.checkBody('phoneNum', 'Phone number can contains only numbers').isNumeric();
   req.checkBody('email', 'Email is not valid').isEmail();
   req.checkBody('password', 'Password is required').notEmpty();
   req.checkBody('password2', 'Password do not match').equals(req.body.password);
