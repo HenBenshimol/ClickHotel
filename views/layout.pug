@@ -13,7 +13,7 @@ html
       button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbar.collapse.navbar-collapse
-        ul.nav.navbar-nav.navbar-right
+        ul.navbar-nav.mr-auto
           if user
             if user.isCheckedIn
               a.nav-link(href='/hotel/GeneralInformation')
@@ -21,6 +21,7 @@ html
           if user
             a.nav-link(href='/hotel/hotelHistory')
               | Hotel History
+        ul.nav.navbar-nav.navbar-right
           if user
             if user.isCheckedIn
               li.nav-item
