@@ -7,15 +7,13 @@ html
 
   body
     nav.navbar.navbar-expand-md.navbar-dark.bg-dark
-      a.navbar-brand(href='#') Click Hotel
+      a.navbar-brand(href='#') 
+          <a href="/">
+          img.logo(src='../clickhotel1a.png', width="100" height="60" alt='logo')
       button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbar.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
-          li.nav-item
-            a.nav-link(href='/')
-              | Home
-              span.sr-only (current)
+        ul.nav.navbar-nav.navbar-right
           if user
             if user.isCheckedIn
               a.nav-link(href='/hotel/GeneralInformation')
@@ -23,7 +21,6 @@ html
           if user
             a.nav-link(href='/hotel/hotelHistory')
               | Hotel History
-        ul.nav.navbar-nav.navbar-right
           if user
             if user.isCheckedIn
               li.nav-item
