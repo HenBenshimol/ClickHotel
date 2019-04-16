@@ -1,0 +1,90 @@
+
+
+:host{
+  .navbar {
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+  }
+
+  .flex-end {
+    justify-content: end;
+  }
+
+  .logo {
+    margin-right: 30px;
+    position: relative;
+    width: 100px;
+    height: 100%;
+    img {
+      position: absolute;
+      top: -27px;
+    }
+  }
+
+  .nav-link {
+    cursor: pointer;
+  }
+
+
+  .nav-item {
+    h5 {
+      margin: 0;
+    }
+  }
+
+  .logo {
+    display: none;
+    @media (min-width: 992px) {
+      display: block;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .navbar-collapse {
+      .navbar-nav {
+        align-items: flex-end;
+      }
+    }
+
+    .right-side{
+      float: right;
+    }
+
+    .navbar-collapse {
+      width: 100%;
+      .login-part{
+        margin: 0 !important;
+        .nav-link {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .diffrent-page {
+    position: relative;
+
+    .navbar-icon {
+      color: #333333;
+    }
+    .navbar-collapse, .navbar-nav {
+      .nav-item {
+        .nav-link {
+          opacity: 0.7;
+          &.active {
+            opacity: 1;
+          }
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        h5, h6 {
+          color: #333333;
+        }
+      }
+    }
+  }
+}

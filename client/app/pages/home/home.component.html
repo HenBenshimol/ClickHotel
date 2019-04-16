@@ -1,0 +1,32 @@
+<div class="home-page-container">
+  <section class="intro">
+    <div class="home-page-background-image"></div>
+    <img class="logo-roof animated pulse" src="../../../assets/images/hotelLogo.png">
+    <img class="roof animated pulse" src="../../../assets/images/hotelLogoroof.png">
+    <h1 class="title animated pulse">EASIER WAY TO HANDLE YOUR VACATION</h1>
+    <h4  class="title animated pulse">Fast | Safe | Easy | 24/7 Service</h4>
+  </section>
+  <section class="part properties">
+    <div class="card">
+      <i class="image fa fa-user"></i>
+      <h4>Your convenience is our top priority</h4>
+    </div>
+    <div class="card">
+      <i class="image fa fa-clock-o"></i>
+      <h4>Your time is precious save it</h4>
+    </div>
+    <div class="card">
+      <i class="image fa fa-lock"></i>
+      <h4>Its easy to lock your spot ahead</h4>
+    </div>
+  </section>
+  <section class="part hotels">
+    <div class="card" *ngFor="let hotel of hotels" style="width: 300px;">
+      <img class="card-img-top" src="{{hotel.image}}">
+      <div class="card-body">
+        <p class="card-text">{{hotel.name}}</p>
+        <p class="card-text">{{hotel.details}}</p>
+      </div>
+    </div>
+  </section>
+</div>
