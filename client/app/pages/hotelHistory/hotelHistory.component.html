@@ -1,0 +1,38 @@
+<div class="home-page-container">
+  <section class="intro">
+    <div class="home-page-background-image"></div>
+    <img class="logo-roof animated pulse" src="../../../assets/images/hotelLogo.png">
+    <img class="roof animated pulse" src="../../../assets/images/hotelLogoroof.png">
+    <h1 class="title animated pulse">EASIER WAY TO HANDLE YOUR VACATION</h1>
+    <h4  class="title animated pulse">Fast | Safe | Easy | 24/7 Service</h4>
+  </section>
+  <section class="part properties">
+    <div class="card">
+      <i class="image fa fa-h-square"></i>
+      <h4>Your Hotel History</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered col-12">
+        <thead class="thead-light col">
+          <tr class="col">
+            <th scope="col">Hotel Name</th>
+            <th scope="col">Check-In</th>
+            <th scope="col">Check-Out</th>
+          </tr>
+        </thead>
+        <tbody class="col" *ngIf="guests.length === 0">
+          <tr>
+            <td colspan="4">There are no hotels history.</td>
+          </tr>
+        </tbody>
+        <tbody class="col" *ngIf="!isEditing">
+          <tr class="col" *ngFor="let guest of guests">
+            <td class="col">{{guest.hotelName}}</td>
+            <td class="col">{{guest.checkinDate}}</td>
+            <td class="col">{{guest.checkoutDate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

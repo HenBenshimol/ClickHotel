@@ -1,0 +1,11 @@
+.table {
+  td,
+  th {
+    width: 25%;
+  }
+
+  .max-width {
+    max-width: 100px;
+    overflow: auto;
+  }
+}

@@ -1,0 +1,39 @@
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="card">
+  <h4 class="card-header">Check-in</h4>
+  <div class="card-body">
+    <form [formGroup]="checkinForm" (ngSubmit)="checkin()">
+      <div class="input-group" [ngClass]="setClassHotelname()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="hotelName"
+               formControlName="hotelName" placeholder="hotelName" autofocus>
+      </div>
+      <div class="input-group" [ngClass]="setClassCheckinDate()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-key"></i>
+          </span>
+        </div>
+        <input class="form-control" type="date" name="checkinDate"
+               formControlName="checkinDate" placeholder="checkinDate">
+      </div>
+      <div class="input-group" [ngClass]="setClassCheckoutDate()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-key"></i>
+          </span>
+        </div>
+        <input class="form-control" type="date" name="checkoutDate"
+               formControlName="checkoutDate" placeholder="checkoutDate">
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!checkinForm.valid">
+        <i class="fa fa-sign-in"></i> Check-in
+      </button>
+    </form>
+  </div>
+</div>
