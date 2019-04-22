@@ -17,8 +17,12 @@ export class GuestService {
     return this.http.get<Guest[]>('/api/guests');
   }
 
-  getByUserId(userId: String): Observable<Guest[]> {
+  getGuestByUserId(userId: String): Observable<Guest[]> {
     return this.http.get<Guest[]>(`/api/hotelHistory/${userId}`);
+  }
+
+  getActiveGuest(userId: String): Observable<Guest> {
+    return this.http.get<Guest>(`/api/thankyou/${userId}`);
   }
 
   countGuests(): Observable<number> {

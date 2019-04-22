@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -6,8 +6,6 @@ import { AuthService } from '../../services/auth.service';
 import { GuestService } from '../../services/guest.service';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { AuthGuardLogin } from 'client/app/services/auth-guard-login.service';
-
 
 @Component({
   selector: 'app-checkin',
@@ -15,8 +13,6 @@ import { AuthGuardLogin } from 'client/app/services/auth-guard-login.service';
 })
 export class CheckinComponent implements OnInit {
 
-
-  @Input('loginElement') loginElement: HTMLElement;
   @Input('checkinModal') checkinModal: HTMLElement;
   checkinForm: FormGroup;
   userId = this.auth.currentUser._id;
@@ -32,7 +28,7 @@ export class CheckinComponent implements OnInit {
   checkoutDate = new FormControl('', [
     Validators.required
   ]);
-  roomNum = 1;
+  roomId = "5cbc410d05dbd778f809bf82";
   activeGuest = true;
 
   constructor(private formBuilder: FormBuilder,
@@ -48,7 +44,7 @@ export class CheckinComponent implements OnInit {
       hotelName: this.hotelName,
       checkinDate: this.checkinDate,
       checkoutDate: this.checkoutDate,
-      roomNum: this.roomNum,
+      roomId: this.roomId,
       activeGuest: this.activeGuest
     });
   }

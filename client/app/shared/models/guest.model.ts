@@ -4,6 +4,6 @@ export class Guest {
   hotelname?: string;
   checkinDate?: Date;
   checkoutDate?: Date;
-  roomNum?: Number;
+  roomId?: string;
   activeGuest?: boolean;
 }

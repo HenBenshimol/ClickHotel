@@ -25,6 +25,7 @@ function setRoutes(app) {
     router.route('/room/:id').get(roomCtrl.get);
     router.route('/room/:id').put(roomCtrl.update);
     router.route('/room/:id').delete(roomCtrl.delete);
+    router.route('/roomId/:roomId').get(roomCtrl.getRoomById);
     // Users
     router.route('/login').post(userCtrl.login);
     router.route('/users').get(userCtrl.getAll);
@@ -40,7 +41,8 @@ function setRoutes(app) {
     router.route('/guest/:id').get(guestCtrl.get);
     router.route('/guest/:id').put(guestCtrl.update);
     router.route('/guest/:id').delete(guestCtrl.delete);
-    router.route('/hotelHistory/:userId').get(guestCtrl.getByUserId);
+    router.route('/hotelHistory/:userId').get(guestCtrl.getGuestByUserId);
+    router.route('/thankyou/:userId').get(guestCtrl.getActiveGuest);
     // Apply the routes to our application with the prefix /api
     app.use('/api', router);
 }

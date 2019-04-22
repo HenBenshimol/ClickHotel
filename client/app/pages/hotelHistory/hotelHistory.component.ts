@@ -12,13 +12,12 @@ import {Guest} from '../../shared/models/guest.model';
 export class HotelHistoryComponent implements OnInit {
 
   guests: Guest[];
-  currentUserID = this.auth.currentUser._id;
 
   constructor(private guestService: GuestService,
               private auth: AuthService) { }
 
   ngOnInit() {
-    this.guestService.getByUserId(this.auth.currentUser._id).subscribe((guests) => {
+    this.guestService.getGuestByUserId(this.auth.currentUser._id).subscribe((guests) => {
       this.guests = guests;
     }, (err) => {
       console.log(err);

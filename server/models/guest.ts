@@ -5,7 +5,7 @@ const guestSchema = new mongoose.Schema({
   hotelName: String,
   checkinDate: Date,
   checkoutDate: Date,
-  roomNum: Number,
+  roomId: String,
   activeGuest: Boolean
 });
 

@@ -19,12 +19,13 @@ import { RegisterComponent } from './layout/register/register.component';
 import { CheckinComponent } from './layout/checkin/checkin.component';
 import { LoginComponent } from './layout/login/login.component';
 import { LogoutComponent } from './layout/logout/logout.component';
+import { ThankyouComponent } from './layout/thankyou/thankyou.component';
 import { HotelHistoryComponent } from './pages/hotelHistory/hotelHistory.component';
 import { AccountComponent } from './pages/account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import {HotelsService} from './services/hotels.service';
-import {RoomService} from './services/room.service';
+import { HotelsService } from './services/hotels.service';
+import { RoomService } from './services/room.service';
 import { HeaderComponent } from './layout/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -44,6 +45,7 @@ export function tokenGetter() {
     CheckinComponent,
     LoginComponent,
     LogoutComponent,
+    ThankyouComponent,
     HotelHistoryComponent,
     AccountComponent,
     AdminComponent,

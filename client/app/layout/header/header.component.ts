@@ -13,7 +13,8 @@ export class HeaderComponent implements OnInit {
   @ViewChild('loginModal') logonModal;
   @ViewChild('registerModal') registerModal;
   @ViewChild('checkinModal') checkinModal;
-
+  @ViewChild('thankyouModal') thankyouModal;
+  
   headerClass: boolean;
 
   constructor(public auth: AuthService, private modalService: NgbModal, private router: Router) { }
@@ -26,7 +27,6 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
-
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: '', centered: true}).result.then((result) => {
     }, (err) => {

@@ -17,6 +17,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ThankyouComponent } from './layout/thankyou/thankyou.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'checkin', component: CheckinComponent },
+  { path: 'thankyou', component: ThankyouComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'hotelHistory', component: HotelHistoryComponent, canActivate: [AuthGuardLogin] },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuardLogin] },

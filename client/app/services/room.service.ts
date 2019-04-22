@@ -13,6 +13,10 @@ export class RoomService {
     return this.http.get<Room[]>('/api/Rooms');
   }
 
+  getRoomById(roomId: String): Observable<Room> {
+    return this.http.get<Room>(`/api/roomId/${roomId}`);
+  }
+
   countRoom(): Observable<number> {
     return this.http.get<number>('/api/Room/count');
   }
