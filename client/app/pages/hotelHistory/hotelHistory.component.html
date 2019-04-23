@@ -28,8 +28,8 @@
         <tbody class="col" *ngIf="!isEditing">
           <tr class="col" *ngFor="let guest of guests">
             <td class="col">{{guest.hotelName}}</td>
-            <td class="col">{{guest.checkinDate}}</td>
-            <td class="col">{{guest.checkoutDate}}</td>
+            <td class="col">{{guest.checkinDate | date: 'dd/MM/yyyy'}}</td>
+            <td class="col">{{guest.checkoutDate | date: 'dd/MM/yyyy'}}</td>
           </tr>
         </tbody>
       </table>
