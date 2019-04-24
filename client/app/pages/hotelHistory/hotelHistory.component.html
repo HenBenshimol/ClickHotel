@@ -14,10 +14,10 @@
     <div class="card-body">
       <table class="table table-bordered col-12">
         <thead class="thead-light col">
-          <tr class="col">
-            <th scope="col">Hotel Name</th>
-            <th scope="col">Check-In</th>
-            <th scope="col">Check-Out</th>
+          <tr class="d-flex">
+            <th scope="col" class="col-4 text-align">Hotel Name</th>
+            <th scope="col" class="col-4 text-align">Check-In</th>
+            <th scope="col" class="col-4 text-align">Check-Out</th>
           </tr>
         </thead>
         <tbody class="col" *ngIf="guests.length === 0">
@@ -26,10 +26,10 @@
           </tr>
         </tbody>
         <tbody class="col" *ngIf="!isEditing">
-          <tr class="col" *ngFor="let guest of guests">
-            <td class="col">{{guest.hotelName}}</td>
-            <td class="col">{{guest.checkinDate}}</td>
-            <td class="col">{{guest.checkoutDate}}</td>
+          <tr class="d-flex" *ngFor="let guest of guests">
+            <td class="col col-4 text-align">{{guest.hotelName}}</td>
+            <td class="col col-4 text-align">{{guest.checkinDate | date: 'dd/MM/yyyy'}}</td>
+            <td class="col col-4 text-align">{{guest.checkoutDate | date: 'dd/MM/yyyy'}}</td>
           </tr>
         </tbody>
       </table>

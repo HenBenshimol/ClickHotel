@@ -10,18 +10,28 @@
             <i class="fa fa-user"></i>
           </span>
         </div>
-        <input class="form-control" type="text" name="username"
-               formControlName="username" placeholder="Username" autofocus>
+        <input class="form-control" type="text" name="fullName"
+               formControlName="fullName" placeholder="Full Name" autofocus>
       </div>
+      <div class="errors" *ngIf="submitted && fullName.errors">
+          <div *ngIf="fullName.errors.required">Full Name is requiered</div>
+          <div *ngIf="fullName.errors.minlength">Full Name must be at least 2 characters</div>
+          <div *ngIf="fullName.errors.maxlength">Full Name cannot be more then 30 characters</div>
+       </div>
       <div class="input-group" [ngClass]="setClassEmail()">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <i class="fa fa-envelope"></i>
           </span>
         </div>
-        <input class="form-control" type="email" name="email"
+        <input class="form-control" type="text" name="email"
                formControlName="email" placeholder="Email">
       </div>
+      <div class="errors" *ngIf="submitted && email.errors">
+          <div *ngIf="email.errors.required">Email is requiered</div>
+          <div *ngIf="email.errors.maxlength">Email cannot be more then 100 characters</div>
+          <div *ngIf="email.errors.email">Email is not valid</div>
+       </div>
       <div class="input-group" [ngClass]="setClassPassword()">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -31,6 +41,10 @@
         <input class="form-control" type="password" name="password"
                formControlName="password" placeholder="Password">
       </div>
+      <div class="errors" *ngIf="submitted && password.errors">
+          <div *ngIf="password.errors.required">Password is requiered</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+       </div>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -43,7 +57,10 @@
           <option value="admin">Admin</option>
         </select>
       </div>
-      <button class="btn btn-primary" type="submit" [disabled]="!registerForm.valid">
+      <div class="errors" *ngIf="submitted && role.errors">
+          <div *ngIf="role.errors.required">Role is requiered</div>
+       </div>
+      <button class="btn btn-primary" type="submit">
         <i class="fa fa-user-plus"></i> Register
       </button>
     </form>

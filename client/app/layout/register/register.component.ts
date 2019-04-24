@@ -9,15 +9,18 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html'
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  submitted=false;
 
 
   @Input('loginElement') loginElement: HTMLElement;
   @Input('registerModal') registerModal: HTMLElement;
   registerForm: FormGroup;
-  username = new FormControl('', [
+  fullName = new FormControl('', [
     Validators.required,
     Validators.minLength(2),
     Validators.maxLength(30),
@@ -26,7 +29,8 @@ export class RegisterComponent implements OnInit {
   email = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
-    Validators.maxLength(100)
+    Validators.maxLength(100),
+    Validators.email
   ]);
   password = new FormControl('', [
     Validators.required,
@@ -44,7 +48,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      username: this.username,
+      fullName: this.fullName,
       email: this.email,
       password: this.password,
       role: this.role
@@ -52,7 +56,7 @@ export class RegisterComponent implements OnInit {
   }
 
   setClassUsername() {
-    return { 'has-danger': !this.username.pristine && !this.username.valid };
+    return { 'has-danger': !this.fullName.pristine && !this.fullName.valid };
   }
 
   setClassEmail() {
@@ -64,6 +68,11 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.submitted=true;
+
+    if (this.registerForm.invalid)
+      return;
+
     this.userService.register(this.registerForm.value).subscribe(
       res => {
         this.toast.setMessage('you successfully registered!', 'success');
