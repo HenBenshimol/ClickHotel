@@ -10,12 +10,14 @@
           <th scope="col">Room Number</th>
         </tr>
       </thead>
-      <tbody class="col" *ngIf="!isEditing">
-        <tr class="col">
-          <td class="col">{{room.hotelName}}</td>
-          <td class="col">{{room.roomNum}}</td>
-        </tr>
-      </tbody>
+      <ng-container *ngIf="room">
+        <tbody class="col">
+          <tr class="col">
+            <td class="col">{{room.hotelName}}</td>
+            <td class="col">{{room.roomNum}}</td>
+          </tr>
+        </tbody>
+      </ng-container>
     </table>
   </div>
 </div>

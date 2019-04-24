@@ -31,15 +31,12 @@ export class ThankyouComponent implements OnInit {
               public toast: ToastComponent) { }
 
   ngOnInit() {
-/*
     this.roomService.getRoomByUserId(this.auth.currentUser._id).subscribe((room) => {
-      console.log('getroom');
       this.room = room;
-      this.modalService.dismissAll('');
     }, (err) => {
       console.log(err);
-    });*/
-
+    });
+/*
     this.guestService.getActiveGuest(this.auth.currentUser._id).subscribe((guest) => {
       this.guest = guest;
        console.log(this.guest);
@@ -51,6 +48,6 @@ export class ThankyouComponent implements OnInit {
 
     }, (err) => {
       console.log(err);
-    });
+    });*/
   }
 }

@@ -47,16 +47,25 @@ var RoomsCtrl = /** @class */ (function (_super) {
                 }
             });
         }); };
-        _this.getRoomByUserId = function (req, res) {
-            try {
-                var obj = _this.model.findOne({ userId: req.params.userId });
-                console.log("room by user id: " + obj);
-                res.status(200).json(obj);
-            }
-            catch (err) {
-                return res.status(500).json({ error: err.message });
-            }
-        };
+        _this.getRoomByUserId = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+            var obj, err_3;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.model.findOne({ userId: req.params.userId })];
+                    case 1:
+                        obj = _a.sent();
+                        console.log(obj);
+                        res.status(200).json(obj);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        err_3 = _a.sent();
+                        return [2 /*return*/, res.status(500).json({ error: err_3.message })];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        }); };
         return _this;
     }
     return RoomsCtrl;

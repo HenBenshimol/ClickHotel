@@ -26,7 +26,7 @@ function setRoutes(app) {
     router.route('/room/:id').put(roomCtrl.update);
     router.route('/room/:id').delete(roomCtrl.delete);
     router.route('/roomId/:roomId').get(roomCtrl.getRoomById);
-    router.route('/roomInfo/:userId').get(roomCtrl.getRoomByUserId);
+    router.route('/roomByUserId/:userId').get(roomCtrl.getRoomByUserId);
     router.route('/randomRoom/:hotelName').get(roomCtrl.getRandomRoom);
     // Users
     router.route('/login').post(userCtrl.login);

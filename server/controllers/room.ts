@@ -25,10 +25,10 @@ export default class RoomsCtrl extends BaseCtrl {
     }
   }
 
-  getRoomByUserId = (req, res) => {
+  getRoomByUserId = async (req, res) => {
     try {
-      const obj = this.model.findOne({ userId: req.params.userId });
-      console.log("room by user id: " + obj);
+      const obj = await this.model.findOne({ userId: req.params.userId });
+      console.log(obj);
       res.status(200).json(obj);
     } catch (err) {
       return res.status(500).json({ error: err.message });
