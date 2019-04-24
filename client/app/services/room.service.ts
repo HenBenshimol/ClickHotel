@@ -17,6 +17,14 @@ export class RoomService {
     return this.http.get<Room>(`/api/roomId/${roomId}`);
   }
 
+  getRoomByUserId(userId: String): Observable<Room> {
+    return this.http.get<Room>(`/api/roomByUserId/${userId}`);
+  }
+
+  getRandomRoom(hotelName: String): Observable<Room> {
+    return this.http.get<Room>(`/api/randomRoom/${hotelName}`);
+  }
+  
   countRoom(): Observable<number> {
     return this.http.get<number>('/api/Room/count');
   }

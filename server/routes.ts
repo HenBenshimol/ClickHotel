@@ -30,8 +30,8 @@ export default function setRoutes(app) {
   router.route('/room/:id').put(roomCtrl.update);
   router.route('/room/:id').delete(roomCtrl.delete);
   router.route('/roomId/:roomId').get(roomCtrl.getRoomById);
+  router.route('/roomInfo/:userId').get(roomCtrl.getRoomByUserId);
   router.route('/randomRoom/:hotelName').get(roomCtrl.getRandomRoom);
-
 
   // Users
   router.route('/login').post(userCtrl.login);
@@ -50,8 +50,7 @@ export default function setRoutes(app) {
   router.route('/guest/:id').put(guestCtrl.update);
   router.route('/guest/:id').delete(guestCtrl.delete);
   router.route('/hotelHistory/:userId').get(guestCtrl.getGuestByUserId);
-  router.route('/thankyou/:userId').get(guestCtrl.getActiveGuest);
-  router.route('/guestRoomId/:userId').get(guestCtrl.setGuestRoomId);
+  router.route('/activeGuest/:userId').get(guestCtrl.getActiveGuest);
   
   // Apply the routes to our application with the prefix /api
   app.use('/api', router);

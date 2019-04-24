@@ -14,7 +14,6 @@ var BaseCtrl = /** @class */ (function () {
                         return [4 /*yield*/, this.model.find({})];
                     case 1:
                         docs = _a.sent();
-                        console.log(docs);
                         res.status(200).json(docs);
                         return [3 /*break*/, 3];
                     case 2:

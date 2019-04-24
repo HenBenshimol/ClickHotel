@@ -5,4 +5,5 @@ export class Room {
   location?: string;
   details?: string;
   availability?: boolean;
+  userId?: string;
 }

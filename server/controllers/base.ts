@@ -6,7 +6,6 @@ abstract class BaseCtrl {
   getAll = async (req, res) => {
     try {
       const docs = await this.model.find({});
-      console.log(docs);
       res.status(200).json(docs);
     } catch (err) {
       return res.status(400).json({ error: err.message });

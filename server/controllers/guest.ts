@@ -25,5 +25,5 @@ export default class GuestCtrl extends BaseCtrl {
       return res.status(500).json({ error: err.message });
     }
   }
-
+  
 }

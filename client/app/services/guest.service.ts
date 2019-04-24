@@ -22,7 +22,7 @@ export class GuestService {
   }
 
   getActiveGuest(userId: String): Observable<Guest> {
-    return this.http.get<Guest>(`/api/thankyou/${userId}`);
+    return this.http.get<Guest>(`/api/activeGuest/${userId}`);
   }
 
   countGuests(): Observable<number> {

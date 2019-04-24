@@ -6,7 +6,8 @@ var roomSchema = new mongoose.Schema({
     roomNum: Number,
     location: String,
     details: String,
-    availability: Boolean
+    availability: Boolean,
+    userId: String
 });
 var Room = mongoose.model('Room', roomSchema);
 exports.default = Room;

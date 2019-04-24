@@ -14,4 +14,25 @@ export default class RoomsCtrl extends BaseCtrl {
       return res.status(500).json({ error: err.message });
     }
   }
+
+  getRandomRoom = async (req, res) => {
+    try {
+      const obj = await this.model.findOne({ hotelName: req.params.hotelName, availability: true });
+      console.log("random " + obj);
+      res.status(200).json(obj);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+  }
+
+  getRoomByUserId = (req, res) => {
+    try {
+      const obj = this.model.findOne({ userId: req.params.userId });
+      console.log("room by user id: " + obj);
+      res.status(200).json(obj);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+  }
+
 }
