@@ -5,6 +5,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { UserService } from './user.service';
 import { User } from '../shared/models/user.model';
+import { GuestService } from './guest.service';
+import { Guest } from '../shared/models/guest.model';
 
 import 'rxjs/add/operator/map';
 
@@ -12,10 +14,13 @@ import 'rxjs/add/operator/map';
 export class AuthService {
   loggedIn = false;
   isAdmin = false;
+  isGuest = false;
 
   currentUser: User = new User();
+  currentGuest: Guest = new Guest();
 
   constructor(private userService: UserService,
+              private guestService: GuestService,
               private router: Router,
               private jwtHelper: JwtHelperService) {
     this.getUserOnStart();
@@ -45,7 +50,9 @@ export class AuthService {
     localStorage.removeItem('token');
     this.loggedIn = false;
     this.isAdmin = false;
+    this.isGuest = false;
     this.currentUser = new User();
+    this.currentGuest = new Guest();
     this.router.navigate(['/']);
   }
 
@@ -60,6 +67,41 @@ export class AuthService {
     this.currentUser.role = decodedUser.role;
     decodedUser.role === 'admin' ? this.isAdmin = true : this.isAdmin = false;
     delete decodedUser.role;
+  }
+
+  getCurrentGuest() {
+    this.guestService.getActiveGuest(this.currentUser._id).subscribe((guest) => {
+      const activeGuest = guest;   
+      if(activeGuest)
+      {
+        this.setCurrentGuest(activeGuest);
+      }
+    }, (err) => {
+      console.log(err);
+    }); 
+  }
+
+  setCurrentGuest(decodedGuest) {
+    this.loggedIn = true;
+    this.currentGuest._id = decodedGuest._id;
+    this.currentGuest.checkinDate = decodedGuest.checkinDate;
+    this.currentGuest.checkoutDate = decodedGuest.checkoutDate;
+    this.currentGuest.hotelName = decodedGuest.hotelName;
+    this.currentGuest.roomId = decodedGuest.roomId;
+    this.currentGuest.userId = decodedGuest.userId;
+
+    console.log("currentGuest.hotelName" + this.currentGuest.hotelName);
+  }
+
+  checkIn() {
+    //this.guestService.checkin(newGuest);
+    this.getCurrentGuest();
+  }
+
+  checkout() {
+    this.isGuest = false
+    this.currentGuest = new Guest();
+    this.router.navigate(['/']);
   }
 
 }

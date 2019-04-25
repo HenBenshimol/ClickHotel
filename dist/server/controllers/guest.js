@@ -38,7 +38,6 @@ var GuestCtrl = /** @class */ (function (_super) {
                         return [4 /*yield*/, this.model.findOne({ userId: req.params.userId, activeGuest: true })];
                     case 1:
                         obj = _a.sent();
-                        console.log("tetet " + req.params.userId);
                         res.status(200).json(obj);
                         return [3 /*break*/, 3];
                     case 2:

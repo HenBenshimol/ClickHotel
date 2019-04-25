@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild('loginModal') logonModal;
   @ViewChild('registerModal') registerModal;
   @ViewChild('checkinModal') checkinModal;
+  @ViewChild('checkoutModal') checkoutModal;
   @ViewChild('thankyouModal') thankyouModal;
   
   headerClass: boolean;

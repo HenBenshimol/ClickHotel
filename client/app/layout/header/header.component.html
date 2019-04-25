@@ -76,6 +76,11 @@
         </a>
       </li>
       <li class="nav-item">
+          <a class="nav-link" (click)="open(checkoutModal)" *ngIf="auth.loggedIn">
+            <h6><i class="fa fa-user-plus"></i> Checkout</h6>
+          </a>
+        </li>
+      <li class="nav-item">
         <a routerLink="/logout" class="nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
           <h6><i class="fa fa-sign-out"></i> Logout</h6>
         </a>
@@ -106,3 +111,7 @@
 <ng-template #checkinModal let-modal>
   <app-checkin [loginElement]="loginModal"></app-checkin>
 </ng-template>
+
+<ng-template #checkoutModal let-modal>
+    <app-checkout [loginElement]="loginModal"></app-checkout>
+  </ng-template>

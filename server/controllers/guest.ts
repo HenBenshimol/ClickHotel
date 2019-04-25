@@ -19,7 +19,6 @@ export default class GuestCtrl extends BaseCtrl {
   getActiveGuest = async (req, res) => {
     try {
       const obj = await this.model.findOne({ userId: req.params.userId, activeGuest: true });
-      console.log("tetet " + req.params.userId);
       res.status(200).json(obj);
     } catch (err) {
       return res.status(500).json({ error: err.message });

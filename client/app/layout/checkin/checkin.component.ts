@@ -96,6 +96,7 @@ export class CheckinComponent implements OnInit {
             this.newGuet.roomId = this.roomId;
             this.guestService.editGuest(this.newGuet).subscribe(
               (res) => {
+                this.auth.checkIn();
                 console.log('roomid in user saved!');
               },
               error => console.log(error)

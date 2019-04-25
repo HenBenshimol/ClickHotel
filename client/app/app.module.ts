@@ -7,6 +7,9 @@ import { SharedModule } from './shared/shared.module';
 // Services
 import { UserService } from './services/user.service';
 import { GuestService } from './services/guest.service';
+import { RoomService } from './services/room.service';
+import { HotelsService } from './services/hotels.service';
+import { RankingService } from './services/ranking.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
@@ -17,6 +20,7 @@ import { RoomComponent } from './pages/room/room.component';
 import { AboutComponent } from './pages/about/about.component';
 import { RegisterComponent } from './layout/register/register.component';
 import { CheckinComponent } from './layout/checkin/checkin.component';
+import { CheckoutComponent } from './layout/checkout/checkout.component';
 import { LoginComponent } from './layout/login/login.component';
 import { LogoutComponent } from './layout/logout/logout.component';
 import { ThankyouComponent } from './layout/thankyou/thankyou.component';
@@ -24,8 +28,6 @@ import { HotelHistoryComponent } from './pages/hotelHistory/hotelHistory.compone
 import { AccountComponent } from './pages/account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { HotelsService } from './services/hotels.service';
-import { RoomService } from './services/room.service';
 import { HeaderComponent } from './layout/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -43,6 +45,7 @@ export function tokenGetter() {
     AboutComponent,
     RegisterComponent,
     CheckinComponent,
+    CheckoutComponent,
     LoginComponent,
     LogoutComponent,
     ThankyouComponent,
@@ -71,7 +74,8 @@ export function tokenGetter() {
     HotelsService,
     RoomService,
     UserService,
-    GuestService
+    GuestService,
+    RankingService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

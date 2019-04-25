@@ -4,6 +4,7 @@ import UserCtrl from './controllers/user';
 import HotelsCtrl from './controllers/hotels';
 import RoomCtrl from './controllers/room';
 import GuestCtrl from './controllers/guest';
+import RankingCtrl from './controllers/ranking';
 
 export default function setRoutes(app) {
 
@@ -13,6 +14,7 @@ export default function setRoutes(app) {
   const hotelCtrl = new HotelsCtrl();
   const roomCtrl = new RoomCtrl();
   const guestCtrl = new GuestCtrl();
+  const rankingCtrl = new RankingCtrl();
 
   // Hotel
   router.route('/hotels').get(hotelCtrl.getAll);
@@ -52,6 +54,14 @@ export default function setRoutes(app) {
   router.route('/hotelHistory/:userId').get(guestCtrl.getGuestByUserId);
   router.route('/activeGuest/:userId').get(guestCtrl.getActiveGuest);
   
+  // Ranking
+  router.route('/rankings').get(rankingCtrl.getAll);
+  router.route('/rankings/count').get(rankingCtrl.count);
+  router.route('/checkout').post(rankingCtrl.insert);
+  router.route('/ranking/:id').get(rankingCtrl.get);
+  router.route('/ranking/:id').put(rankingCtrl.update);
+  router.route('/ranking/:id').delete(rankingCtrl.delete);
+
   // Apply the routes to our application with the prefix /api
   app.use('/api', router);
 

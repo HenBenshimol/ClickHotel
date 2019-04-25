@@ -1,0 +1,30 @@
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="card">
+  <h4 class="card-header">Check-out</h4>
+  <div class="card-body">
+    <form [formGroup]="checkoutForm" (ngSubmit)="checkout()">
+      <div class="input-group" [ngClass]="setClassComment()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="comment"
+              formControlName="comment" placeholder="comment" autofocus>
+      </div>
+      <div class="input-group" [ngClass]="setClassRanking()">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </div>
+          <input class="form-control" type="text" name="ranking"
+                formControlName="ranking" placeholder="ranking" autofocus>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!checkoutForm.valid">
+        <i class="fa fa-sign-in"></i> Check-out
+      </button>
+    </form>
+  </div>
+</div>

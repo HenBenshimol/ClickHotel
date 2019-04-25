@@ -5,12 +5,14 @@ var user_1 = require("./controllers/user");
 var hotels_1 = require("./controllers/hotels");
 var room_1 = require("./controllers/room");
 var guest_1 = require("./controllers/guest");
+var ranking_1 = require("./controllers/ranking");
 function setRoutes(app) {
     var router = express.Router();
     var userCtrl = new user_1.default();
     var hotelCtrl = new hotels_1.default();
     var roomCtrl = new room_1.default();
     var guestCtrl = new guest_1.default();
+    var rankingCtrl = new ranking_1.default();
     // Hotel
     router.route('/hotels').get(hotelCtrl.getAll);
     router.route('/hotels/count').get(hotelCtrl.count);
@@ -45,6 +47,13 @@ function setRoutes(app) {
     router.route('/guest/:id').delete(guestCtrl.delete);
     router.route('/hotelHistory/:userId').get(guestCtrl.getGuestByUserId);
     router.route('/activeGuest/:userId').get(guestCtrl.getActiveGuest);
+    // Ranking
+    router.route('/rankings').get(rankingCtrl.getAll);
+    router.route('/rankings/count').get(rankingCtrl.count);
+    router.route('/checkout').post(rankingCtrl.insert);
+    router.route('/ranking/:id').get(rankingCtrl.get);
+    router.route('/ranking/:id').put(rankingCtrl.update);
+    router.route('/ranking/:id').delete(rankingCtrl.delete);
     // Apply the routes to our application with the prefix /api
     app.use('/api', router);
 }

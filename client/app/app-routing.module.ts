@@ -10,6 +10,7 @@ import { RoomComponent } from './pages/room/room.component';
 import { AboutComponent } from './pages/about/about.component';
 import { RegisterComponent } from './layout/register/register.component';
 import { CheckinComponent } from './layout/checkin/checkin.component';
+import { CheckoutComponent } from './layout/checkout/checkout.component';
 import { LoginComponent } from './layout/login/login.component';
 import { LogoutComponent } from './layout/logout/logout.component';
 import { HotelHistoryComponent } from './pages/hotelHistory/hotelHistory.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'checkin', component: CheckinComponent },
+  { path: 'checkout', component: CheckoutComponent },
   { path: 'thankyou', component: ThankyouComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'hotelHistory', component: HotelHistoryComponent, canActivate: [AuthGuardLogin] },
