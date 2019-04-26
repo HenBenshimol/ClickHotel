@@ -13,6 +13,7 @@ import { Guest } from 'client/app/shared/models/guest.model';
 
 
 
+
 @Component({
   selector: 'app-checkin',
   templateUrl: './checkin.component.html'
