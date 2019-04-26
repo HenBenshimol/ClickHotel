@@ -23,24 +23,6 @@
           <h5>About</h5>
         </a>
       </li>
-      <li class="nav-item" *ngIf="auth.loggedIn && auth.isAdmin">
-        <a routerLink="/hotels" class="nav-link" routerLinkActive="active">
-          <!--<i class="fa fa-list"></i>-->
-          <h5>Hotels</h5>
-        </a>
-      </li>
-      <li class="nav-item" *ngIf="auth.loggedIn && auth.isAdmin">
-        <a routerLink="/room" class="nav-link" routerLinkActive="active">
-          <!--<i class="fa fa-list"></i>-->
-          <h5>Rooms</h5>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/admin" class="nav-link" routerLinkActive="active" *ngIf="auth.loggedIn && auth.isAdmin">
-          <!--<i class="fa fa-lock"></i>-->
-          <h5>Admin</h5>
-        </a>
-      </li>
       <li class="nav-item">
         <a routerLink="/hotelHistory" class="nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
           <!--<i class="fa fa-lock"></i>-->
@@ -51,6 +33,28 @@
         <a class="nav-link" routerLinkActive="active" (click)="open(thankyouModal)" *ngIf="auth.loggedIn">
           <!--<i class="fa fa-lock"></i>-->
           <h5>Room Info</h5>
+        </a>
+      </li>
+      <section>
+      <li class="nav-item" *ngIf="auth.loggedIn && auth.isAdmin">
+        <a routerLink="/hotels" class="nav-link" routerLinkActive="active">
+          <!--<i class="fa fa-list"></i>-->
+          <ul>
+          <h5>Hotels</h5>
+          </ul>
+        </a>
+      </li>
+      </section>
+      <li class="nav-item" *ngIf="auth.loggedIn && auth.isAdmin">
+        <a routerLink="/room" class="nav-link" routerLinkActive="active">
+          <!--<i class="fa fa-list"></i>-->
+          <h5>Rooms</h5>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/admin" class="nav-link" routerLinkActive="active" *ngIf="auth.loggedIn && auth.isAdmin">
+          <!--<i class="fa fa-lock"></i>-->
+          <h5>Admin</h5>
         </a>
       </li>
     </ul>
