@@ -75,7 +75,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="open(checkinModal)" *ngIf="auth.loggedIn">
+        <a class="nav-link" (click)="open(checkinModal)" *ngIf="(auth.loggedIn) && (!auth.isGuest)">
           <h6><i class="fa fa-user-plus"></i> Checkin</h6>
         </a>
       </li>
