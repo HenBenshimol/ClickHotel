@@ -12,39 +12,35 @@
         </a>
       </li>
       <li class="nav-item">
-        <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="!auth.isAdmin">
           <!--<i class="fa fa-home"></i>-->
           <h5>Home</h5>
         </a>
       </li>
       <li class="nav-item">
-        <a routerLink="/about" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a routerLink="/about" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="!auth.isAdmin">
           <!--<i class="fa fa-home"></i>-->
           <h5>About</h5>
         </a>
       </li>
       <li class="nav-item">
-        <a routerLink="/hotelHistory" class="nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+        <a routerLink="/hotelHistory" class="nav-link" routerLinkActive="active" *ngIf="auth.loggedIn && !auth.isAdmin">
           <!--<i class="fa fa-lock"></i>-->
           <h5>Hotel History</h5>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" (click)="open(thankyouModal)" *ngIf="auth.loggedIn">
+        <a class="nav-link" routerLinkActive="active" (click)="open(thankyouModal)" *ngIf="auth.loggedIn && !auth.isAdmin">
           <!--<i class="fa fa-lock"></i>-->
           <h5>Room Info</h5>
         </a>
       </li>
-      <section>
       <li class="nav-item" *ngIf="auth.loggedIn && auth.isAdmin">
         <a routerLink="/hotels" class="nav-link" routerLinkActive="active">
           <!--<i class="fa fa-list"></i>-->
-          <ul>
           <h5>Hotels</h5>
-          </ul>
         </a>
       </li>
-      </section>
       <li class="nav-item" *ngIf="auth.loggedIn && auth.isAdmin">
         <a routerLink="/room" class="nav-link" routerLinkActive="active">
           <!--<i class="fa fa-list"></i>-->
