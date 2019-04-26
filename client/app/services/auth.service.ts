@@ -71,18 +71,17 @@ export class AuthService {
 
   getCurrentGuest() {
     this.guestService.getActiveGuest(this.currentUser._id).subscribe((guest) => {
-      const activeGuest = guest;   
-      if(activeGuest)
-      {
+      const activeGuest = guest;
+      if (activeGuest) {
         this.setCurrentGuest(activeGuest);
       }
     }, (err) => {
       console.log(err);
-    }); 
+    });
   }
 
   setCurrentGuest(decodedGuest) {
-    this.loggedIn = true;
+    this.isGuest = true;
     this.currentGuest._id = decodedGuest._id;
     this.currentGuest.checkinDate = decodedGuest.checkinDate;
     this.currentGuest.checkoutDate = decodedGuest.checkoutDate;
@@ -90,16 +89,17 @@ export class AuthService {
     this.currentGuest.roomId = decodedGuest.roomId;
     this.currentGuest.userId = decodedGuest.userId;
 
-    console.log("currentGuest.hotelName" + this.currentGuest.hotelName);
+    console.log('currentGuest.hotelName' + this.currentGuest.hotelName);
   }
 
   checkIn() {
-    //this.guestService.checkin(newGuest);
+    // this.guestService.checkin(newGuest);
+    // this.isGuest = true;
     this.getCurrentGuest();
   }
 
   checkout() {
-    this.isGuest = false
+    this.isGuest = false;
     this.currentGuest = new Guest();
     this.router.navigate(['/']);
   }

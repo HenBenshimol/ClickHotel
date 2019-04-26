@@ -75,7 +75,7 @@ export class CheckoutComponent implements OnInit {
       error => console.log(error)
     );
 
-    //Update room - available
+    // Update room - available
     this.roomService.getRoomById(this.roomId).subscribe((room) => {
       this.room = room;
       this.room.availability = true;
@@ -93,9 +93,9 @@ export class CheckoutComponent implements OnInit {
 
     // Checkout and ranking the hotel
     this.rankingServie.checkout(this.checkoutForm.value).subscribe(
-      res => {        
+      res => {
         this.auth.checkout();
-        console.log("auto checkout");
+        console.log('auto checkout');
         console.log('successfully checked-out!');
         this.toast.setMessage('you successfully checked-out!', 'success');
         this.modalService.dismissAll('');

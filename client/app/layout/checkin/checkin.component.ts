@@ -72,14 +72,14 @@ export class CheckinComponent implements OnInit {
   }
 
   checkin() {
-    //Get available room in the hotel
+    // Get available room in the hotel
     this.roomService.getRandomRoom(this.hotelName.value).subscribe((room) => {
         this.room = room;
         this.roomId = room._id;
         this.room.userId = this.auth.currentUser._id;
         this.room.availability = false;
 
-        //Change the availability of the room to false and connect to user ID
+        // Change the availability of the room to false and connect to user ID
         this.roomService.editRoom(this.room).subscribe(
           (res) => {
             console.log('room saved!');
@@ -88,12 +88,12 @@ export class CheckinComponent implements OnInit {
         );
       },
       error => console.log(error)
-    );    
+    );
 
     // Create the new guest
     this.guestService.checkin(this.checkinForm.value).subscribe(
       res => {
-        //connect between the guest to the room (for History)
+        // connect between the guest to the room (for History)
         this.guestService.getActiveGuest(this.auth.currentUser._id).subscribe((guest) => {
             this.newGuet = guest;
             this.newGuet.roomId = this.roomId;
@@ -107,7 +107,7 @@ export class CheckinComponent implements OnInit {
         }, (err) => {
           console.log(err);
         });
-        
+
         console.log('successfully checked-in!');
         this.toast.setMessage('you successfully checked-in!', 'success');
         this.modalService.dismissAll('');
