@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark" [ngClass]="{'diffrent-page' : headerClass}">
+<nav class="navbar navbar-expand-lg navbar-dark">
   <button class="navbar-toggler" type="button"
           data-toggle="collapse" data-target="#navbar-supported-content"
           aria-controls="navbar-supported-content" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,7 +6,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-supported-content">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item logo" *ngIf="!headerClass">
+      <li class="nav-item logo">
         <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
           <img width="100" src="../../../assets/images/hotelLogo.png">
         </a>
