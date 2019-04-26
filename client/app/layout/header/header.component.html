@@ -71,12 +71,12 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="open(checkinModal)" *ngIf="(auth.loggedIn) && (!auth.isGuest)">
+        <a class="nav-link" (click)="open(checkinModal)" *ngIf="(auth.loggedIn) && (!auth.isGuest)  && !auth.isAdmin">
           <h6><i class="fa fa-user-plus"></i> Checkin</h6>
         </a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" (click)="open(checkoutModal)" *ngIf="auth.isGuest">
+          <a class="nav-link" (click)="open(checkoutModal)" *ngIf="auth.isGuest  && !auth.isAdmin">
             <h6><i class="fa fa-user-plus"></i> Checkout</h6>
           </a>
         </li>
