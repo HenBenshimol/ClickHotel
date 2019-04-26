@@ -11,9 +11,6 @@ import { ToastComponent } from '../../shared/toast/toast.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Guest } from 'client/app/shared/models/guest.model';
 
-
-
-
 @Component({
   selector: 'app-checkin',
   templateUrl: './checkin.component.html'
