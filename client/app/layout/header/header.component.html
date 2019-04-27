@@ -30,7 +30,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" (click)="open(thankyouModal)" *ngIf="auth.loggedIn && !auth.isAdmin">
+        <a class="nav-link" routerLinkActive="active" (click)="open(thankyouModal)" *ngIf="auth.isGuest && !auth.isAdmin">
           <!--<i class="fa fa-lock"></i>-->
           <h5>Room Info</h5>
         </a>
