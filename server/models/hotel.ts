@@ -3,8 +3,18 @@ import * as mongoose from 'mongoose';
 const hotelSchema = new mongoose.Schema({
   name: String,
   location: String,
-  details: String,
-  image: String
+  description: String,
+  gymOpen: String,
+  gymClose: String,
+  poolOpen: String,
+  poolClose: String,
+  resturantOpen: String,
+  resturantClose: String,
+  spaOpen: String,
+  spaClose: String,
+  attractionBoardImage: String,
+  hotelImage: String,
+  hotelMap: String
 });
 
 const Hotel = mongoose.model('Hotel', hotelSchema);

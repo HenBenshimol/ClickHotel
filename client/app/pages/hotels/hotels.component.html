@@ -10,24 +10,44 @@
   <div class="card-body">
     <table class="table table-bordered col-12">
       <thead class="thead-light col">
-        <tr class="col">
+        <tr class="col" >
           <th scope="col">Name</th>
           <th scope="col">Location</th>
-          <th scope="col">Details</th>
-          <th scope="col">Images</th>
+          <th scope="col">Description</th>
+          <th scope="col">Gym Open</th>
+          <th scope="col">Gym Close</th>
+          <th scope="col">Pool Open</th>
+          <th scope="col">Pool Close</th>
+          <th scope="col">Resturant Open</th>
+          <th scope="col">Resturant Close</th>
+          <th scope="col">Spa Open</th>
+          <th scope="col">Spa Close</th>
+          <th scope="col">Attraction Board Image</th>
+          <th scope="col">Hotel Image</th>
+          <th scope="col">Hotel Map Image</th>
         </tr>
       </thead>
       <tbody class="col" *ngIf="hotels.length === 0">
         <tr>
-          <td colspan="4">There are no hotels in the DB. Add a new hotel below.</td>
+          <td colspan="14">There are no hotels in the DB. Add a new hotel below.</td>
         </tr>
       </tbody>
       <tbody class="col" *ngIf="!isEditing">
         <tr class="col" *ngFor="let hotel of hotels">
           <td class="col">{{hotel.name}}</td>
           <td class="col">{{hotel.location}}</td>
-          <td class="col" >{{hotel.details}}</td>
-          <td class="col max-width">{{hotel.image}}</td>
+          <td class="col" >{{hotel.description}}</td>
+          <td class="col" >{{hotel.gymOpen}}</td>
+          <td class="col" >{{hotel.gymClose}}</td>
+          <td class="col" >{{hotel.poolOpen}}</td>
+          <td class="col" >{{hotel.poolClose}}</td>
+          <td class="col" >{{hotel.resturantOpen}}</td>
+          <td class="col" >{{hotel.resturantClose}}</td>
+          <td class="col" >{{hotel.spaOpen}}</td>
+          <td class="col" >{{hotel.spaClose}}</td>
+          <td class="col"><img src="{{hotel.attractionBoardImage}}"></td>
+          <td class="col"><img src="{{hotel.hotelImage}}"></td>
+          <td class="col"><img src="{{hotel.hotelMap}}"></td>
           <td class="col">
             <button class="btn btn-sm btn-primary" (click)="enableEditing(hotel)">
               <i class="fa fa-pencil"></i> Edit
@@ -46,10 +66,30 @@
                      [(ngModel)]="hotel.name" placeholder="Name" required>
               <input class="form-control mr-2" type="text" name="location"
                      [(ngModel)]="hotel.location" placeholder="Location" min="0" required>
-              <input class="form-control mr-2" type="text" name="details"
-                     [(ngModel)]="hotel.details" placeholder="Details" required>
-              <input class="form-control mr-2" type="text" name="image"
-                     [(ngModel)]="hotel.image" placeholder="Image url" required>
+              <input class="form-control mr-2" type="text" name="description"
+                     [(ngModel)]="hotel.description" placeholder="Description" required>
+              <input class="form-control mr-2" type="text" name="gymOpen"
+                     [(ngModel)]="hotel.gymOpen" placeholder="Gym Open" required>
+              <input class="form-control mr-2" type="text" name="gymClose"
+                     [(ngModel)]="hotel.gymClose" placeholder="Gym Close" required>
+              <input class="form-control mr-2" type="text" name="poolOpen"
+                     [(ngModel)]="hotel.poolOpen" placeholder="Pool Open" required>
+              <input class="form-control mr-2" type="text" name="poolClose"
+                     [(ngModel)]="hotel.poolClose" placeholder="Pool Close" required>
+              <input class="form-control mr-2" type="text" name="resturantOpen"
+                     [(ngModel)]="hotel.resturantOpen" placeholder="Resturant Open" required>
+              <input class="form-control mr-2" type="text" name="resturantClose"
+                     [(ngModel)]="hotel.resturantClose" placeholder="Resturant Close" required>
+              <input class="form-control mr-2" type="text" name="spaOpen"
+                     [(ngModel)]="hotel.spaOpen" placeholder="Spa Open" required>
+              <input class="form-control mr-2" type="text" name="spaClose"
+                     [(ngModel)]="hotel.spaClose" placeholder="Spa Close" required>
+              <input class="form-control mr-2" type="text" name="attractionBoardImage"
+                     [(ngModel)]="hotel.attractionBoardImage" placeholder="Attraction Board Image URL" required>
+              <input class="form-control mr-2" type="text" name="hotelImage"
+                     [(ngModel)]="hotel.hotelImage" placeholder="Hotel Image URL" required>
+              <input class="form-control mr-2" type="text" name="hotelMap"
+                     [(ngModel)]="hotel.hotelMap" placeholder="Hotel Map URL" required>
               <button class="btn btn-sm btn-primary mr-2" type="submit" [disabled]="!form.form.valid">
                 <i class="fa fa-floppy-o"></i> Save
               </button>
@@ -72,10 +112,30 @@
              formControlName="name" placeholder="Name">
       <input class="form-control mr-2" type="text" name="location"
              formControlName="location" placeholder="Location" min="0">
-      <input class="form-control mr-2" type="text" name="details"
-             formControlName="details" placeholder="Details" step="any" min="0">
-     <input class="form-control mr-2" type="text" name="image"
-             formControlName="image" placeholder="Image url" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="description"
+             formControlName="description" placeholder="Description" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="gymOpen"
+             formControlName="gymOpen" placeholder="Gym Open" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="gymClose"
+             formControlName="gymClose" placeholder="Gym Close" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="poolOpen"
+             formControlName="poolOpen" placeholder="Pool Open" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="poolClose"
+             formControlName="poolClose" placeholder="Pool Close" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="resturantOpen"
+             formControlName="resturantOpen" placeholder="Resturant Open" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="resturantClose"
+             formControlName="resturantClose" placeholder="Resturant Close" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="spaOpen"
+             formControlName="spaOpen" placeholder="Spa Open" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="spaClose"
+             formControlName="spaClose" placeholder="Spa Close" step="any" min="0">
+     <input class="form-control mr-2" type="text" name="attractionBoardImage"
+             formControlName="attractionBoardImage" placeholder="Attraction Board Image URL" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="hotelImage"
+             formControlName="hotelImage" placeholder="Hotel Image URL" step="any" min="0">
+      <input class="form-control mr-2" type="text" name="hotelMap"
+             formControlName="hotelMap" placeholder="Hotel Map URL" step="any" min="0">
       <button class="btn btn-primary" type="submit" [disabled]="!addHotelForm.valid">
         <i class="fa fa-plus"></i> Add
       </button>
