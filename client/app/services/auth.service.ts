@@ -24,6 +24,7 @@ export class AuthService {
               private router: Router,
               private jwtHelper: JwtHelperService) {
     this.getUserOnStart();
+    this.getGuestOnStart();
   }
 
   async getUserOnStart () {
@@ -34,7 +35,11 @@ export class AuthService {
       this.setCurrentUser(user);
     }
   }
-
+  async getGuestOnStart () {
+    if (Guest) {
+      this.setCurrentGuest(Guest);
+    }
+  }
   login(emailAndPassword) {
     return this.userService.login(emailAndPassword).map(
       res => {
