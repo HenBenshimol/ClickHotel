@@ -1,0 +1,105 @@
+<div class="admin-container">
+  <br>
+  <br>
+<app-loading [condition]="isLoading"></app-loading>
+
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="card mb-3" *ngIf="!isLoading">
+  <h4 class="card-header">Current services ({{services.length}})</h4>
+  <div class="card-body">
+    <table class="table table-bordered col-12">
+      <thead class="thead-light col">
+        <tr class="col">
+          <th scope="col">Hotel Name</th>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Open Hour</th>
+          <th scope="col">Close Hour</th>
+          <th scope="col">Details</th>
+        </tr>
+      </thead>
+      <tbody class="col" *ngIf="services.length === 0">
+        <tr>
+          <td colspan="4">There are no services in the DB. Add a new service below.</td>
+        </tr>
+      </tbody>
+      <tbody class="col" *ngIf="!isEditing">
+        <tr class="col" *ngFor="let service of services">
+          <td class="col">{{service.hotelName}}</td>
+          <td class="col">{{service.name}}</td>
+          <td class="col">{{service.type}}</td>
+          <td class="col">{{service.openHour}}</td>
+          <td class="col">{{service.closeHour}}</td>
+          <td class="col" >{{service.details}}</td>
+          <td class="col">
+            <button class="btn btn-sm btn-primary" (click)="enableEditing(service)">
+              <i class="fa fa-pencil"></i> Edit
+            </button>
+            <button class="btn btn-sm btn-danger ml-1" (click)="deleteRoom(service)">
+              <i class="fa fa-trash"></i> Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody class="col" *ngIf="isEditing">
+        <tr class="col">
+          <td class="col" colspan="4">
+            <form class="col" class="form-inline" #form="ngForm" (ngSubmit)="editRoom(service)">
+              <input class="form-control mr-2" type="text" name="hotelName"
+                     [(ngModel)]="room.hotelName" placeholder="hotelName" required>
+              <input class="form-control mr-2" type="text" name="name"
+                     [(ngModel)]="service.name" placeholder="name" required>
+              <input class="form-control mr-2" type="text" name="type"
+                     [(ngModel)]="service.type" placeholder="type" min="0" required>
+              <input class="form-control mr-2" type="time" name="openHour"
+                     [(ngModel)]="service.openHour" placeholder="openHour" min="0" required>
+              <input class="form-control mr-2" type="time" name="closeHour"  
+                     [(ngModel)]="service.closeHour" placeholder="closeHour" min="0" required>
+              <input class="form-control mr-2" type="text" name="details"
+                     [(ngModel)]="service.details" placeholder="Details" required>
+              <button class="btn btn-sm btn-primary mr-2" type="submit" [disabled]="!form.form.valid">
+                <i class="fa fa-floppy-o"></i> Save
+              </button>
+              <button class="btn btn-sm btn-warning" (click)="cancelEditing()">
+                <i class="fa fa-times"></i> Cancel
+              </button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card" *ngIf="!isEditing">
+  <h4 class="card-header">Add new service</h4>
+  <div class="card-body">
+    <form class="form-inline" [formGroup]="addServiceForm" (ngSubmit)="addService()">
+      <input class="form-control mr-2" type="text" name="hotelName"
+             formControlName="hotelName" placeholder="hotelName">
+      <input class="form-control mr-2" type="text" name="name"
+             formControlName="name" placeholder="name">
+      <select class="form-control mr-2" name="type" formControlName="type">
+          <option value="" disabled>Type</option>
+          <option value="spa">Spa</option>
+          <option value="roomServices">Room Services</option>
+      </select> 
+      <input class="form-control mr-2" type="time" name="openHour"
+             formControlName="openHour" placeholder="openHour" min="0">
+      <input class="form-control mr-2" type="time" name="closeHour"
+             formControlName="closeHour" placeholder="closeHour" min="0">
+      <select class="form-control mr-2" name="needDetails" formControlName="needDetails">
+          <option value="" disabled>Need Details</option>
+          <option value="true">True</option>
+          <option value="false">False</option>
+      </select>   
+      <input class="form-control mr-2" type="text" name="details"
+             formControlName="details" placeholder="Details" step="any" min="0">
+      <button class="btn btn-primary" type="submit" [disabled]="!addServiceForm.valid">
+        <i class="fa fa-plus"></i> Add
+      </button>
+    </form>
+  </div>
+</div>
+</div>

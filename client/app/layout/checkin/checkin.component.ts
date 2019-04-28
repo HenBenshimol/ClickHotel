@@ -115,12 +115,5 @@ export class CheckinComponent implements OnInit {
       error => this.toast.setMessage('email already exists', 'danger')
     );
 
-  }
-
-  // dayDiff() {
-  //   const diffTime = Math.abs(this.checkoutDate.g - date1.getTime());
-  //   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  //   console.log(diffDays);
-
-  // }
+    }
 }

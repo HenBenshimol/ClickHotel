@@ -1,0 +1,18 @@
+@import "../../../style/variables";
+
+.admin-container {
+  min-height: 100vh;
+  background: hsla(170, 50%, 45%, 1);
+
+  .table {
+    td,
+    th {
+      width: 25%;
+    }
+
+    .max-width {
+      max-width: 100px;
+      overflow: auto;
+    }
+  }
+}

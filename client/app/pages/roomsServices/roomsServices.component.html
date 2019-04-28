@@ -1,0 +1,15 @@
+<div class="roomsServices-page-container">
+  <section class="intro">
+    <div class="roomsServices-page-background-image"></div>
+    <img class="logo-roof animated pulse" src="../../../assets/images/hotelLogo.png">
+    <img class="logo-pic" src="../../../assets/images/hotelLogo.png">
+    <h4  class="title animated pulse">FAST | SAFE | EASY | 24/7</h4>
+  </section>
+  <section class="part roomsServices">
+    <div class="card" *ngFor="let type of types" style="width: 300px;" routerLinkActive="active">
+      <div class="card-body" >
+        <p class="card-text">{{type}}</p>
+      </div>
+    </div>
+  </section>
+</div>

@@ -56,6 +56,7 @@ var BaseCtrl = /** @class */ (function () {
                         return [3 /*break*/, 3];
                     case 2:
                         err_3 = _a.sent();
+                        console.log("error: " + err_3);
                         return [2 /*return*/, res.status(400).json({ error: err_3.message })];
                     case 3: return [2 /*return*/];
                 }
