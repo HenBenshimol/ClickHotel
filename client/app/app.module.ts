@@ -34,6 +34,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RoomsServicesComponent } from './pages/roomsServices/roomsServices.component';
+import { ServicesDetailsComponent } from './pages/servicesDetails/servicesDetails.component';
 import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -50,6 +51,7 @@ export function tokenGetter() {
     AboutComponent,
     RegisterComponent,
     RoomsServicesComponent,
+    ServicesDetailsComponent,
     CheckinComponent,
     CheckoutComponent,
     LoginComponent,

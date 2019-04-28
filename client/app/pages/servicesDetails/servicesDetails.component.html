@@ -1,14 +1,14 @@
-<div class="roomsServices-page-container">
+<div class="servicesDetails-page-container">
   <section class="intro">
-    <div class="roomsServices-page-background-image"></div>
+    <div class="servicesDetails-page-background-image"></div>
     <img class="logo-roof animated pulse" src="../../../assets/images/hotelLogo.png">
     <img class="logo-pic" src="../../../assets/images/hotelLogo.png">
     <h4  class="title animated pulse">FAST | SAFE | EASY | 24/7</h4>
   </section>
-  <section class="part roomsServices">
-    <div class="card" *ngFor="let type of types" style="width: 300px;" routerLinkActive="active" (click)="openService(type)">
+  <section class="part servicesDetails">
+    <div class="card" *ngFor="let serviceDet of servicesDet" style="width: 300px;">
       <div class="card-body" >
-        <p class="card-text">{{type}}</p>
+        <p class="card-text">{{serviceDet.name}}</p>
       </div>
     </div>
   </section>

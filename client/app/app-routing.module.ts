@@ -21,7 +21,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RoomInfoComponent } from './layout/roomInfo/roomInfo.component';
 import { RoomsServicesComponent } from './pages/roomsServices/roomsServices.component';
-
+import { ServicesDetailsComponent } from './pages/servicesDetails/servicesDetails.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,6 +37,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'hotelHistory', component: HotelHistoryComponent, canActivate: [AuthGuardLogin] },
   { path: 'roomsServices', component: RoomsServicesComponent, canActivate: [AuthGuardLogin] },
+  { path: 'servicesDetails', component: ServicesDetailsComponent, canActivate: [AuthGuardLogin] },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuardLogin] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
   { path: 'notfound', component: NotFoundComponent },
