@@ -115,5 +115,5 @@ export class CheckinComponent implements OnInit {
       error => this.toast.setMessage('email already exists', 'danger')
     );
 
-  }
+    }
 }
