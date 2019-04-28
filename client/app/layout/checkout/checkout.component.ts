@@ -45,7 +45,7 @@ export class CheckoutComponent implements OnInit {
               private auth: AuthService) { }
 
   ngOnInit() {
-      this.checkoutForm = this.formBuilder.group({
+    this.checkoutForm = this.formBuilder.group({
       userId: this.userId,
       hotelName: this.hotelName,
       roomId: this.roomId,

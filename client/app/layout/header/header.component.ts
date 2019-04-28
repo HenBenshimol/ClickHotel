@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild('registerModal') registerModal;
   @ViewChild('checkinModal') checkinModal;
   @ViewChild('checkoutModal') checkoutModal;
-  @ViewChild('thankyouModal') thankyouModal;
+@ViewChild('roomInfoModal') roomInfoModal;
   @ViewChild('hotelInfoModal') hotelInfoModal;
   
   headerClass: boolean;
