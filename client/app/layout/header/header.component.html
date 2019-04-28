@@ -30,11 +30,23 @@
         </a>
       </li>
       <li class="nav-item">
+        <a routerLink="/roomsServices" class="nav-link" routerLinkActive="active" *ngIf="auth.loggedIn && !auth.isAdmin">
+          <!--<i class="fa fa-lock"></i>-->
+          <h5>Room Services</h5>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" (click)="open(roomInfoModal)" *ngIf="auth.isGuest && !auth.isAdmin">
           <!--<i class="fa fa-lock"></i>-->
           <h5>Room Info</h5>
         </a>
       </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" (click)="open(hotelInfoModal)" *ngIf="auth.isGuest && !auth.isAdmin">
+            <!--<i class="fa fa-lock"></i>-->
+            <h5>Hotel Info</h5>
+          </a>
+        </li>
       <li class="nav-item" *ngIf="auth.loggedIn && auth.isAdmin">
         <a routerLink="/hotels" class="nav-link" routerLinkActive="active">
           <!--<i class="fa fa-list"></i>-->
@@ -69,11 +81,6 @@
       <li class="nav-item">
         <a class="nav-link" (click)="open(registerModal)" *ngIf="!auth.loggedIn">
           <h6><i class="fa fa-user-plus"></i> Register</h6>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/roomsServices">
-          <h6><i class="fa fa-user-plus"></i> Room Service</h6>
         </a>
       </li>
     <li class="nav-item">
@@ -119,6 +126,10 @@
 <ng-template #roomInfoModal let-modal>
   <app-roomInfo [roomInfoElement]="roomInfoModal"></app-roomInfo>
 </ng-template>
+
+<ng-template #hotelInfoModal let-modal>
+    <app-hotelInfo [hotelInfoElement]="hotelInfoModal"></app-hotelInfo>
+  </ng-template>
 
 <ng-template #checkinModal let-modal>
   <app-checkin [loginElement]="loginModal"></app-checkin>

@@ -6,7 +6,11 @@ const guestSchema = new mongoose.Schema({
   checkinDate: Date,
   checkoutDate: Date,
   roomId: String,
-  activeGuest: Boolean
+  activeGuest: Boolean,
+  ID: String,
+  fullName: String,
+  guestStatus: String,
+  guestNumber: Number
 });
 
 const Guest = mongoose.model('Guest', guestSchema);

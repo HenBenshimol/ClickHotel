@@ -7,7 +7,11 @@ var guestSchema = new mongoose.Schema({
     checkinDate: Date,
     checkoutDate: Date,
     roomId: String,
-    activeGuest: Boolean
+    activeGuest: Boolean,
+    ID: String,
+    fullName: String,
+    guestStatus: String,
+    guestNumber: Number
 });
 var Guest = mongoose.model('Guest', guestSchema);
 exports.default = Guest;
