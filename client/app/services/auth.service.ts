@@ -36,9 +36,8 @@ export class AuthService {
     }
   }
   async getGuestOnStart () {
-    if (Guest) {
-      this.setCurrentGuest(Guest);
-    }
+    const activeGuest = this.guestService.getActiveGuest(this.currentUser._id).subscribe;
+      console.log(activeGuest);
   }
   login(emailAndPassword) {
     return this.userService.login(emailAndPassword).map(
