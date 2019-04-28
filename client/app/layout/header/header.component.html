@@ -35,6 +35,12 @@
           <h5>Room Info</h5>
         </a>
       </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" (click)="open(hotelInfoModal)">
+            <!--<i class="fa fa-lock"></i>-->
+            <h5>Hotel Info</h5>
+          </a>
+        </li>
       <li class="nav-item" *ngIf="auth.loggedIn && auth.isAdmin">
         <a routerLink="/hotels" class="nav-link" routerLinkActive="active">
           <!--<i class="fa fa-list"></i>-->
@@ -107,6 +113,10 @@
 <ng-template #thankyouModal let-modal>
   <app-thankyou [thankyouElement]="thankyouModal"></app-thankyou>
 </ng-template>
+
+<ng-template #hotelInfoModal let-modal>
+    <app-hotelInfo [hotelInfoElement]="hotelInfoModal"></app-hotelInfo>
+  </ng-template>
 
 <ng-template #checkinModal let-modal>
   <app-checkin [loginElement]="loginModal"></app-checkin>

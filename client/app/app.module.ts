@@ -24,6 +24,7 @@ import { CheckoutComponent } from './layout/checkout/checkout.component';
 import { LoginComponent } from './layout/login/login.component';
 import { LogoutComponent } from './layout/logout/logout.component';
 import { ThankyouComponent } from './layout/thankyou/thankyou.component';
+import { HotelInfoComponent } from './layout/hotelInfo/hotelInfo.component';
 import { HotelHistoryComponent } from './pages/hotelHistory/hotelHistory.component';
 import { AccountComponent } from './pages/account/account.component';
 import { AdminComponent } from './admin/admin.component';
@@ -49,6 +50,7 @@ export function tokenGetter() {
     LoginComponent,
     LogoutComponent,
     ThankyouComponent,
+    HotelInfoComponent,
     HotelHistoryComponent,
     AccountComponent,
     AdminComponent,

@@ -20,8 +20,8 @@
     </div>
   </section>
   <section class="part hotels">
-    <div class="card" *ngFor="let hotel of hotels" style="width: 300px;">
-      <img class="card-img-top" src="{{hotel.hotelImage}}">
+    <div class="card" *ngFor="let hotel of hotels" style="width: 300px;" routerLinkActive="active" (click)="open(hotelInfoModal)">
+      <img class="card-img-top" src="{{hotel.hotelImage}}" >
       <div class="card-body">
         <p class="card-text">{{hotel.name}}</p>
         <p class="card-text">{{hotel.description}}</p>
@@ -29,3 +29,7 @@
     </div>
   </section>
 </div>
+
+<ng-template #hotelInfoModal let-modal>
+    <app-hotelInfo [hotelInfoElement]="hotelInfoModal"></app-hotelInfo>
+  </ng-template>
