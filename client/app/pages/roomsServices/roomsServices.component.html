@@ -6,7 +6,7 @@
     <h1  class="title animated pulse">LET US TAKE CARE OF YOU</h1>
   </section>
   <section class="part roomsServices">
-    <div class="card" *ngFor="let type of types" style="width: 300px;" routerLinkActive="active">
+    <div class="card" *ngFor="let type of types" style="width: 300px;" routerLinkActive="active" (click)="openService(type)">
       <div class="card-body" >
         <p class="card-text">{{type}}</p>
       </div>

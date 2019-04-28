@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ToastComponent } from '../../shared/toast/toast.component';
@@ -19,6 +20,7 @@ export class RoomsServicesComponent implements OnInit {
 
   constructor(private serviceService: ServiceService,
               private formBuilder: FormBuilder,
+              private router: Router,
               public toast: ToastComponent) { }
 
   ngOnInit() {
@@ -39,5 +41,9 @@ export class RoomsServicesComponent implements OnInit {
     }, (err) => {
       console.log(err);
     });
+  }
+
+  openService(type: String) {
+    this.router.navigate(['/servicesDetails'], { queryParams: { type: type } });
   }
 }

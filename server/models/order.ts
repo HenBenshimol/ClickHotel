@@ -5,9 +5,8 @@ const orderSchema = new mongoose.Schema({
   hotelName: String,
   roomId: String,
   userId: String,
-  type: String,
   date: Date,
-  startHour: Date,
+  startHour: String,
   details: String,
 });
 
