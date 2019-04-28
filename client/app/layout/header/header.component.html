@@ -30,7 +30,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" (click)="open(thankyouModal)" *ngIf="auth.isGuest && !auth.isAdmin">
+        <a class="nav-link" routerLinkActive="active" (click)="open(roomInfoModal)" *ngIf="auth.isGuest && !auth.isAdmin">
           <!--<i class="fa fa-lock"></i>-->
           <h5>Room Info</h5>
         </a>
@@ -104,8 +104,8 @@
         <app-account></app-account>
 </ng-template>
 
-<ng-template #thankyouModal let-modal>
-  <app-thankyou [thankyouElement]="thankyouModal"></app-thankyou>
+<ng-template #roomInfoModal let-modal>
+  <app-roomInfo [roomInfoElement]="roomInfoModal"></app-roomInfo>
 </ng-template>
 
 <ng-template #checkinModal let-modal>

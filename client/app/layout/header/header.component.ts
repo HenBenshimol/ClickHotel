@@ -14,8 +14,8 @@ export class HeaderComponent implements OnInit {
   @ViewChild('registerModal') registerModal;
   @ViewChild('checkinModal') checkinModal;
   @ViewChild('checkoutModal') checkoutModal;
-  @ViewChild('thankyouModal') thankyouModal;
-  
+  @ViewChild('roomInfoModal') roomInfoModal;
+
   headerClass: boolean;
 
   constructor(public auth: AuthService, private modalService: NgbModal, private router: Router) { }

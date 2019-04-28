@@ -14,7 +14,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class RegisterComponent implements OnInit {
 
-  submitted=false;
+  submitted = false;
 
 
   @Input('loginElement') loginElement: HTMLElement;
@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.submitted=true;
+    this.submitted =true;
 
     if (this.registerForm.invalid)
       return;

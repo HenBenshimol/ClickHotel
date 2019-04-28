@@ -18,7 +18,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ThankyouComponent } from './layout/thankyou/thankyou.component';
+import { RoomInfoComponent } from './layout/roomInfo/roomInfo.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'checkin', component: CheckinComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'thankyou', component: ThankyouComponent },
+  { path: 'roomInfo', component: RoomInfoComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'hotelHistory', component: HotelHistoryComponent, canActivate: [AuthGuardLogin] },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuardLogin] },

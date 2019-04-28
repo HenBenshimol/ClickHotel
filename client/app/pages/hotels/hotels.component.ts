@@ -22,7 +22,9 @@ export class HotelsComponent implements OnInit {
   location = new FormControl('', Validators.required);
   description = new FormControl('', Validators.required);
   gymOpen = new FormControl('', Validators.required);
-  gymClose = new FormControl('', Validators.required);
+  gymClose = new FormControl('',
+    Validators.required,
+  );
   poolOpen = new FormControl('', Validators.required);
   poolClose = new FormControl('', Validators.required);
   resturantOpen = new FormControl('', Validators.required);

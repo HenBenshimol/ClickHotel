@@ -13,8 +13,9 @@
       <ng-container *ngIf="room">
         <tbody class="col">
           <tr class="col">
-            <td class="col">{{room.hotelName}}</td>
-            <td class="col">{{room.roomNum}}</td>
+            <td class="col">{{this.room.hotelName}}</td>
+            <td class="col col-4 text-align">{{room.hotelName}}</td>
+            <td class="col col-4 text-align">{{room.roomNum}}</td>
           </tr>
         </tbody>
       </ng-container>
