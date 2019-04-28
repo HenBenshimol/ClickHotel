@@ -33,8 +33,8 @@ export class HotelsService {
     return this.http.delete(`/api/hotel/${hotel._id}`, { responseType: 'text' });
   }
 
-  getHotelByUserId(userId: String): Observable<Hotel> {
-    return this.http.get<Hotel>(`/api/hotelByUserId/${userId}`);
+  getHotelByName(hotelName: String): Observable<Hotel> {
+    return this.http.get<Hotel>(`/api/hotelByName/${hotelName}`);
   }
 
   

@@ -22,7 +22,6 @@ export class HotelInfoComponent implements OnInit {
   @Output('hotelInfoModal') hotelInfoModal: HTMLElement;
 
   isLoading = true;
-  guest: Guest;
   hotels: Hotel[];
   hotel: Hotel;
   
@@ -35,17 +34,22 @@ export class HotelInfoComponent implements OnInit {
               public toast: ToastComponent) { }
 
               ngOnInit() {
-                this.getHotels();
-              }
+                this.hotelService.getHotelByName(this.auth.currentGuest.hotelName).subscribe((hotel) => {
+                  this.hotel = hotel;
+                }, (err) => {
+                  console.log(err);
+              });
             
-              getHotels() {
-                this.hotelService.getHotels().subscribe(
-                  data => this.hotels = data,
-                  error => console.log(error),
-                  () => this.isLoading = false
-                );
-              }
+              // getHotels() {
+              //   this.hotelService.getHotels().subscribe(
+              //     data => this.hotels = data,
+              //     error => console.log(error),
+              //     () => this.isLoading = false
+              //   );
+              // }
 
+              
+            }
 
           
   }

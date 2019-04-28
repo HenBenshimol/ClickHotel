@@ -36,7 +36,7 @@
         </a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" (click)="open(hotelInfoModal)">
+          <a class="nav-link" routerLinkActive="active" (click)="open(hotelInfoModal)" *ngIf="auth.isGuest && !auth.isAdmin">
             <!--<i class="fa fa-lock"></i>-->
             <h5>Hotel Info</h5>
           </a>

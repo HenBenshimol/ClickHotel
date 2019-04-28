@@ -8,14 +8,14 @@ var HotelsCtrl = /** @class */ (function (_super) {
     function HotelsCtrl() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.model = hotel_1.default;
-        // Get hotel by id
-        _this.getHotelById = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+        // Get hotel by name
+        _this.getHotelByName = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
             var obj, err_1;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.model.findOne({ _id: req.params.hotelId })];
+                        return [4 /*yield*/, this.model.findOne({ name: req.params.hotelName })];
                     case 1:
                         obj = _a.sent();
                         console.log(obj);

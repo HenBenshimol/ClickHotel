@@ -27,7 +27,7 @@ export default function setRoutes(app) {
   router.route('/hotel/:id').get(hotelCtrl.get);
   router.route('/hotel/:id').put(hotelCtrl.update);
   router.route('/hotel/:id').delete(hotelCtrl.delete);
-  router.route('/hotelId/:hotelId').get(hotelCtrl.getHotelById);
+  router.route('/hotelByName/:hotelName').get(hotelCtrl.getHotelByName);
 
   // Room
   router.route('/rooms').get(roomCtrl.getAll);
