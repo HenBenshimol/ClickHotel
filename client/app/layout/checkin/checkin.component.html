@@ -7,16 +7,58 @@
       <div class="input-group" [ngClass]="setClassHotelname()">
         <div class="input-group-prepend">
           <span class="input-group-text">
+            <i class="fa fa-hotel"></i>
+          </span>
+        </div>
+        <select formControlName="hotelName" class="form-control">
+          <option value="" disabled>Hotel Name</option>
+          <option *ngFor="let hotel of hotelsName" [value]="hotel.name">{{hotel.name}}</option>
+        </select>
+      </div>
+      <div class="input-group" [ngClass]="setClassFullName()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="FullName"
+               formControlName="fullName" placeholder="Full Name" autofocus>
+      </div>
+      <div class="input-group" [ngClass]="setClassID()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
             <i class="fa fa-envelope"></i>
           </span>
         </div>
-        <input class="form-control" type="text" name="hotelName"
-               formControlName="hotelName" placeholder="hotelName" autofocus>
+        <input class="form-control" type="text" name="ID"
+               formControlName="ID" placeholder="User ID" autofocus>
+      </div>
+      <div class="input-group" [ngClass]="setClassGuestStatus()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-id-card"></i>
+          </span>
+        </div>
+        <select formControlName="guestStatus" class="form-control">
+          <option value="" disabled>Family Status</option>
+          <option value="single">Single</option>
+          <option value="couple">Couple</option>
+          <option value="family">Family</option>
+        </select>
+      </div>
+      <div class="input-group" [ngClass]="setClassGuestNumber()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-users"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="guestNumber"
+               formControlName="guestNumber" placeholder="Number Of Guests" autofocus>
       </div>
       <div class="input-group" [ngClass]="setClassCheckinDate()">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <i class="fa fa-key"></i>
+            <i class="fa fa-calendar"></i>
           </span>
         </div>
         <input class="form-control" type="date" name="checkinDate"
@@ -25,7 +67,7 @@
       <div class="input-group" [ngClass]="setClassCheckoutDate()">
         <div class="input-group-prepend">
           <span class="input-group-text">
-            <i class="fa fa-key"></i>
+            <i class="fa fa-calendar"></i>
           </span>
         </div>
         <input class="form-control" type="date" name="checkoutDate"

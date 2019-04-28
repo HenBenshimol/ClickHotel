@@ -2,6 +2,7 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { HotelsService } from '../../services/hotels.service';
 
 
 import { Room } from '../../shared/models/room.model';
@@ -10,6 +11,7 @@ import { RoomService } from '../../services/room.service';
 import { ToastComponent } from '../../shared/toast/toast.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Guest } from 'client/app/shared/models/guest.model';
+import {Hotel} from '../../shared/models/hotel.model';
 
 
 
@@ -34,10 +36,26 @@ export class CheckinComponent implements OnInit {
   checkoutDate = new FormControl('', [
     Validators.required
   ]);
+  fullName = new FormControl('', [
+    Validators.required
+  ]);
+  ID = new FormControl('', [
+    Validators.required
+  ]);
+  guestStatus = new FormControl('', [
+    Validators.required
+  ]);
+  guestNumber = new FormControl('', [
+    Validators.required
+  ]);
+
   roomId: string;
   room: Room;
   activeGuest = true;
   newGuet: Guest;
+  hotelsName: Hotel[];
+
+  selectedCategory: string;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -45,16 +63,26 @@ export class CheckinComponent implements OnInit {
               public toast: ToastComponent,
               private guestService: GuestService,
               private roomService: RoomService,
+              private hotelService: HotelsService,
               private auth: AuthService) { }
 
   ngOnInit() {
+     this.hotelService.getHotels().subscribe((hotelsName) => {
+      this.hotelsName = hotelsName;
+    }, (err) => {
+      console.log(err);
+    });
     this.checkinForm = this.formBuilder.group({
       userId: this.userId,
+      ID: this.ID,
       hotelName: this.hotelName,
       checkinDate: this.checkinDate,
       checkoutDate: this.checkoutDate,
       activeGuest: this.activeGuest,
-      roomId: null
+      roomId: null,
+      fullName: this.fullName,
+      guestStatus: this.guestStatus,
+      guestNumber: this.guestNumber
     });
   }
 
@@ -69,6 +97,22 @@ export class CheckinComponent implements OnInit {
 
   setClassCheckoutDate() {
     return { 'has-danger': !this.checkoutDate.pristine && !this.checkoutDate.valid };
+  }
+
+  setClassFullName() {
+    return { 'has-danger': !this.fullName.pristine && !this.fullName.valid };
+  }
+
+  setClassID() {
+    return { 'has-danger': !this.ID.pristine && !this.ID.valid };
+  }
+
+  setClassGuestStatus() {
+    return { 'has-danger': !this.guestStatus.pristine && !this.guestStatus.valid };
+  }
+
+  setClassGuestNumber() {
+    return { 'has-danger': !this.guestNumber.pristine && !this.guestNumber.valid };
   }
 
   checkin() {
