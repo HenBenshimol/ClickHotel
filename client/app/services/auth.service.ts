@@ -94,7 +94,6 @@ export class AuthService {
 
   checkIn() {
     // this.guestService.checkin(newGuest);
-    // this.isGuest = true;
     this.getCurrentGuest();
   }
 

@@ -58,7 +58,7 @@ export class CheckinComponent implements OnInit {
     });
   }
 
-  //Validation
+  // Validation
   setClassHotelname() {
     return { 'has-danger': !this.hotelName.pristine && !this.hotelName.valid };
   }

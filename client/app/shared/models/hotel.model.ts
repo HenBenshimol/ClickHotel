@@ -2,10 +2,16 @@ export class Hotel {
   _id?: string;
   name?: string;
   location?: string;
-  details?: string;
-  phoneNum?: string;
-  faxNum?: string;
-  checkinTime?: string;
-  checkoutTime?: string;
-  image?: string;
+  description?: string;
+  gymOpen?: string;
+  gymClose?: string;
+  poolOpen?: string;
+  poolClose?: string;
+  resturantOpen?: string;
+  resturantClose?: string;
+  spaOpen?: string;
+  spaClose?: string;
+  attractionBoardImage?: string;
+  hotelImage?: string;
+  hotelMap?: string;
 }

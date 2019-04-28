@@ -20,8 +20,20 @@ export class HotelsComponent implements OnInit {
   addHotelForm: FormGroup;
   name = new FormControl('', Validators.required);
   location = new FormControl('', Validators.required);
-  details = new FormControl('', Validators.required);
-  image = new FormControl('', Validators.required);
+  description = new FormControl('', Validators.required);
+  gymOpen = new FormControl('', Validators.required);
+  gymClose = new FormControl('',
+    Validators.required,
+  );
+  poolOpen = new FormControl('', Validators.required);
+  poolClose = new FormControl('', Validators.required);
+  resturantOpen = new FormControl('', Validators.required);
+  resturantClose = new FormControl('', Validators.required);
+  spaOpen = new FormControl('', Validators.required);
+  spaClose = new FormControl('', Validators.required);
+  attractionBoardImage = new FormControl('', Validators.required);
+  hotelImage = new FormControl('', Validators.required);
+  hotelMap = new FormControl('', Validators.required);
 
   constructor(private hotelsService: HotelsService,
               private formBuilder: FormBuilder,
@@ -32,8 +44,18 @@ export class HotelsComponent implements OnInit {
     this.addHotelForm = this.formBuilder.group({
       name: this.name,
       location: this.location,
-      details: this.details,
-      image: this.image
+      description: this.description,
+      gymOpen: this.gymOpen,
+      gymClose: this.gymClose,
+      poolOpen: this.poolOpen,
+      poolClose: this.poolClose,
+      resturantOpen: this.resturantOpen,
+      resturantClose: this.resturantClose,
+      spaOpen: this.spaOpen,
+      spaClose: this.spaClose,
+      attractionBoardImage: this.attractionBoardImage,
+      hotelImage: this.hotelImage,
+      hotelMap: this.hotelMap
     });
   }
 

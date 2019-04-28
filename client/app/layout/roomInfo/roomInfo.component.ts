@@ -12,12 +12,13 @@ import {RoomService} from '../../services/room.service';
 import {Room} from '../../shared/models/room.model';
 
 @Component({
-  selector: 'app-thankyou',
-  templateUrl: './thankyou.component.html'
+  selector: 'app-roomInfo',
+  templateUrl: './roomInfo.component.html'
 })
-export class ThankyouComponent implements OnInit {
+export class RoomInfoComponent implements OnInit {
 
-  @Output('thankyouModal') thankyouModal: HTMLElement;
+  // tslint:disable-next-line:no-output-rename
+  @Output('roomInfoModal') roomInfoModal: HTMLElement;
 
   guest: Guest;
   room: Room;

@@ -11,16 +11,16 @@
           </span>
         </div>
         <input class="form-control" type="text" name="comment"
-              formControlName="comment" placeholder="comment" autofocus>
+               formControlName="comment" placeholder="comment" autofocus>
       </div>
       <div class="input-group" [ngClass]="setClassRanking()">
-          <div class="input-group-prepend">
+        <div class="input-group-prepend">
             <span class="input-group-text">
               <i class="fa fa-envelope"></i>
             </span>
-          </div>
-          <input class="form-control" type="text" name="ranking"
-                formControlName="ranking" placeholder="ranking" autofocus>
+        </div>
+        <input class="form-control" type="text" name="ranking"
+               formControlName="ranking" placeholder="ranking" autofocus>
       </div>
       <button class="btn btn-primary" type="submit" [disabled]="!checkoutForm.valid">
         <i class="fa fa-sign-in"></i> Check-out
