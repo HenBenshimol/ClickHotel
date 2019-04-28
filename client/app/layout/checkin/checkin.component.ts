@@ -121,10 +121,10 @@ export class CheckinComponent implements OnInit {
 
   checkin() {
     // Get available room in the hotel
-    this.submitted =true;
-
-    if (this.registerForm.invalid)
+    this.submitted = true;
+    if (this.checkinForm.invalid) {
       return;
+    }
 
     this.roomService.getRandomRoom(this.hotelName.value).subscribe((room) => {
         this.room = room;
