@@ -15,6 +15,9 @@
           <option *ngFor="let hotel of hotelsName" [value]="hotel.name">{{hotel.name}}</option>
         </select>
       </div>
+      <div class="errors" *ngIf="submitted && hotelName.errors">
+        <div *ngIf="hotelName.errors.required">Hotel Name is requiered</div>
+      </div>
       <div class="input-group" [ngClass]="setClassFullName()">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -24,6 +27,9 @@
         <input class="form-control" type="text" name="FullName"
                formControlName="fullName" placeholder="Full Name" autofocus>
       </div>
+      <div class="errors" *ngIf="submitted && fullName.errors">
+        <div *ngIf="fullName.errors.required">Full Name is requiered</div>
+      </div>
       <div class="input-group" [ngClass]="setClassID()">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -31,7 +37,10 @@
           </span>
         </div>
         <input class="form-control" type="text" name="ID"
-               formControlName="ID" placeholder="User ID" autofocus>
+               formControlName="ID" placeholder="ID" autofocus>
+      </div>
+      <div class="errors" *ngIf="submitted && ID.errors">
+        <div *ngIf="ID.errors.required">ID is requiered</div>
       </div>
       <div class="input-group" [ngClass]="setClassGuestStatus()">
         <div class="input-group-prepend">
@@ -46,6 +55,9 @@
           <option value="family">Family</option>
         </select>
       </div>
+      <div class="errors" *ngIf="submitted && guestStatus.errors">
+        <div *ngIf="guestStatus.errors.required">Your status is requiered</div>
+      </div>
       <div class="input-group" [ngClass]="setClassGuestNumber()">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -54,6 +66,9 @@
         </div>
         <input class="form-control" type="text" name="guestNumber"
                formControlName="guestNumber" placeholder="Number Of Guests" autofocus>
+      </div>
+      <div class="errors" *ngIf="submitted && guestNumber.errors">
+        <div *ngIf="guestNumber.errors.required">Guest number is requiered</div>
       </div>
       <div class="input-group" [ngClass]="setClassCheckinDate()">
         <div class="input-group-prepend">
@@ -64,6 +79,9 @@
         <input class="form-control" type="date" name="checkinDate"
                formControlName="checkinDate" placeholder="checkinDate">
       </div>
+      <div class="errors" *ngIf="submitted && checkinDate.errors">
+        <div *ngIf="checkinDate.errors.required">Check-in date is requiered</div>
+      </div>
       <div class="input-group" [ngClass]="setClassCheckoutDate()">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -73,7 +91,10 @@
         <input class="form-control" type="date" name="checkoutDate"
                formControlName="checkoutDate" placeholder="checkoutDate">
       </div>
-      <button class="btn btn-primary" type="submit" [disabled]="!checkinForm.valid">
+      <div class="errors" *ngIf="submitted && checkoutDate.errors">
+        <div *ngIf="checkoutDate.errors.required">Check-out date is requiered</div>
+      </div>
+      <button class="btn btn-primary" type="submit" >
         <i class="fa fa-sign-in"></i> Check-in
       </button>
     </form>
