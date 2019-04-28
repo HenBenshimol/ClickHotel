@@ -1,98 +1,45 @@
-<div class="admin-container">
-    <br>
-    <br>
-    
-    <app-toast [message]="toast.message"></app-toast>
+<app-toast [message]="toast.message"></app-toast>
 
-    <div class="modal-body">
-        <h1>Hotel Info</h1>
-      <div class="container-fluid">
+<div class="card">
+    <h4 class="card-header">Hotel Info</h4>
+        <div class="container-fluid">
             <div class="row">
-              <div class="col-8 col-sm-6">
-                  Gym Hours:
-              </div>
-              <div class="col-4 col-sm-6">
-                  {{hotel.gymOpen}} - {{hotel.gymClose}}
-              </div>
-              <div class="col-12 col-sm-6">
-                  Pool Hours:
-              </div>
-              <div class="col-8 col-sm-6">
-                  {{hotel.poolOpen}} - {{hotel.poolClose}}
-              </div>
-              <div class="col-16 col-sm-6">
-                  Resturant Hours:
-              </div>
-              <div class="col-12 col-sm-6">
-                  {{hotel.resturantOpen}} - {{hotel.resturantClose}}
-              </div>
-              <div class="col-20 col-sm-6">
-                  Spa Hours:
-              </div>
-              <div class="col-16 col-sm-6">
-                  {{hotel.spaOpen}} - {{hotel.spaClose}}
-              </div>
-              <div class="col-24 col-sm-6">
-                  Attraction Board:
-              </div>
-              <div class="col-20 col-sm-6">
-                  <img src="{{hotel.attractionBoardImage}}" width="200" height="200">
-              </div>
-              <div class="col-28 col-sm-6">
-                   Hotel Map:
-              </div>
-              <div class="col-24 col-sm-6">
-                  <img src="{{hotel.hotelMap}}" width="200" height="200">
-              </div>
+                <div class="col-8 col-sm-6">
+                    Gym Hours:
+                </div>
+                <div class="col-4 col-sm-6">
+                    {{hotel.gymOpen}} - {{hotel.gymClose}}
+                </div>
+                <div class="col-12 col-sm-6">
+                    Pool Hours:
+                </div>
+                <div class="col-8 col-sm-6">
+                    {{hotel.poolOpen}} - {{hotel.poolClose}}
+                </div>
+                <div class="col-16 col-sm-6">
+                    Resturant Hours:
+                </div>
+                <div class="col-12 col-sm-6">
+                    {{hotel.resturantOpen}} - {{hotel.resturantClose}}
+                </div>
+                <div class="col-20 col-sm-6">
+                    Spa Hours:
+                </div>
+                <div class="col-16 col-sm-6">
+                    {{hotel.spaOpen}} - {{hotel.spaClose}}
+                </div>
+                <div class="col-24 col-sm-6">
+                    Attraction Board:
+                </div>
+                <div class="col-20 col-sm-6">
+                    <img src="{{hotel.attractionBoardImage}}" width="200" height="200">
+                </div>
+                <div class="col-28 col-sm-6">
+                     Hotel Map:
+                </div>
+                <div class="col-24 col-sm-6">
+                    <img src="{{hotel.hotelMap}}" width="200" height="200">
             </div>
-          </div>
         </div>
-    
-    <!-- <div class="card mb-3" *ngIf="!isLoading">
-      <div class="card-body">
-        <table class="table table-bordered col-12 table-responsive">
-          <tbody class="col" *ngIf="!isEditing">
-            <tr class="col" *ngFor="let hotel of hotels">
-                <td class="col">Gym Hours:</td>
-                <td class="col">{{hotel.gymOpen}} - {{hotel.gymClose}}</td>
-            </tr>
-            <tr class="col" *ngFor="let hotel of hotels">
-              <td class="col"><i class="fas fa-swimmer"></i></td>
-                <td class="col"> Pool Hours:</td>
-                <td class="col">{{hotel.poolOpen}} - {{hotel.poolClose}}</td>
-            </tr>
-            <tr class="col" *ngFor="let hotel of hotels">
-                <td class="col" >Resturant Hours:</td>
-               <td class="col" >{{hotel.resturantOpen}} - {{hotel.resturantClose}}</td>
-            </tr>
-            <tr class="col" *ngFor="let hotel of hotels">
-                <td class="col" >Spa Hours:</td>
-               <td class="col" >{{hotel.spaOpen}} - {{hotel.spaClose}}</td>
-            </tr>
-            <tr class="col" *ngFor="let hotel of hotels">
-                <td class="col" >Attraction Board:</td>
-               <td class="col"><img src="{{hotel.attractionBoardImage}}"></td>
-            </tr>
-            <tr class="col" *ngFor="let hotel of hotels">
-                <td class="col" >Hotel Map:</td>
-               <td class="col"><img src="{{hotel.hotelMap}}"></td>
-            </tr>
-             <tr class="col" *ngFor="let hotel of hotels">
-              <td class="col"><img src="{{hotel.attractionBoardImage}}"></td>
-              <td class="col"><img src="{{hotel.hotelImage}}"></td>
-              <td class="col"><img src="{{hotel.hotelMap}}"></td>
-              <td class="col">
-                <button class="btn btn-sm btn-primary" (click)="enableEditing(hotel)">
-                  <i class="fa fa-pencil"></i> Edit
-                </button>
-                <button class="btn btn-sm btn-danger ml-1" (click)="deleteHotel(hotel)">
-                  <i class="fa fa-trash"></i> Delete
-                </button>
-              </td>
-            </tr> -->
-         <!-- </tbody>
-        </table>
-      </div>
-    </div> -->
-  
-    
+    </div>
+</div>
