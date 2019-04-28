@@ -38,6 +38,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RoomsServicesComponent } from './pages/roomsServices/roomsServices.component';
 import { ServicesDetailsComponent } from './pages/servicesDetails/servicesDetails.component';
+import { OrderComponent } from './layout/order/order.component';
 import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -61,7 +62,7 @@ export function tokenGetter() {
     LogoutComponent,
     RoomInfoComponent,
     HotelInfoComponent,
-
+    OrderComponent,
     HotelHistoryComponent,
     AccountComponent,
     AdminComponent,

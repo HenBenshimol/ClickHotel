@@ -1,0 +1,49 @@
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="order-page-container">
+  <section class="intro">
+    <div class="order-page-background-image"></div>
+    <img class="logo-roof animated pulse" src="../../../assets/images/hotelLogo.png">
+    <img class="logo-pic" src="../../../assets/images/hotelLogo.png">
+    <h4  class="title animated pulse">FAST | SAFE | EASY | 24/7</h4>
+  </section>
+  <section class="part order">
+<div class="card">
+  <h4 class="card-header">{{service.name}}</h4>
+  <div class="card-body">
+    <form [formGroup]="orderForm" (ngSubmit)="order()">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+        <input class="form-control" type="Date" name="date"
+               formControlName="date" autofocus>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+        <input class="form-control" type="time" name="startHour"
+               formControlName="startHour">
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-key"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="details"
+               formControlName="details" placeholder="details">
+      </div>
+      <button class="btn btn-primary" type="submit">
+        <i class="fa fa-user-plus"></i> Order
+      </button>
+    </form>
+  </div>
+</div>
+</section>
+</div>

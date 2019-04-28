@@ -23,6 +23,7 @@ import { RoomInfoComponent } from './layout/roomInfo/roomInfo.component';
 import { HotelInfoComponent } from './layout/hotelInfo/hotelInfo.component';
 import { RoomsServicesComponent } from './pages/roomsServices/roomsServices.component';
 import { ServicesDetailsComponent } from './pages/servicesDetails/servicesDetails.component';
+import { OrderComponent } from './layout/order/order.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,7 +37,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'roomInfo', component: RoomInfoComponent },
   { path: 'hotelInfo', component: HotelInfoComponent },
-
+  { path: 'order', component: OrderComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'hotelHistory', component: HotelHistoryComponent, canActivate: [AuthGuardLogin] },
   { path: 'roomsServices', component: RoomsServicesComponent, canActivate: [AuthGuardLogin] },

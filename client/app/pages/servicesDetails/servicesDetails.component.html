@@ -6,7 +6,7 @@
     <h4  class="title animated pulse">FAST | SAFE | EASY | 24/7</h4>
   </section>
   <section class="part servicesDetails">
-    <div class="card" *ngFor="let serviceDet of servicesDet" style="width: 300px;">
+    <div class="card" *ngFor="let serviceDet of servicesDet" style="width: 300px;" routerLinkActive="active" (click)="order(serviceDet)">
       <div class="card-body" >
         <p class="card-text">{{serviceDet.name}}</p>
       </div>

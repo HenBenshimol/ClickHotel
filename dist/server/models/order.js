@@ -6,9 +6,8 @@ var orderSchema = new mongoose.Schema({
     hotelName: String,
     roomId: String,
     userId: String,
-    type: String,
     date: Date,
-    startHour: Date,
+    startHour: String,
     details: String,
 });
 var Order = mongoose.model('Order', orderSchema);
