@@ -12,11 +12,15 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Guest } from 'client/app/shared/models/guest.model';
 import HotelsCtrl from 'server/controllers/hotels';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html'
 })
 export class CheckoutComponent implements OnInit {
+
+  
 
   @Input('checkoutModal') checkoutModal: HTMLElement;
   checkoutForm: FormGroup;
@@ -53,6 +57,8 @@ export class CheckoutComponent implements OnInit {
       ranking: this.ranking
     });
   }
+
+  
 
   //Validation
   setClassComment() {
@@ -104,3 +110,25 @@ export class CheckoutComponent implements OnInit {
     );
   }
 }
+
+var $star_rating = $('.star-rating .fa');
+
+var SetRatingStar = function() {
+  return $star_rating.focus(function() {
+    if (parseInt($star_rating.siblings('input.rating-value').toString()) >= parseInt($(this).data('rating'))) {
+      return $(this).removeClass('fa-star-o').addClass('fa-star');
+    } else {
+      return $(this).removeClass('fa-star').addClass('fa-star-o');
+    }
+  });
+};
+
+$star_rating.on('click', function() {
+  $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+  return SetRatingStar();
+});
+
+SetRatingStar();
+$(document).ready(function() {
+
+});

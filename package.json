@@ -63,6 +63,7 @@
     "@types/express": "^4.16.0",
     "@types/jasmine": "~2.8.14",
     "@types/jasminewd2": "~2.0.6",
+    "@types/jquery": "^3.3.29",
     "@types/node": "~8.9.4",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
