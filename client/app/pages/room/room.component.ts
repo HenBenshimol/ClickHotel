@@ -22,7 +22,8 @@ export class RoomComponent implements OnInit {
   roomNum = new FormControl('', Validators.required);
   location = new FormControl('', Validators.required);
   details = new FormControl('', Validators.required);
-  availability = false;
+  availability = true;
+  userId = null;
 
   constructor(private roomService: RoomService,
               private formBuilder: FormBuilder,
@@ -35,7 +36,8 @@ export class RoomComponent implements OnInit {
       roomNum: this.roomNum,
       location: this.location,
       details: this.details,
-      availability: this.availability
+      availability: this.availability,
+      userId: this.userId
     });
   }
 

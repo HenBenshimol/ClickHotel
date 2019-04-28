@@ -7,6 +7,7 @@ import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 // Components
 import { HotelsComponent } from './pages/hotels/hotels.component';
 import { RoomComponent } from './pages/room/room.component';
+import { ServiceComponent } from './pages/service/service.component';
 import { AboutComponent } from './pages/about/about.component';
 import { RegisterComponent } from './layout/register/register.component';
 import { CheckinComponent } from './layout/checkin/checkin.component';
@@ -19,19 +20,22 @@ import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ThankyouComponent } from './layout/thankyou/thankyou.component';
+import { RoomsServicesComponent } from './pages/roomsServices/roomsServices.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'hotels', component: HotelsComponent, canActivate: [AuthGuardLogin] },
   { path: 'room', component: RoomComponent, canActivate: [AuthGuardLogin] },
+  { path: 'service', component: ServiceComponent, canActivate: [AuthGuardLogin] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'checkin', component: CheckinComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'thankyou', component: ThankyouComponent },
-  { path: 'logout', component: LogoutComponent },
+  { path: 'checkin', component: CheckinComponent, canActivate: [AuthGuardLogin] },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardLogin] },
+  { path: 'thankyou', component: ThankyouComponent, canActivate: [AuthGuardLogin] },
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardLogin] },
   { path: 'hotelHistory', component: HotelHistoryComponent, canActivate: [AuthGuardLogin] },
+  { path: 'roomsServices', component: RoomsServicesComponent, canActivate: [AuthGuardLogin] },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuardLogin] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
   { path: 'notfound', component: NotFoundComponent },

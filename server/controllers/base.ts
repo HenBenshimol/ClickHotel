@@ -28,6 +28,7 @@ abstract class BaseCtrl {
       const obj = await new this.model(req.body).save();
       res.status(201).json(obj);
     } catch (err) {
+      console.log("error: "+ err);
       return res.status(400).json({ error: err.message });
     }
   }
