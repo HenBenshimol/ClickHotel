@@ -40,6 +40,7 @@ import { RoomsServicesComponent } from './pages/roomsServices/roomsServices.comp
 import { ServicesDetailsComponent } from './pages/servicesDetails/servicesDetails.component';
 import { OrderComponent } from './layout/order/order.component';
 import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {BarRatingModule} from 'ngx-bar-rating';
 
 
 export function tokenGetter() {
@@ -73,6 +74,7 @@ export function tokenGetter() {
   imports: [
     AppRoutingModule,
     SharedModule,
+    BarRatingModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

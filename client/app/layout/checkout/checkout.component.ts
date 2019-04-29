@@ -38,6 +38,7 @@ export class CheckoutComponent implements OnInit {
 
   room: Room;
   newGuest: Guest;
+  rate: any;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
