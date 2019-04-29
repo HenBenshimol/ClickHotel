@@ -31,7 +31,7 @@ export class CheckoutComponent implements OnInit {
     Validators.maxLength(100),
   ]);
   ranking =  new FormControl('', [
-    Validators.required
+    //Validators.required
   ]);
   hotelName = this.auth.currentGuest.hotelName;
   roomId = this.auth.currentGuest.roomId;
