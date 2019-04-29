@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
     .servicesDetails-page-background-image{
-      background-image: url('../../../assets/images/home-back.jpg');
+      background-image: url('../../../assets/images/room-services-back.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       position: absolute;
@@ -131,7 +131,7 @@
 
   .servicesDetails {
     min-height: 60vh;
-    background-color: $gold;
+    background-color: #b8b894;
     padding: 30px 0;
     .card-img-top {
       width: 100%;
