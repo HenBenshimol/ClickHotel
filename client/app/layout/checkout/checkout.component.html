@@ -16,15 +16,8 @@
 
 
       <div class="input-group" [ngClass]="setClassRanking()">
-        <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="fa fa-star"></i>
-            </span>
-        </div>
-        <input class="form-control" type="text" name="ranking"
-               formControlName="ranking" placeholder="ranking 1-10" autofocus>
+        <bar-rating [(rate)]="rate" [max]="5"></bar-rating>
       </div>
-      <bar-rating [(rate)]="rate" [max]="5"></bar-rating>
       <button class="btn btn-primary" type="submit" [disabled]="!checkoutForm.valid">
         <i class="fa fa-sign-in"></i> Check-out
       </button>
