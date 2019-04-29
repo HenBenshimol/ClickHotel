@@ -4,5 +4,5 @@ export class Ranking {
   hotelName?: string;
   roomId?: string;
   comment?: string;
-  ranking?: number;
+  rate?: number;
 }

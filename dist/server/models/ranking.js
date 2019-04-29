@@ -6,7 +6,7 @@ var rankingSchema = new mongoose.Schema({
     hotelName: String,
     roomId: String,
     comment: String,
-    ranking: Number
+    rate: Number
 });
 var Ranking = mongoose.model('Ranking', rankingSchema);
 exports.default = Ranking;

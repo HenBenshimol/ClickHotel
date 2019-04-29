@@ -30,7 +30,7 @@ export class CheckoutComponent implements OnInit {
     Validators.minLength(2),
     Validators.maxLength(100),
   ]);
-  ranking =  new FormControl('', [
+  rate =  new FormControl('', [
     //Validators.required
   ]);
   hotelName = this.auth.currentGuest.hotelName;
@@ -38,7 +38,6 @@ export class CheckoutComponent implements OnInit {
 
   room: Room;
   newGuest: Guest;
-  rate: any;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -55,23 +54,16 @@ export class CheckoutComponent implements OnInit {
       hotelName: this.hotelName,
       roomId: this.roomId,
       comment: this.comment,
-      ranking: this.ranking
+      rate: this.rate
     });
   }
-
-  
-
-  //Validation
+  // Validation
   setClassComment() {
     return { 'has-danger': !this.comment.pristine && !this.comment.valid };
   }
 
-  setClassRanking() {
-    return { 'has-danger': !this.ranking.pristine && !this.ranking.valid };
-  }
-
   checkout() {
-    //Update guest - not active
+    // Update guest - not active
     this.newGuest = this.auth.currentGuest;
     this.newGuest.activeGuest = false;
 

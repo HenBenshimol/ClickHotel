@@ -5,7 +5,7 @@ const rankingSchema = new mongoose.Schema({
   hotelName: String,
   roomId: String,
   comment: String,
-  ranking: Number
+  rate: Number
 });
 
 const Ranking = mongoose.model('Ranking', rankingSchema);
