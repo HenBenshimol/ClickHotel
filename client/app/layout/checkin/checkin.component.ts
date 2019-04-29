@@ -41,16 +41,23 @@ export class CheckinComponent implements OnInit {
     Validators.required
   ]);
   fullName = new FormControl('', [
-    Validators.required
+    Validators.required,
+    Validators.minLength(2),
+    Validators.maxLength(30),
+    Validators.pattern('[a-zA-Z0-9_-\\s]*')
   ]);
   ID = new FormControl('', [
-    Validators.required
+    Validators.required,
+    Validators.pattern('[0-9\\s]*'),
+    Validators.minLength(9),
+    Validators.maxLength(9)
   ]);
   guestStatus = new FormControl('', [
     Validators.required
   ]);
   guestNumber = new FormControl('', [
-    Validators.required
+    Validators.required,
+    Validators.pattern('[1-9\s]*')
   ]);
 
   roomId: string;

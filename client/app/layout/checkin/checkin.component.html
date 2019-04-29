@@ -29,6 +29,8 @@
       </div>
       <div class="errors" *ngIf="submitted && fullName.errors">
         <div *ngIf="fullName.errors.required">Full Name is requiered</div>
+        <div *ngIf="fullName.errors.minlength">Full Name must be at least 2 characters</div>
+        <div *ngIf="fullName.errors.maxlength">Full Name cannot be more then 30 characters</div>
       </div>
       <div class="input-group" [ngClass]="setClassID()">
         <div class="input-group-prepend">
@@ -41,6 +43,9 @@
       </div>
       <div class="errors" *ngIf="submitted && ID.errors">
         <div *ngIf="ID.errors.required">ID is requiered</div>
+        <div *ngIf="ID.errors.pattern">ID must be number</div>
+        <div *ngIf="ID.errors.maxlength">ID must be number of 9 digits exactly</div>
+        <div *ngIf="ID.errors.minlength">ID must be number of 9 digits exactly</div>
       </div>
       <div class="input-group" [ngClass]="setClassGuestStatus()">
         <div class="input-group-prepend">
@@ -69,6 +74,7 @@
       </div>
       <div class="errors" *ngIf="submitted && guestNumber.errors">
         <div *ngIf="guestNumber.errors.required">Guest number is requiered</div>
+        <div *ngIf="guestNumber.errors.pattern">Guest number must be number between 1-9</div>
       </div>
       <div class="input-group" [ngClass]="setClassCheckinDate()">
         <div class="input-group-prepend">
