@@ -1,5 +1,7 @@
 @import "../../../style/variables";
 
+
+
 .home-page-container {
   min-height: 100vh;
   .intro {
@@ -103,7 +105,7 @@
       .image {
         font-size: 90px;
         margin-bottom: 12px;
-        color: $gold;
+        color: #8B008B;
         transition: transform 0.2s linear;
       }
 
