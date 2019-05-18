@@ -37,7 +37,7 @@ var RoomsCtrl = /** @class */ (function (_super) {
                         return [4 /*yield*/, this.model.findOne({ hotelName: req.params.hotelName, availability: true })];
                     case 1:
                         obj = _a.sent();
-                        console.log("random " + obj);
+                        console.log('random ' + obj);
                         res.status(200).json(obj);
                         return [3 /*break*/, 3];
                     case 2:
@@ -62,6 +62,25 @@ var RoomsCtrl = /** @class */ (function (_super) {
                     case 2:
                         err_3 = _a.sent();
                         return [2 /*return*/, res.status(500).json({ error: err_3.message })];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        }); };
+        _this.getAvailableRoomByHotel = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+            var obj, err_4;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.model.findOne({ hotelName: req.params.hotelName })];
+                    case 1:
+                        obj = _a.sent();
+                        console.log(obj);
+                        res.status(200).json(obj);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        err_4 = _a.sent();
+                        return [2 /*return*/, res.status(500).json({ error: err_4.message })];
                     case 3: return [2 /*return*/];
                 }
             });
