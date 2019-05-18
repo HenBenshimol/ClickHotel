@@ -32,6 +32,7 @@ import { HotelInfoComponent } from './layout/hotelInfo/hotelInfo.component';
 
 import { HotelHistoryComponent } from './pages/hotelHistory/hotelHistory.component';
 import { AccountComponent } from './pages/account/account.component';
+import { HelpComponent } from './layout/help/help.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -66,6 +67,7 @@ export function tokenGetter() {
     OrderComponent,
     HotelHistoryComponent,
     AccountComponent,
+    HelpComponent,
     AdminComponent,
     NotFoundComponent,
     HeaderComponent,
