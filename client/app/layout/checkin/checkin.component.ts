@@ -52,7 +52,16 @@ export class CheckinComponent implements OnInit {
     Validators.minLength(9),
     Validators.maxLength(9)
   ]);
+  age = new FormControl('', [
+    Validators.required,
+    Validators.pattern('[0-9\\s]*'),
+    Validators.minLength(1),
+    Validators.maxLength(3)
+  ]);
   guestStatus = new FormControl('', [
+    Validators.required
+  ]);
+  guestPurpose = new FormControl('', [
     Validators.required
   ]);
   guestNumber = new FormControl('', [
@@ -93,6 +102,7 @@ export class CheckinComponent implements OnInit {
       roomId: null,
       fullName: this.fullName,
       guestStatus: this.guestStatus,
+      guestPurpose: this.guestPurpose,
       guestNumber: this.guestNumber
     });
   }
@@ -117,11 +127,15 @@ export class CheckinComponent implements OnInit {
   setClassID() {
     return { 'has-danger': !this.ID.pristine && !this.ID.valid };
   }
-
+  setClassAge() {
+    return { 'has-danger': !this.age.pristine && !this.age.valid };
+  }
   setClassGuestStatus() {
     return { 'has-danger': !this.guestStatus.pristine && !this.guestStatus.valid };
   }
-
+  setClassGuestPurpose() {
+    return { 'has-danger': !this.guestPurpose.pristine && !this.guestPurpose.valid };
+  }
   setClassGuestNumber() {
     return { 'has-danger': !this.guestNumber.pristine && !this.guestNumber.valid };
   }

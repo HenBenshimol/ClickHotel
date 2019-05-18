@@ -47,6 +47,15 @@
         <div *ngIf="ID.errors.maxlength">ID must be number of 9 digits exactly</div>
         <div *ngIf="ID.errors.minlength">ID must be number of 9 digits exactly</div>
       </div>
+      <div class="input-group" [ngClass]="setClassAge()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-id-card"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="age"
+               formControlName="age" placeholder="Age" autofocus>
+      </div>
       <div class="input-group" [ngClass]="setClassGuestStatus()">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -56,10 +65,22 @@
         <select formControlName="guestStatus" class="form-control">
           <option value="" disabled>Family Status</option>
           <option value="single">Single</option>
-          <option value="couple">Couple</option>
+          <option value="couple">Married</option>
           <option value="family">Family</option>
         </select>
       </div>
+      <div class="input-group" [ngClass]="setClassGuestPurpose()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-question"></i>
+          </span>
+        </div>
+      <select formControlName="guestPurpose" class="form-control">
+        <option value="" disabled>Purpose</option>
+        <option value="single">Buisness</option>
+        <option value="couple">Pleasure</option>
+      </select>
+    </div>
       <div class="errors" *ngIf="submitted && guestStatus.errors">
         <div *ngIf="guestStatus.errors.required">Your status is requiered</div>
       </div>

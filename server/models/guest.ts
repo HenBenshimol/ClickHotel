@@ -8,8 +8,10 @@ const guestSchema = new mongoose.Schema({
   roomId: String,
   activeGuest: Boolean,
   ID: String,
+  age: String,
   fullName: String,
   guestStatus: String,
+  guestPurpose: String,
   guestNumber: Number
 });
 
