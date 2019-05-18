@@ -24,11 +24,13 @@ import { HotelInfoComponent } from './layout/hotelInfo/hotelInfo.component';
 import { RoomsServicesComponent } from './pages/roomsServices/roomsServices.component';
 import { ServicesDetailsComponent } from './pages/servicesDetails/servicesDetails.component';
 import { OrderComponent } from './layout/order/order.component';
+import { GuestAnalyticsComponent } from './pages/guestAnalytics/guestAnalytics.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'hotels', component: HotelsComponent, canActivate: [AuthGuardLogin] },
+  { path: 'guestAnalytics', component: GuestAnalyticsComponent, canActivate: [AuthGuardLogin] },
   { path: 'room', component: RoomComponent, canActivate: [AuthGuardLogin] },
   { path: 'service', component: ServiceComponent, canActivate: [AuthGuardLogin] },
   { path: 'register', component: RegisterComponent },

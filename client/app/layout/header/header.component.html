@@ -71,6 +71,12 @@
           <h5>Admin</h5>
         </a>
       </li>
+      <li class="nav-item" *ngIf="auth.loggedIn && auth.isAdmin">
+        <a routerLink="/guestAnalytics" class="nav-link" routerLinkActive="active">
+          <!--<i class="fa fa-list"></i>-->
+          <h5>Guest Analytics</h5>
+        </a>
+      </li>
     </ul>
     <ul class="navbar-nav mr-auto right-side flex-end login-part">
       <li class="nav-item">
