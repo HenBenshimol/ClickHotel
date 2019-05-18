@@ -21,6 +21,7 @@ export class HotelsComponent implements OnInit {
   name = new FormControl('', Validators.required);
   location = new FormControl('', Validators.required);
   description = new FormControl('', Validators.required);
+  phone = new FormControl('', Validators.required);
   gymOpen = new FormControl('', Validators.required);
   gymClose = new FormControl('',
     Validators.required,
@@ -45,6 +46,7 @@ export class HotelsComponent implements OnInit {
       name: this.name,
       location: this.location,
       description: this.description,
+      phone: this.phone,
       gymOpen: this.gymOpen,
       gymClose: this.gymClose,
       poolOpen: this.poolOpen,

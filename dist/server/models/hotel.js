@@ -5,6 +5,7 @@ var hotelSchema = new mongoose.Schema({
     name: String,
     location: String,
     description: String,
+    phone: String,
     gymOpen: String,
     gymClose: String,
     poolOpen: String,
