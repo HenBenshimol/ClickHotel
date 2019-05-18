@@ -9,7 +9,7 @@ var guestSchema = new mongoose.Schema({
     roomId: String,
     activeGuest: Boolean,
     ID: String,
-    age: String,
+    age: Number,
     fullName: String,
     guestStatus: String,
     guestPurpose: String,

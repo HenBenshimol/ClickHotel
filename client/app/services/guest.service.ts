@@ -25,6 +25,14 @@ export class GuestService {
     return this.http.get<Guest>(`/api/activeGuest/${userId}`);
   }
 
+  getAllGuestAge(): Observable<number[]> {
+    return this.http.get<number[]>(`/api/guestAnalytics`);
+  }
+
+  getAllGuestPurpose(): Observable<string[]> {
+    return this.http.get<string[]>(`/api/getAllGuestPurpose`);
+  }
+
   countGuests(): Observable<number> {
     return this.http.get<number>('/api/guest/count');
   }

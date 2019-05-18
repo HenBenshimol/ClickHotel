@@ -58,7 +58,8 @@ export default function setRoutes(app) {
   router.route('/guest/:id').delete(guestCtrl.delete);
   router.route('/hotelHistory/:userId').get(guestCtrl.getGuestByUserId);
   router.route('/activeGuest/:userId').get(guestCtrl.getActiveGuest);
-  
+  router.route('/guestAnalytics').get(guestCtrl.getAllGuestAge);
+  router.route('/getAllGuestPurpose').get(guestCtrl.getAllGuestPurpose);
   // Ranking
   router.route('/rankings').get(rankingCtrl.getAll);
   router.route('/rankings/count').get(rankingCtrl.count);
