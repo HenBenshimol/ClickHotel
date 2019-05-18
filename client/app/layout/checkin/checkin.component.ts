@@ -101,6 +101,7 @@ export class CheckinComponent implements OnInit {
       activeGuest: this.activeGuest,
       roomId: null,
       fullName: this.fullName,
+      age: this.age,
       guestStatus: this.guestStatus,
       guestPurpose: this.guestPurpose,
       guestNumber: this.guestNumber

@@ -40,8 +40,8 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest purpose
   getAllGuestPurpose = async (req, res) => {
     try {
-      console.log('testi2' + obj);
-      res.status(200).json(obj);
+     // console.log('testi2' + obj);
+     // res.status(200).json(obj);
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }

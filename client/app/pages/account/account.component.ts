@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { User } from '../../shared/models/user.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -17,6 +18,7 @@ export class AccountComponent implements OnInit {
   constructor(private auth: AuthService,
               public toast: ToastComponent,
               private modalService: NgbModal,
+              private router: Router,
               private userService: UserService) { }
 
   ngOnInit() {
@@ -40,9 +42,10 @@ export class AccountComponent implements OnInit {
       (res) => {
         this.modalService.dismissAll('');
         this.toast.setMessage('account settings saved!', 'success');
+        location.reload();
       },
       error => console.log(error)
-    );
+    );   
   }
 
 }

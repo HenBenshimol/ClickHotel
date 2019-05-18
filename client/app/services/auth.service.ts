@@ -24,7 +24,6 @@ export class AuthService {
               private router: Router,
               private jwtHelper: JwtHelperService) {
     this.getUserOnStart();
-    this.getGuestOnStart();
   }
 
   async getUserOnStart () {
@@ -35,10 +34,7 @@ export class AuthService {
       this.setCurrentUser(user);
     }
   }
-  async getGuestOnStart () {
-    const activeGuest = this.guestService.getActiveGuest(this.currentUser._id).subscribe;
-      console.log(activeGuest);
-  }
+
   login(emailAndPassword) {
     return this.userService.login(emailAndPassword).map(
       res => {
@@ -71,34 +67,24 @@ export class AuthService {
     this.currentUser.role = decodedUser.role;
     decodedUser.role === 'admin' ? this.isAdmin = true : this.isAdmin = false;
     delete decodedUser.role;
+    this.setCurrentGuest();
   }
 
-  getCurrentGuest() {
+  setCurrentGuest() {
     this.guestService.getActiveGuest(this.currentUser._id).subscribe((guest) => {
       const activeGuest = guest;
       if (activeGuest) {
-        this.setCurrentGuest(activeGuest);
+        this.currentGuest = guest;
+        this.isGuest = true;
       }
     }, (err) => {
       console.log(err);
     });
   }
 
-  setCurrentGuest(decodedGuest) {
-    this.isGuest = true;
-    this.currentGuest._id = decodedGuest._id;
-    this.currentGuest.checkinDate = decodedGuest.checkinDate;
-    this.currentGuest.checkoutDate = decodedGuest.checkoutDate;
-    this.currentGuest.hotelName = decodedGuest.hotelName;
-    this.currentGuest.roomId = decodedGuest.roomId;
-    this.currentGuest.userId = decodedGuest.userId;
-
-    console.log('currentGuest.hotelName' + this.currentGuest.hotelName);
-  }
-
   checkIn() {
-    // this.guestService.checkin(newGuest);
-    this.getCurrentGuest();
+    this.setCurrentGuest();
+    this.router.navigate(['/']);
   }
 
   checkout() {

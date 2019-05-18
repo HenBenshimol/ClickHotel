@@ -71,8 +71,8 @@ var GuestCtrl = /** @class */ (function (_super) {
         _this.getAllGuestPurpose = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
             return tslib_1.__generator(this, function (_a) {
                 try {
-                    console.log('testi2' + obj);
-                    res.status(200).json(obj);
+                    // console.log('testi2' + obj);
+                    // res.status(200).json(obj);
                 }
                 catch (err) {
                     return [2 /*return*/, res.status(500).json({ error: err.message })];
