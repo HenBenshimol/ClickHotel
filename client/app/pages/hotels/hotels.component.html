@@ -14,6 +14,7 @@
           <th scope="col">Name</th>
           <th scope="col">Location</th>
           <th scope="col">Description</th>
+          <th scope="col">Phone</th>
           <th scope="col">Gym Open</th>
           <th scope="col">Gym Close</th>
           <th scope="col">Pool Open</th>
@@ -37,6 +38,7 @@
           <td class="col">{{hotel.name}}</td>
           <td class="col">{{hotel.location}}</td>
           <td class="col" >{{hotel.description}}</td>
+          <td class="col" >{{hotel.phone}}</td>
           <td class="col" >{{hotel.gymOpen}}</td>
           <td class="col" >{{hotel.gymClose}}</td>
           <td class="col" >{{hotel.poolOpen}}</td>
@@ -68,6 +70,8 @@
                      [(ngModel)]="hotel.location" placeholder="Location" min="0" required>
               <input class="form-control mr-2" type="text" name="description"
                      [(ngModel)]="hotel.description" placeholder="Description" required>
+              <input class="form-control mr-2" type="text" name="phone"
+                     [(ngModel)]="hotel.phone" placeholder="Phone" required>
               <input class="form-control mr-2" type="text" name="gymOpen"
                      [(ngModel)]="hotel.gymOpen" placeholder="Gym Open" required>
               <input class="form-control mr-2" type="text" name="gymClose"
@@ -114,6 +118,8 @@
              formControlName="location" placeholder="Location" min="0">
       <input class="form-control mr-2" type="text" name="description"
              formControlName="description" placeholder="Description" step="any" min="0">
+       <input class="form-control mr-2" type="text" name="phone"
+             formControlName="phone" placeholder="Phone" step="any" min="0">
       <input class="form-control mr-2" type="text" name="gymOpen"
              formControlName="gymOpen" placeholder="Gym Open" step="any" min="0">
       <input class="form-control mr-2" type="text" name="gymClose"

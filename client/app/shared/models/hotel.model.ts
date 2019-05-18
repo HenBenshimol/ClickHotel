@@ -3,6 +3,7 @@ export class Hotel {
   name?: string;
   location?: string;
   description?: string;
+  phone?: string;
   gymOpen?: string;
   gymClose?: string;
   poolOpen?: string;
