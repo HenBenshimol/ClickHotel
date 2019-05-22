@@ -60,7 +60,8 @@ export default function setRoutes(app) {
   router.route('/activeGuest/:userId').get(guestCtrl.getActiveGuest);
   router.route('/guestAnalytics').get(guestCtrl.getAllGuestAge);
   router.route('/getAllGuestPurpose').get(guestCtrl.getAllGuestPurpose);
-
+  router.route('/getAllGuestStatus').get(guestCtrl.getAllGuestStatus);
+  
   // Ranking
   router.route('/rankings').get(rankingCtrl.getAll);
   router.route('/rankings/count').get(rankingCtrl.count);

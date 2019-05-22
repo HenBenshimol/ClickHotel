@@ -33,6 +33,10 @@ export class GuestService {
     return this.http.get<string[]>(`/api/getAllGuestPurpose`);
   }
 
+  getAllGuestStatus(): Observable<string[]> {
+    return this.http.get<string[]>(`/api/getAllGuestStatus`);
+  }
+
   countGuests(): Observable<number> {
     return this.http.get<number>('/api/guest/count');
   }

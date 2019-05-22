@@ -29,8 +29,7 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest ages
   getAllGuestAge = async (req, res) => {
     try {
-      const obj = await this.model.distinct('age');
-      console.log('testi' + obj);
+      const obj = await this.model.find().map( function(item) { return item.age; } );
       res.status(200).json(obj);
     } catch (err) {
       return res.status(500).json({ error: err.message });
@@ -40,10 +39,33 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest purpose
   getAllGuestPurpose = async (req, res) => {
     try {
-     // console.log('testi2' + obj);
-     // res.status(200).json(obj);
+      const obj = await this.model.find().map( function(item) { return item.guestPurpose; } );
+      res.status(200).json(obj);
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }
   }
+
+  // Get all guest family status
+  getAllGuestStatus = async (req, res) => {
+    try {
+      const obj = await this.model.find().map( function(item) { return item.guestStatus; } );
+      res.status(200).json(obj);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+  }
+
+  // Get all guest vacation length
+  getAllVacationLength = async (req, res) => {
+    try {
+      const obj = await this.model.find().map( function(item) {
+         return item.checkoutDate.Day(); 
+        } );
+      res.status(200).json(obj);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+  }
+
 }
