@@ -118,37 +118,25 @@ var GuestCtrl = /** @class */ (function (_super) {
         }); };
         // Get all guest vacation length
         _this.getAllVacationLength = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var dateIn, dateOut, checkinDate, checkoutDate, dayDiff, timeDiff, i, err_6;
+            var oneDay, vacationLength, dates, err_6;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 3, , 4]);
-                        dateIn = [];
-                        dateOut = [];
-                        return [4 /*yield*/, this.model.find({}, { checkinDate: 1, _id: 0 })];
+                        _a.trys.push([0, 2, , 3]);
+                        oneDay = 24 * 60 * 60 * 1000;
+                        vacationLength = [];
+                        return [4 /*yield*/, this.model.find({}, { checkinDate: 1, checkoutDate: 1, _id: 0 })];
                     case 1:
-                        checkinDate = _a.sent();
-                        return [4 /*yield*/, this.model.find({}, { checkoutDate: 1, _id: 0 })];
+                        dates = _a.sent();
+                        dates.forEach(function (element) {
+                            vacationLength.push(Math.round(Math.abs((element.checkinDate.getTime() - element.checkoutDate.getTime()) / (oneDay))));
+                        });
+                        res.status(200).json(vacationLength);
+                        return [3 /*break*/, 3];
                     case 2:
-                        checkoutDate = _a.sent();
-                        checkinDate.forEach(function (element) {
-                            dateIn.push(element.checkinDate.Day());
-                        });
-                        checkoutDate.forEach(function (element) {
-                            dateOut.push(element.checkoutDate.Day());
-                        });
-                        dayDiff = [];
-                        timeDiff = [];
-                        for (i = 0; i < dateIn.length; i++) {
-                            timeDiff[i] = Math.abs(dateOut[i].getTime() - dateIn[i].getTime());
-                            dayDiff[i] = Math.ceil(timeDiff[i] / (1000 * 3600 * 24));
-                        }
-                        res.status(200).json(dayDiff);
-                        return [3 /*break*/, 4];
-                    case 3:
                         err_6 = _a.sent();
                         return [2 /*return*/, res.status(500).json({ error: err_6.message })];
-                    case 4: return [2 /*return*/];
+                    case 3: return [2 /*return*/];
                 }
             });
         }); };

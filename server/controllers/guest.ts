@@ -71,28 +71,16 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest vacation length
   getAllVacationLength = async (req, res) => {
     try {
-      var dateIn= [];
-      var dateOut= [];
+      var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+      var vacationLength= [];
 
-      const checkinDate = await this.model.find({},{checkinDate:1, _id:0});
-      const checkoutDate = await this.model.find({},{checkoutDate:1, _id:0});
+      const dates = await this.model.find({},{checkinDate:1, checkoutDate:1, _id:0});
       
-      checkinDate.forEach(element => {
-        dateIn.push(element.checkinDate.Day());
+      dates.forEach(element => {
+        vacationLength.push( Math.round( 
+                              Math.abs((element.checkinDate.getTime() - element.checkoutDate.getTime())/(oneDay))));
       });
-
-      checkoutDate.forEach(element => {
-        dateOut.push(element.checkoutDate.Day());
-      });
-
-      const dayDiff = [];
-      const timeDiff = [];
-
-      for (let i = 0 ; i < dateIn.length; i++) {
-        timeDiff[i] = Math.abs(dateOut[i].getTime() - dateIn[i].getTime());
-        dayDiff[i] = Math.ceil(timeDiff[i] / (1000 * 3600 * 24));
-      }
-      res.status(200).json(dayDiff);
+      res.status(200).json(vacationLength);
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }
