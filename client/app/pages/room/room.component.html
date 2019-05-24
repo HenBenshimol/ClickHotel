@@ -13,6 +13,8 @@
         <tr class="col">
           <th scope="col">Hotel Name</th>
           <th scope="col">Room Number</th>
+          <th scope="col">Floor</th>
+          <th scope="col">WIFI</th>
           <th scope="col">Location</th>
           <th scope="col">Details</th>
         </tr>
@@ -26,6 +28,8 @@
         <tr class="col" *ngFor="let room of rooms">
           <td class="col">{{room.hotelName}}</td>
           <td class="col">{{room.roomNum}}</td>
+          <td class="col">{{room.floor}}</td>
+          <td class="col">{{room.wifi}}</td>
           <td class="col">{{room.location}}</td>
           <td class="col" >{{room.details}}</td>
           <td class="col">
@@ -46,6 +50,10 @@
                      [(ngModel)]="room.hotelName" placeholder="hotelName" required>
               <input class="form-control mr-2" type="text" name="roomNum"
                      [(ngModel)]="room.roomNum" placeholder="roomNum" required>
+              <input class="form-control mr-2" type="text" name="floor"
+                     [(ngModel)]="room.floor" placeholder="Floor" min="0" required>
+              <input class="form-control mr-2" type="text" name="wifi"
+                     [(ngModel)]="room.wifi" placeholder="WIFI" min="0" required>
               <input class="form-control mr-2" type="text" name="location"
                      [(ngModel)]="room.location" placeholder="Location" min="0" required>
               <input class="form-control mr-2" type="text" name="details"
@@ -72,6 +80,10 @@
              formControlName="hotelName" placeholder="hotelName">
       <input class="form-control mr-2" type="text" name="roomNum"
              formControlName="roomNum" placeholder="roomNum">
+      <input class="form-control mr-2" type="text" name="floor"
+             formControlName="floor" placeholder="Floor" min="0">
+      <input class="form-control mr-2" type="text" name="wifi"
+             formControlName="wifi" placeholder="WIFI" min="0">
       <input class="form-control mr-2" type="text" name="location"
              formControlName="location" placeholder="Location" min="0">
       <input class="form-control mr-2" type="text" name="details"

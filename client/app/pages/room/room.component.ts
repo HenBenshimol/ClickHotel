@@ -20,6 +20,8 @@ export class RoomComponent implements OnInit {
   addRoomForm: FormGroup;
   hotelName = new FormControl('', Validators.required);
   roomNum = new FormControl('', Validators.required);
+  floor = new FormControl('', Validators.required);
+  wifi = new FormControl('', Validators.required);
   location = new FormControl('', Validators.required);
   details = new FormControl('', Validators.required);
   availability = true;
@@ -34,6 +36,8 @@ export class RoomComponent implements OnInit {
     this.addRoomForm = this.formBuilder.group({
       hotelName: this.hotelName,
       roomNum: this.roomNum,
+      floor: this.floor,
+      wifi: this.wifi,
       location: this.location,
       details: this.details,
       availability: this.availability,

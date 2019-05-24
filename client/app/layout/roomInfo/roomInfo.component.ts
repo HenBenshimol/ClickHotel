@@ -32,23 +32,11 @@ export class RoomInfoComponent implements OnInit {
               public toast: ToastComponent) { }
 
   ngOnInit() {
+    this.guest = this.auth.currentGuest;
     this.roomService.getRoomByUserId(this.auth.currentUser._id).subscribe((room) => {
       this.room = room;
     }, (err) => {
       console.log(err);
     });
-/*
-    this.guestService.getActiveGuest(this.auth.currentUser._id).subscribe((guest) => {
-      this.guest = guest;
-       console.log(this.guest);
-      this.roomService.getRoomById(this.guest.roomId).subscribe((room) => {
-        this.room = room;
-      }, (err) => {
-        console.log(err);
-      });
-
-    }, (err) => {
-      console.log(err);
-    });*/
   }
 }

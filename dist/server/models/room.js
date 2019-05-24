@@ -4,6 +4,8 @@ var mongoose = require("mongoose");
 var roomSchema = new mongoose.Schema({
     hotelName: String,
     roomNum: Number,
+    floor: Number,
+    wifi: String,
     location: String,
     details: String,
     availability: Boolean,

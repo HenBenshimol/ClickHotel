@@ -1,23 +1,23 @@
 <app-toast [message]="toast.message"></app-toast>
 
 <div class="card">
-  <h4 class="card-header">Room Information</h4>
+  <ng-container *ngIf="room">
+  <h4 class="card-header">{{room.hotelName}}</h4>
   <div class="card-body">
     <table class="table table-bordered col-12">
-      <thead class="thead-light col">
-        <tr class="col">
-          <th scope="col">Hotel Name</th>
-          <th scope="col">Room Number</th>
-        </tr>
-      </thead>
-      <ng-container *ngIf="room">
-        <tbody class="col">
-          <tr class="col">
-            <td class="col col-4 text-align">{{room.hotelName}}</td>
-            <td class="col col-4 text-align">{{room.roomNum}}</td>
-          </tr>
-        </tbody>
-      </ng-container>
+      <tr class="col">
+        <th scope="col">Room Number</th>
+        <td class="col col-4 text-align">{{room.roomNum}}</td>
+      </tr>
+      <tr class="col">
+        <th scope="col">Room Floor</th>
+        <td class="col col-4 text-align">{{room.floor}}</td>
+      </tr>
+      <tr class="col">
+        <th scope="col">Room WIFI</th>
+        <td class="col col-4 text-align">{{room.wifi}}</td>
+      </tr>
     </table>
   </div>
+  </ng-container>
 </div>
