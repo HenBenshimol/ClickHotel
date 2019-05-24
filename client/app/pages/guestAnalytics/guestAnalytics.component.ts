@@ -49,5 +49,4 @@ export class GuestAnalyticsComponent implements OnInit {
       console.log(err);
     });
   }
-
 }

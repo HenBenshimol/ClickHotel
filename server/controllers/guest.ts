@@ -29,8 +29,12 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest ages
   getAllGuestAge = async (req, res) => {
     try {
-      const obj = await this.model.find().map( function(item) { return item.age; } );
-      res.status(200).json(obj);
+      var arrAges= [];
+      const obj = await this.model.find({},{age:1, _id:0});
+      obj.forEach(element => {
+        arrAges.push(element.age);
+      });
+      res.status(200).json(arrAges);
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }
@@ -39,8 +43,12 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest purpose
   getAllGuestPurpose = async (req, res) => {
     try {
-      const obj = await this.model.find().map( function(item) { return item.guestPurpose; } );
-      res.status(200).json(obj);
+      var arrPurpose= [];
+      const obj = await this.model.find({},{guestPurpose:1, _id:0});
+      obj.forEach(element => {
+        arrPurpose.push(element.guestPurpose);
+      });
+      res.status(200).json(arrPurpose);
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }
@@ -49,8 +57,12 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest family status
   getAllGuestStatus = async (req, res) => {
     try {
-      const obj = await this.model.find().map( function(item) { return item.guestStatus; } );
-      res.status(200).json(obj);
+      var arrGuestStatus= [];
+      const obj = await this.model.find({},{guestStatus:1, _id:0});
+      obj.forEach(element => {
+        arrGuestStatus.push(element.guestStatus);
+      });
+      res.status(200).json(arrGuestStatus);
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }
@@ -59,11 +71,24 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest vacation length
   getAllVacationLength = async (req, res) => {
     try {
-      const dateIn = await this.model.find().map( function(item) { return item.checkinDate.Day(); } );
-      const dateOut = await this.model.find().map( function(item) { return item.checkoutDate.Day(); } );
+      var dateIn= [];
+      var dateOut= [];
+
+      const checkinDate = await this.model.find({},{checkinDate:1, _id:0});
+      const checkoutDate = await this.model.find({},{checkoutDate:1, _id:0});
+      
+      checkinDate.forEach(element => {
+        dateIn.push(element.checkinDate.Day());
+      });
+
+      checkoutDate.forEach(element => {
+        dateOut.push(element.checkoutDate.Day());
+      });
+
       const dayDiff = [];
       const timeDiff = [];
-      for (let i = 0 ; i < dateIn.length() ; i++) {
+
+      for (let i = 0 ; i < dateIn.length; i++) {
         timeDiff[i] = Math.abs(dateOut[i].getTime() - dateIn[i].getTime());
         dayDiff[i] = Math.ceil(timeDiff[i] / (1000 * 3600 * 24));
       }

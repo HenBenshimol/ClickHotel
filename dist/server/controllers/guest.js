@@ -49,15 +49,19 @@ var GuestCtrl = /** @class */ (function (_super) {
         }); };
         // Get all guest ages
         _this.getAllGuestAge = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var obj, err_3;
+            var arrAges, obj, err_3;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.model.find().map(function (item) { return item.age; })];
+                        arrAges = [];
+                        return [4 /*yield*/, this.model.find({}, { age: 1, _id: 0 })];
                     case 1:
                         obj = _a.sent();
-                        res.status(200).json(obj);
+                        obj.forEach(function (element) {
+                            arrAges.push(element.age);
+                        });
+                        res.status(200).json(arrAges);
                         return [3 /*break*/, 3];
                     case 2:
                         err_3 = _a.sent();
@@ -68,15 +72,19 @@ var GuestCtrl = /** @class */ (function (_super) {
         }); };
         // Get all guest purpose
         _this.getAllGuestPurpose = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var obj, err_4;
+            var arrPurpose, obj, err_4;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.model.find().map(function (item) { return item.guestPurpose; })];
+                        arrPurpose = [];
+                        return [4 /*yield*/, this.model.find({}, { guestPurpose: 1, _id: 0 })];
                     case 1:
                         obj = _a.sent();
-                        res.status(200).json(obj);
+                        obj.forEach(function (element) {
+                            arrPurpose.push(element.guestPurpose);
+                        });
+                        res.status(200).json(arrPurpose);
                         return [3 /*break*/, 3];
                     case 2:
                         err_4 = _a.sent();
@@ -87,15 +95,19 @@ var GuestCtrl = /** @class */ (function (_super) {
         }); };
         // Get all guest family status
         _this.getAllGuestStatus = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var obj, err_5;
+            var arrGuestStatus, obj, err_5;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.model.find().map(function (item) { return item.guestStatus; })];
+                        arrGuestStatus = [];
+                        return [4 /*yield*/, this.model.find({}, { guestStatus: 1, _id: 0 })];
                     case 1:
                         obj = _a.sent();
-                        res.status(200).json(obj);
+                        obj.forEach(function (element) {
+                            arrGuestStatus.push(element.guestStatus);
+                        });
+                        res.status(200).json(arrGuestStatus);
                         return [3 /*break*/, 3];
                     case 2:
                         err_5 = _a.sent();
@@ -106,20 +118,28 @@ var GuestCtrl = /** @class */ (function (_super) {
         }); };
         // Get all guest vacation length
         _this.getAllVacationLength = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var dateIn, dateOut, dayDiff, timeDiff, i, err_6;
+            var dateIn, dateOut, checkinDate, checkoutDate, dayDiff, timeDiff, i, err_6;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, this.model.find().map(function (item) { return item.checkinDate.Day(); })];
+                        dateIn = [];
+                        dateOut = [];
+                        return [4 /*yield*/, this.model.find({}, { checkinDate: 1, _id: 0 })];
                     case 1:
-                        dateIn = _a.sent();
-                        return [4 /*yield*/, this.model.find().map(function (item) { return item.checkoutDate.Day(); })];
+                        checkinDate = _a.sent();
+                        return [4 /*yield*/, this.model.find({}, { checkoutDate: 1, _id: 0 })];
                     case 2:
-                        dateOut = _a.sent();
+                        checkoutDate = _a.sent();
+                        checkinDate.forEach(function (element) {
+                            dateIn.push(element.checkinDate.Day());
+                        });
+                        checkoutDate.forEach(function (element) {
+                            dateOut.push(element.checkoutDate.Day());
+                        });
                         dayDiff = [];
                         timeDiff = [];
-                        for (i = 0; i < dateIn.length(); i++) {
+                        for (i = 0; i < dateIn.length; i++) {
                             timeDiff[i] = Math.abs(dateOut[i].getTime() - dateIn[i].getTime());
                             dayDiff[i] = Math.ceil(timeDiff[i] / (1000 * 3600 * 24));
                         }
