@@ -37,6 +37,10 @@ export class GuestService {
     return this.http.get<string[]>(`/api/getAllGuestStatus`);
   }
 
+  getAllVacationLength(): Observable<string[]> {
+    return this.http.get<string[]>(`/api/getAllVacationLength`);
+  }
+
   countGuests(): Observable<number> {
     return this.http.get<number>('/api/guest/count');
   }

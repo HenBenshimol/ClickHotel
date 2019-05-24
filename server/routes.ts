@@ -61,7 +61,7 @@ export default function setRoutes(app) {
   router.route('/guestAnalytics').get(guestCtrl.getAllGuestAge);
   router.route('/getAllGuestPurpose').get(guestCtrl.getAllGuestPurpose);
   router.route('/getAllGuestStatus').get(guestCtrl.getAllGuestStatus);
-  
+  router.route('/getAllVacationLength').get(guestCtrl.getAllVacationLength);
   // Ranking
   router.route('/rankings').get(rankingCtrl.getAll);
   router.route('/rankings/count').get(rankingCtrl.count);

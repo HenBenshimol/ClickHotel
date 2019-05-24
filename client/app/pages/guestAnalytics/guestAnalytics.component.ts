@@ -17,6 +17,9 @@ export class GuestAnalyticsComponent implements OnInit {
 
   ages: Number[] = [];
   purposes: string[] = [];
+  status: string[] = [];
+  vacationLength: string[] = [];
+
   ngOnInit() {
     this.guestService.getAllGuestAge().subscribe((guestAge) => {
       this.ages = guestAge;
@@ -31,7 +34,20 @@ export class GuestAnalyticsComponent implements OnInit {
     }, (err) => {
       console.log(err);
     });
-  }
 
+    this.guestService.getAllGuestStatus().subscribe((guestStatus) => {
+      this.status = guestStatus;
+      console.log('guest status ' + this.status);
+    }, (err) => {
+      console.log(err);
+    });
+
+    this.guestService.getAllVacationLength().subscribe((guestVacationLength) => {
+      this.vacationLength = guestVacationLength;
+      console.log('guest vacationLength ' + this.vacationLength);
+    }, (err) => {
+      console.log(err);
+    });
+  }
 
 }
