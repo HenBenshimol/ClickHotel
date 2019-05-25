@@ -40,19 +40,44 @@ export default class GuestCtrl extends BaseCtrl {
     }
   }
 
+  // Get all guest family status
+  getAllGuestStatus = async (req, res) => {
+    try {
+      const arrGuestStatus = [];
+      const obj = await this.model.find({},{guestStatus:1, _id:0});
+      obj.forEach(element => {
+        // convert Single to '0'
+        if (element.guestStatus === 'Single') {
+          arrGuestStatus.push(0);
+        }
+        // convert Married to '1'
+        else if (element.guestStatus === 'Married') {
+          arrGuestStatus.push(1);
+        }
+        // convert Family to '2'
+        else if (element.guestStatus === 'Family') {
+          arrGuestStatus.push(2);
+        }
+      });
+      res.status(200).json(arrGuestStatus);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+  }
+
   // Get all guest purpose
   getAllGuestPurpose = async (req, res) => {
     try {
-      const arrPurpose= [];
+      const arrPurpose = [];
       const obj = await this.model.find({},{guestPurpose:1, _id:0});
       obj.forEach(element => {
-        // convert Buisness to '0'
+        // convert Buisness to '3'
         if (element.guestPurpose === 'Buisness') {
-          arrPurpose.push(0);
+          arrPurpose.push(3);
         }
-        // convert Pleasure to '1'
+        // convert Pleasure to '4'
         if (element.guestPurpose === 'Pleasure') {
-          arrPurpose.push(1);
+          arrPurpose.push(4);
         }
       });
       res.status(200).json(arrPurpose);
@@ -61,30 +86,6 @@ export default class GuestCtrl extends BaseCtrl {
     }
   }
 
-  // Get all guest family status
-  getAllGuestStatus = async (req, res) => {
-    try {
-      const arrGuestStatus = [];
-      const obj = await this.model.find({},{guestStatus:1, _id:0});
-      obj.forEach(element => {
-        // convert Single to '2'
-        if (element.guestStatus === 'Single') {
-          arrGuestStatus.push(2);
-        }
-        // convert Married to '3'
-        if (element.guestStatus === 'Married') {
-          arrGuestStatus.push(3);
-        }
-        // convert Family to '4'
-        if (element.guestStatus === 'Family') {
-          arrGuestStatus.push(4);
-        }
-      });
-      res.status(200).json(arrGuestStatus);
-    } catch (err) {
-      return res.status(500).json({ error: err.message });
-    }
-  }
 
   // Get all guest vacation length
   getAllVacationLength = async (req, res) => {
