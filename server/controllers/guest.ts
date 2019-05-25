@@ -43,10 +43,17 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest purpose
   getAllGuestPurpose = async (req, res) => {
     try {
-      var arrPurpose= [];
+      const arrPurpose= [];
       const obj = await this.model.find({},{guestPurpose:1, _id:0});
       obj.forEach(element => {
-        arrPurpose.push(element.guestPurpose);
+        // convert Buisness to '0'
+        if (element.guestPurpose === 'Buisness') {
+          arrPurpose.push(0);
+        }
+        // convert Pleasure to '1'
+        if (element.guestPurpose === 'Pleasure') {
+          arrPurpose.push(1);
+        }
       });
       res.status(200).json(arrPurpose);
     } catch (err) {
@@ -57,10 +64,21 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest family status
   getAllGuestStatus = async (req, res) => {
     try {
-      var arrGuestStatus= [];
+      const arrGuestStatus = [];
       const obj = await this.model.find({},{guestStatus:1, _id:0});
       obj.forEach(element => {
-        arrGuestStatus.push(element.guestStatus);
+        // convert Single to '2'
+        if (element.guestStatus === 'Single') {
+          arrGuestStatus.push(2);
+        }
+        // convert Married to '3'
+        if (element.guestStatus === 'Married') {
+          arrGuestStatus.push(3);
+        }
+        // convert Family to '4'
+        if (element.guestStatus === 'Family') {
+          arrGuestStatus.push(4);
+        }
       });
       res.status(200).json(arrGuestStatus);
     } catch (err) {
@@ -71,13 +89,13 @@ export default class GuestCtrl extends BaseCtrl {
   // Get all guest vacation length
   getAllVacationLength = async (req, res) => {
     try {
-      var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-      var vacationLength= [];
+      const oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+      const vacationLength = [];
 
       const dates = await this.model.find({},{checkinDate:1, checkoutDate:1, _id:0});
-      
+
       dates.forEach(element => {
-        vacationLength.push( Math.round( 
+        vacationLength.push( Math.round(
                               Math.abs((element.checkinDate.getTime() - element.checkoutDate.getTime())/(oneDay))));
       });
       res.status(200).json(vacationLength);
