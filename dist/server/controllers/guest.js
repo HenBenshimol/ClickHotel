@@ -70,21 +70,32 @@ var GuestCtrl = /** @class */ (function (_super) {
                 }
             });
         }); };
-        // Get all guest purpose
-        _this.getAllGuestPurpose = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var arrPurpose, obj, err_4;
+        // Get all guest family status
+        _this.getAllGuestStatus = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+            var arrGuestStatus_1, obj, err_4;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        arrPurpose = [];
-                        return [4 /*yield*/, this.model.find({}, { guestPurpose: 1, _id: 0 })];
+                        arrGuestStatus_1 = [];
+                        return [4 /*yield*/, this.model.find({}, { guestStatus: 1, _id: 0 })];
                     case 1:
                         obj = _a.sent();
                         obj.forEach(function (element) {
-                            arrPurpose.push(element.guestPurpose);
+                            // convert Single to '0'
+                            if (element.guestStatus === 'single') {
+                                arrGuestStatus_1.push(0);
+                            }
+                            // convert Married to '1'
+                            else if (element.guestStatus === 'married') {
+                                arrGuestStatus_1.push(1);
+                            }
+                            // convert Family to '2'
+                            else if (element.guestStatus === 'family') {
+                                arrGuestStatus_1.push(2);
+                            }
                         });
-                        res.status(200).json(arrPurpose);
+                        res.status(200).json(arrGuestStatus_1);
                         return [3 /*break*/, 3];
                     case 2:
                         err_4 = _a.sent();
@@ -93,21 +104,28 @@ var GuestCtrl = /** @class */ (function (_super) {
                 }
             });
         }); };
-        // Get all guest family status
-        _this.getAllGuestStatus = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var arrGuestStatus, obj, err_5;
+        // Get all guest purpose
+        _this.getAllGuestPurpose = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+            var arrPurpose_1, obj, err_5;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        arrGuestStatus = [];
-                        return [4 /*yield*/, this.model.find({}, { guestStatus: 1, _id: 0 })];
+                        arrPurpose_1 = [];
+                        return [4 /*yield*/, this.model.find({}, { guestPurpose: 1, _id: 0 })];
                     case 1:
                         obj = _a.sent();
                         obj.forEach(function (element) {
-                            arrGuestStatus.push(element.guestStatus);
+                            // convert Buisness to '3'
+                            if (element.guestPurpose === 'Buisness') {
+                                arrPurpose_1.push(3);
+                            }
+                            // convert Pleasure to '4'
+                            if (element.guestPurpose === 'Pleasure') {
+                                arrPurpose_1.push(4);
+                            }
                         });
-                        res.status(200).json(arrGuestStatus);
+                        res.status(200).json(arrPurpose_1);
                         return [3 /*break*/, 3];
                     case 2:
                         err_5 = _a.sent();
@@ -118,20 +136,20 @@ var GuestCtrl = /** @class */ (function (_super) {
         }); };
         // Get all guest vacation length
         _this.getAllVacationLength = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var oneDay, vacationLength, dates, err_6;
+            var oneDay_1, vacationLength_1, dates, err_6;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        oneDay = 24 * 60 * 60 * 1000;
-                        vacationLength = [];
+                        oneDay_1 = 24 * 60 * 60 * 1000;
+                        vacationLength_1 = [];
                         return [4 /*yield*/, this.model.find({}, { checkinDate: 1, checkoutDate: 1, _id: 0 })];
                     case 1:
                         dates = _a.sent();
                         dates.forEach(function (element) {
-                            vacationLength.push(Math.round(Math.abs((element.checkinDate.getTime() - element.checkoutDate.getTime()) / (oneDay))));
+                            vacationLength_1.push(Math.round(Math.abs((element.checkinDate.getTime() - element.checkoutDate.getTime()) / (oneDay_1))));
                         });
-                        res.status(200).json(vacationLength);
+                        res.status(200).json(vacationLength_1);
                         return [3 /*break*/, 3];
                     case 2:
                         err_6 = _a.sent();

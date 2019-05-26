@@ -47,15 +47,15 @@ export default class GuestCtrl extends BaseCtrl {
       const obj = await this.model.find({},{guestStatus:1, _id:0});
       obj.forEach(element => {
         // convert Single to '0'
-        if (element.guestStatus === 'Single') {
+        if (element.guestStatus === 'single') {
           arrGuestStatus.push(0);
         }
         // convert Married to '1'
-        else if (element.guestStatus === 'Married') {
+        else if (element.guestStatus === 'married') {
           arrGuestStatus.push(1);
         }
         // convert Family to '2'
-        else if (element.guestStatus === 'Family') {
+        else if (element.guestStatus === 'family') {
           arrGuestStatus.push(2);
         }
       });
