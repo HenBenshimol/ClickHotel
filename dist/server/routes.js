@@ -52,7 +52,8 @@ function setRoutes(app) {
     router.route('/guest/:id').delete(guestCtrl.delete);
     router.route('/hotelHistory/:userId').get(guestCtrl.getGuestByUserId);
     router.route('/activeGuest/:userId').get(guestCtrl.getActiveGuest);
-    router.route('/guestAnalytics').get(guestCtrl.getAllGuestAge);
+    router.route('/getAllGuestAge').get(guestCtrl.getAllGuestAge);
+    router.route('/guestAnalytics').get(guestCtrl.getGuestVector);
     router.route('/getAllGuestPurpose').get(guestCtrl.getAllGuestPurpose);
     router.route('/getAllGuestStatus').get(guestCtrl.getAllGuestStatus);
     router.route('/getAllVacationLength').get(guestCtrl.getAllVacationLength);

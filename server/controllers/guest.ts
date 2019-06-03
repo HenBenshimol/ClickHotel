@@ -105,4 +105,54 @@ export default class GuestCtrl extends BaseCtrl {
     }
   }
 
+  getGuestVector =  async (req, res) => {
+    try {
+      const oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+      const vector = new Array();
+      let i = 0;
+      let vacationLength, status, purpose;
+
+      const guest = await this.model.find({},{checkinDate:1, checkoutDate:1, guestPurpose:1, guestStatus:1, age:1, _id:0});
+
+      guest.forEach(element => {
+        
+        //Convert Status to number
+        // convert Single to '0'
+        if (element.guestStatus === 'single') {
+          status = 0;
+        }
+        // convert Married to '1'
+        else if (element.guestStatus === 'married' || element.guestStatus === 'couple') {
+          status = 1;
+        }
+        // convert Family to '2'
+        else if (element.guestStatus === 'family') {
+          status = 2;
+        }
+
+        //Convert Purpose to number
+        // convert Buisness to '3'
+        if (element.guestPurpose === 'Buisness') {
+          purpose = 3;
+        }
+        // convert Pleasure to '4'
+        if (element.guestPurpose === 'Pleasure') {
+          purpose = 4;
+        }
+
+        //Calc vacation length
+        vacationLength = ( Math.round(
+          Math.abs((element.checkinDate.getTime() - element.checkoutDate.getTime())/(oneDay))));
+
+        vector[i] = [element.age, status, purpose, vacationLength];
+        i++;
+
+      });
+
+      res.status(200).json(vector);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+  }
+
 }

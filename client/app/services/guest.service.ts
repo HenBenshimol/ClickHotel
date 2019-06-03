@@ -25,20 +25,24 @@ export class GuestService {
     return this.http.get<Guest>(`/api/activeGuest/${userId}`);
   }
 
+  getGuestVector(): Observable<Array<Number>> {
+    return this.http.get<Array<Number>>(`/api/guestAnalytics`);
+  }
+
   getAllGuestAge(): Observable<number[]> {
-    return this.http.get<number[]>(`/api/guestAnalytics`);
+    return this.http.get<number[]>(`/api/getAllGuestAge`);
   }
 
-  getAllGuestPurpose(): Observable<string[]> {
-    return this.http.get<string[]>(`/api/getAllGuestPurpose`);
+  getAllGuestPurpose(): Observable<number[]> {
+    return this.http.get<number[]>(`/api/getAllGuestPurpose`);
   }
 
-  getAllGuestStatus(): Observable<string[]> {
-    return this.http.get<string[]>(`/api/getAllGuestStatus`);
+  getAllGuestStatus(): Observable<number[]> {
+    return this.http.get<number[]>(`/api/getAllGuestStatus`);
   }
 
-  getAllVacationLength(): Observable<string[]> {
-    return this.http.get<string[]>(`/api/getAllVacationLength`);
+  getAllVacationLength(): Observable<number[]> {
+    return this.http.get<number[]>(`/api/getAllVacationLength`);
   }
 
   countGuests(): Observable<number> {
