@@ -27,6 +27,11 @@ Other tools and technologies used:
 
 A window will automatically open at [localhost:4200](http://localhost:4200). Angular and Express files are being watched. Any change automatically creates a new bundle, restart Express server and reload your browser.
 
+### Server mode
+`npm run server`: [concurrently](https://github.com/kimmobrunfeldt/concurrently) execute MongoDB, Angular build, TypeScript compiler and Express server. This will expose the service to all ips.
+
+A window will automatically open at [localhost:4200](http://localhost:4200). Angular and Express files are being watched. Any change automatically creates a new bundle, restart Express server and reload your browser.
+
 ### Production mode
 `npm run prod`:  the project with a production bundle and AOT compilation listening at [localhost:3000](http://localhost:3000) 
 
