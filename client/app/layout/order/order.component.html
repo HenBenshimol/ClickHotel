@@ -39,6 +39,18 @@
         <input class="form-control" type="text" name="details"
                formControlName="details" placeholder="details">
       </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+          <i class="fa fa-ils" aria-hidden="true"></i>
+          </span>
+        </div>
+        <div *ngIf="(service.name == 'Babysitting')">
+          <div> {{service.price}} </div>
+<!--          <input class="form-control" type="text" name="price"-->
+<!--                 formControlName="price" value="30" disabled>-->
+        </div>
+      </div>
       <button class="btn btn-primary" type="submit">
         <i class="fa fa-user-plus"></i> Order
       </button>

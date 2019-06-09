@@ -7,7 +7,8 @@ const serviceSchema = new mongoose.Schema({
   openHour: String,
   closeHour: String,
   needDetails: Boolean,
-  details: String
+  details: String,
+  price: Number
 });
 
 const Service = mongoose.model('service', serviceSchema);

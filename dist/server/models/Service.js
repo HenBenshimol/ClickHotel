@@ -8,7 +8,8 @@ var serviceSchema = new mongoose.Schema({
     openHour: String,
     closeHour: String,
     needDetails: Boolean,
-    details: String
+    details: String,
+    price: Number
 });
 var Service = mongoose.model('service', serviceSchema);
 exports.default = Service;
