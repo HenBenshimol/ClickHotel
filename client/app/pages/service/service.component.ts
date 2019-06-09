@@ -41,7 +41,6 @@ export class ServiceComponent implements OnInit {
       needDetails: this.needDetails,
       details: this.details,
       price: this.price
-
     });
   }
 
