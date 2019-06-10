@@ -21,7 +21,8 @@ import {Hotel} from '../../shared/models/hotel.model';
   styleUrls: ['./checkin.component.scss']
 })
 export class CheckinComponent implements OnInit {
-
+  minDate: string;
+  minDateForCheckOut: string;
   submitted = false;
 
   @Input('checkinModal') checkinModal: HTMLElement;
@@ -34,8 +35,9 @@ export class CheckinComponent implements OnInit {
     Validators.maxLength(30),
     Validators.pattern('[a-zA-Z0-9_-\\s]*')
   ]);
-  checkinDate = new FormControl('', [
-    Validators.required
+  checkinDate = new FormControl({value: '', disabled: true}, [
+    Validators.required,
+
   ]);
   checkoutDate = new FormControl('', [
     Validators.required
@@ -106,6 +108,24 @@ export class CheckinComponent implements OnInit {
       guestPurpose: this.guestPurpose,
       guestNumber: this.guestNumber
     });
+
+    this.getCurrentDay();
+  }
+
+  private getCurrentDay() {
+    const today = new Date();
+    let dd = today.getDate();
+    let mm = (today.getMonth() + 1);
+    const yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    this.minDate = yyyy + '-' + mm + '-' + dd;
+    dd = dd + 1;
+    this.minDateForCheckOut = yyyy + '-' + mm + '-' + dd;
   }
 
   // Validation
