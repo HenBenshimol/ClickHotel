@@ -5,6 +5,7 @@ import {HotelsService} from '../../services/hotels.service';
 import {FormBuilder} from '@angular/forms';
 import {ToastComponent} from '../../shared/toast/toast.component';
 import {Hotel} from '../../shared/models/hotel.model';
+import { app } from 'server/app';
 
 @Component({
   selector: 'app-guest-analytics',
@@ -16,6 +17,7 @@ export class GuestAnalyticsComponent implements OnInit {
   constructor(private guestService: GuestService) { }
 
   vectors: Array<Number>;
+  karrays: Array<Array<Number>>;
 
   ngOnInit() {
 
@@ -28,9 +30,13 @@ export class GuestAnalyticsComponent implements OnInit {
 
       const skmeans = require('../../../../node_modules/skmeans');
 
-      const res = skmeans(this.vectors,4);
+      const resu = skmeans(this.vectors,4);
+      this.karrays=resu.centroids;
+      
+      console.log(resu);
 
-      console.log(res);
+      console.log(this.karrays);
     });
+
   }
 }
