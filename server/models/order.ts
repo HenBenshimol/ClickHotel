@@ -7,7 +7,7 @@ const orderSchema = new mongoose.Schema({
   userId: String,
   date: Date,
   startHour: String,
-  details: String,
+  details: String
 });
 
 const Order = mongoose.model('Order', orderSchema);

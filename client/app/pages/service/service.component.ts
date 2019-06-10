@@ -11,7 +11,6 @@ import {Service} from '../../shared/models/service.model';
   styleUrls: ['./service.component.scss']
 })
 export class ServiceComponent implements OnInit {
-
   service = new Service();
   services: Service[] = [];
   isLoading = true;
@@ -25,6 +24,7 @@ export class ServiceComponent implements OnInit {
   closeHour = new FormControl('', Validators.required);
   needDetails = new FormControl('', Validators.required);
   details = new FormControl('', Validators.required);
+  price = new FormControl('', Validators.required);
 
   constructor(private serviceService: ServiceService,
               private formBuilder: FormBuilder,
@@ -39,7 +39,8 @@ export class ServiceComponent implements OnInit {
       openHour: this.openHour,
       closeHour: this.closeHour,
       needDetails: this.needDetails,
-      details: this.details
+      details: this.details,
+      price: this.price
     });
   }
 

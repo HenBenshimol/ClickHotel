@@ -9,6 +9,7 @@ var orderSchema = new mongoose.Schema({
     date: Date,
     startHour: String,
     details: String,
+    price: Number
 });
 var Order = mongoose.model('Order', orderSchema);
 exports.default = Order;
