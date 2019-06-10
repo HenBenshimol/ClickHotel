@@ -22,8 +22,7 @@ export class HotelInfoComponent implements OnInit {
   @Output('hotelInfoModal') hotelInfoModal: HTMLElement;
 
   isLoading = true;
-  hotels: Hotel[];
-  hotel: Hotel;
+  hotel = new Hotel();
   
   constructor(private auth: AuthService,
               private guestService: GuestService,

@@ -13,10 +13,10 @@
         <input class="form-control" type="text" name="comment"
                formControlName="comment" placeholder="comment" autofocus>
       </div>
-      <div class="input-group" formControlName="rate">
+      <div>
         <h5>Please rate your experience:</h5>
-          <div>
-        <bar-rating [(rate)]="rate" [max]="5"></bar-rating>
+          <div style="align-items:center">
+        <bar-rating name="rate"  formControlName="rate" [(rate)]="rate" [max]="5" ></bar-rating>
         </div>
       </div>
       <button class="btn btn-primary" type="submit" [disabled]="!checkoutForm.valid">

@@ -17,9 +17,7 @@ export class HelpComponent implements OnInit {
 
   @Output('helpModal') helpModal: HTMLElement;
 
-  hotel: Hotel;
-  user: User;
-  isLoading = true;
+  hotel = new Hotel();
 
   constructor(private auth: AuthService,
               public toast: ToastComponent,
@@ -35,7 +33,5 @@ export class HelpComponent implements OnInit {
     }, (err) => {
         console.log(err);
       });
-
-
     }
   }
