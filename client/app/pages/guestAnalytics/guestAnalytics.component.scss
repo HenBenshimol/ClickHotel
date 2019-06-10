@@ -4,6 +4,24 @@
   min-height: 100vh;
   background: hsla(170, 50%, 45%, 1);
 
+  .header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+  }
+  .section {
+    padding-block-start: 20px;
+    text-align: justify;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    color: white;
+    background-color: hsla(170, 50%, 45%, 1);
+  }
   .table {
     width: 500%;
     td,

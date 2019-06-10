@@ -17,7 +17,8 @@ export class GuestAnalyticsComponent implements OnInit {
   constructor(private guestService: GuestService) { }
 
   vectors: Array<Number>;
-  karrays: Array<Array<Number>>;
+  centroids: Array<Array<Number>>;
+  idxs: Array<Array<Number>>;
 
   ngOnInit() {
 
@@ -30,12 +31,14 @@ export class GuestAnalyticsComponent implements OnInit {
 
       const skmeans = require('../../../../node_modules/skmeans');
 
-      const resu = skmeans(this.vectors,4);
-      this.karrays=resu.centroids;
-      
+      const resu = skmeans(this.vectors, 4);
+      this.centroids = resu.centroids;
+      this.idxs = resu.idxs;
+
       console.log(resu);
 
-      console.log(this.karrays);
+      console.log(this.centroids);
+      console.log(this.idxs);
     });
 
   }
