@@ -114,18 +114,20 @@ export class CheckinComponent implements OnInit {
 
   private getCurrentDay() {
     const today = new Date();
-    let dd = today.getDate();
-    let mm = (today.getMonth() + 1);
+    let dd = today.getDate().toString();
+    let mm = (today.getMonth() + 1).toString();
     const yyyy = today.getFullYear();
-    if (dd < 10) {
+
+    if (dd.localeCompare('10') > 0) {
       dd = '0' + dd;
     }
-    if (mm < 10) {
+    if (mm.localeCompare('10') > 0) {
       mm = '0' + mm;
     }
+
     this.minDate = yyyy + '-' + mm + '-' + dd;
-    dd = dd + 1;
-    this.minDateForCheckOut = yyyy + '-' + mm + '-' + dd;
+    const day = today.getDate() + 1;
+    this.minDateForCheckOut = yyyy + '-' + mm + '-' + day;
   }
 
   // Validation
