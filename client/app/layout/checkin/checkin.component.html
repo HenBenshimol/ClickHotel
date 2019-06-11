@@ -103,7 +103,7 @@
             <i class="fa fa-calendar"></i>
           </span>
         </div>
-        <input class="form-control" type="date" [value]="minDate" name="checkinDate"
+        <input class="form-control" type="date" [min]="minDate" [max]="minDate" name="checkinDate"
                formControlName="checkinDate" placeholder="checkinDate">
       </div>
       <div class="errors" *ngIf="submitted && checkinDate.errors">

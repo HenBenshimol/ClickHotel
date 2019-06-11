@@ -34,7 +34,7 @@ export class CheckinComponent implements OnInit {
     Validators.maxLength(30),
     Validators.pattern('[a-zA-Z0-9_-\\s]*')
   ]);
-  checkinDate = new FormControl({value: '', disabled: true}, [
+  checkinDate = new FormControl('', [
     Validators.required,
 
   ]);
