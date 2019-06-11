@@ -97,7 +97,7 @@
         <div *ngIf="guestNumber.errors.required">Guest number is requiered</div>
         <div *ngIf="guestNumber.errors.pattern">Guest number must be number between 1-9</div>
       </div>
-      <div class="input-group" [ngClass]="setClassCheckinDate()">
+     <!--  <div class="input-group" [ngClass]="setClassCheckinDate()">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <i class="fa fa-calendar"></i>
@@ -105,7 +105,7 @@
         </div>
         <input class="form-control" type="date" [min]="minDate" [max]="minDate" name="checkinDate"
                formControlName="checkinDate" placeholder="checkinDate">
-      </div>
+      </div> -->
       <div class="errors" *ngIf="submitted && checkinDate.errors">
         <div *ngIf="checkinDate.errors.required">Check-in date is requiered</div>
       </div>

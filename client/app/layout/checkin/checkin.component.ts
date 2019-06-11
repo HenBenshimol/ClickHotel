@@ -34,10 +34,10 @@ export class CheckinComponent implements OnInit {
     Validators.maxLength(30),
     Validators.pattern('[a-zA-Z0-9_-\\s]*')
   ]);
-  checkinDate = new FormControl('', [
+/*   checkinDate = new FormControl('', [
     Validators.required,
 
-  ]);
+  ]); */
   checkoutDate = new FormControl('', [
     Validators.required
   ]);
@@ -94,11 +94,12 @@ export class CheckinComponent implements OnInit {
     }, (err) => {
       console.log(err);
     });
+    this.getCurrentDay();
     this.checkinForm = this.formBuilder.group({
       userId: this.userId,
       ID: this.ID,
       hotelName: this.hotelName,
-      checkinDate: this.checkinDate,
+      checkinDate: this.minDate,
       checkoutDate: this.checkoutDate,
       activeGuest: this.activeGuest,
       roomId: null,
@@ -109,7 +110,7 @@ export class CheckinComponent implements OnInit {
       guestNumber: this.guestNumber
     });
 
-    this.getCurrentDay();
+
   }
 
   private getCurrentDay() {
@@ -135,10 +136,10 @@ export class CheckinComponent implements OnInit {
     return {'has-danger': !this.hotelName.pristine && !this.hotelName.valid};
   }
 
-  setClassCheckinDate() {
+/*   setClassCheckinDate() {
     return {'has-danger': !this.checkinDate.pristine && !this.checkinDate.valid};
   }
-
+ */
   setClassCheckoutDate() {
     return {'has-danger': !this.checkoutDate.pristine && !this.checkoutDate.valid};
   }
