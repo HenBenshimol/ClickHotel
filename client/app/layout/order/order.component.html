@@ -45,10 +45,25 @@
           <i class="fa fa-ils" aria-hidden="true"></i>
           </span>
         </div>
-        <div *ngIf="(service.name == 'Babysitting')">
-          <div> {{service.price}} </div>
-<!--          <input class="form-control" type="text" name="price"-->
-<!--                 formControlName="price" value="30" disabled>-->
+        <div *ngIf="(serviceId == '5cfbe335568ea717a0c3ad1f')">
+          <input class="form-control" type="text" [value]="240"
+                 formControlName="price" placeholder="price" disabled>
+        </div>
+        <div *ngIf="(serviceId == '5cfbe38d568ea717a0c3ad20')">
+          <input class="form-control" type="number" [value]="80"
+                  placeholder="price" disabled>
+        </div>
+        <div *ngIf="(serviceId == '5cfbe3db568ea717a0c3ad21')">
+          <input class="form-control" type="number" [value]="50"
+                 placeholder="price" disabled>
+        </div>
+        <div *ngIf="(serviceId == '5cff5693cbd1dc15d4ac3fb5')">
+          <input class="form-control" type="number" [value]="25"
+                 placeholder="price" disabled>
+        </div>
+        <div *ngIf="(serviceId == '5cff56c8cbd1dc15d4ac3fb6')">
+          <input class="form-control" type="number" [value]="10"
+                 placeholder="price" disabled>
         </div>
       </div>
       <button class="btn btn-primary" type="submit">

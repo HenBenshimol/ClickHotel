@@ -20,8 +20,6 @@ import * as $ from 'jquery';
 })
 export class CheckoutComponent implements OnInit {
 
-  
-
   @Input('checkoutModal') checkoutModal: HTMLElement;
   checkoutForm: FormGroup;
   userId = this.auth.currentUser._id;
@@ -30,14 +28,12 @@ export class CheckoutComponent implements OnInit {
     Validators.minLength(2),
     Validators.maxLength(100),
   ]);
-  rate =  new FormControl('', [
-    //Validators.required
-  ]);
+  rate =  new FormControl('', []);
   hotelName = this.auth.currentGuest.hotelName;
   roomId = this.auth.currentGuest.roomId;
 
-  room: Room;
-  newGuest: Guest;
+  room = new Room();
+  newGuest = new Guest();
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,

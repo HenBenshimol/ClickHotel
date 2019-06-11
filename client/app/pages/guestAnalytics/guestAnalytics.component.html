@@ -2,16 +2,30 @@
   <br>
   <br>
   <app-loading></app-loading>
-
-  <app-toast></app-toast>
-  <h1>Centroids</h1>
-
-
-      <div class="d-flex" *ngFor="let karray of karrays">
-          <ion-content>
-              {{karray}}
-              </ion-content>
-      </div>
+  <div class="header">
+    <h1>Guest Analytics</h1>
+    <p>Implemented with kmeans</p>
   </div>
+  <div>
+  <section class="section">
+    <h4>Centroids:</h4>
+    <div class="d-flex" *ngFor="let centroids of centroids">
+      <ion-content>
+        {{centroids}}
+      </ion-content>
+    </div>
+  </section>
+  </div>
+  <div>
+  <section class="section">
+  <h4>Guests:</h4>
+  <div class="d-flex" *ngFor="let idxs of idxs">
+    <p>
+      {{idxs}}
+    </p>
+  </div>
+  </section>
+  </div>
+</div>
 
 
