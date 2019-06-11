@@ -45,13 +45,13 @@
           <div *ngIf="password.errors.required">Password is requiered</div>
           <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
        </div>
-       <div class="input-group">
+ <!--       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <i class="fa fa-black-tie"></i>
           </span>
         </div>
-        <select class="custom-select" name="role" formControlName="role">
+       <select class="custom-select" name="role" formControlName="role">
           <option value="" selected disabled>Role</option>
           <option value="user">User</option>
           <option value="admin">Admin</option>
@@ -59,7 +59,7 @@
       </div> 
       <div class="errors" *ngIf="submitted && role.errors">
           <div *ngIf="role.errors.required">Role is requiered</div>
-       </div>
+       </div>  -->
       <button class="btn btn-primary" type="submit">
         <i class="fa fa-user-plus"></i> Register
       </button>

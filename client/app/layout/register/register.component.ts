@@ -36,9 +36,9 @@ export class RegisterComponent implements OnInit {
     Validators.required,
     Validators.minLength(6)
   ]);
-   role = new FormControl('', [
+/*    role = new FormControl('', [
     Validators.required
-   ]);
+   ]); */
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -50,8 +50,8 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       fullName: this.fullName,
       email: this.email,
-      password: this.password,
-      role: this.role
+      password: this.password
+   /*    role: this.role */
     });
   }
 
