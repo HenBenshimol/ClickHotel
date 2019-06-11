@@ -1,18 +1,17 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import { HotelsService } from '../../services/hotels.service';
+import {Router} from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
+import {HotelsService} from '../../services/hotels.service';
 
 
-import { Room } from '../../shared/models/room.model';
-import { GuestService } from '../../services/guest.service';
-import { RoomService } from '../../services/room.service';
-import { ToastComponent } from '../../shared/toast/toast.component';
+import {Room} from '../../shared/models/room.model';
+import {GuestService} from '../../services/guest.service';
+import {RoomService} from '../../services/room.service';
+import {ToastComponent} from '../../shared/toast/toast.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { Guest } from 'client/app/shared/models/guest.model';
+import {Guest} from 'client/app/shared/models/guest.model';
 import {Hotel} from '../../shared/models/hotel.model';
-
 
 
 @Component({
@@ -86,10 +85,11 @@ export class CheckinComponent implements OnInit {
               private guestService: GuestService,
               private roomService: RoomService,
               private hotelService: HotelsService,
-              private auth: AuthService) { }
+              private auth: AuthService) {
+  }
 
   ngOnInit() {
-     this.hotelService.getHotels().subscribe((hotelsName) => {
+    this.hotelService.getHotels().subscribe((hotelsName) => {
       this.hotelsName = hotelsName;
     }, (err) => {
       console.log(err);
@@ -118,10 +118,10 @@ export class CheckinComponent implements OnInit {
     let mm = (today.getMonth() + 1).toString();
     const yyyy = today.getFullYear();
 
-    if (dd.localeCompare('10') > 0) {
+    if (+dd < 10) {
       dd = '0' + dd;
     }
-    if (mm.localeCompare('10') > 0) {
+    if (+mm < 10) {
       mm = '0' + mm;
     }
 
@@ -132,35 +132,39 @@ export class CheckinComponent implements OnInit {
 
   // Validation
   setClassHotelname() {
-    return { 'has-danger': !this.hotelName.pristine && !this.hotelName.valid };
+    return {'has-danger': !this.hotelName.pristine && !this.hotelName.valid};
   }
 
   setClassCheckinDate() {
-    return { 'has-danger': !this.checkinDate.pristine && !this.checkinDate.valid };
+    return {'has-danger': !this.checkinDate.pristine && !this.checkinDate.valid};
   }
 
   setClassCheckoutDate() {
-    return { 'has-danger': !this.checkoutDate.pristine && !this.checkoutDate.valid };
+    return {'has-danger': !this.checkoutDate.pristine && !this.checkoutDate.valid};
   }
 
   setClassFullName() {
-    return { 'has-danger': !this.fullName.pristine && !this.fullName.valid };
+    return {'has-danger': !this.fullName.pristine && !this.fullName.valid};
   }
 
   setClassID() {
-    return { 'has-danger': !this.ID.pristine && !this.ID.valid };
+    return {'has-danger': !this.ID.pristine && !this.ID.valid};
   }
+
   setClassAge() {
-    return { 'has-danger': !this.age.pristine && !this.age.valid };
+    return {'has-danger': !this.age.pristine && !this.age.valid};
   }
+
   setClassGuestStatus() {
-    return { 'has-danger': !this.guestStatus.pristine && !this.guestStatus.valid };
+    return {'has-danger': !this.guestStatus.pristine && !this.guestStatus.valid};
   }
+
   setClassGuestPurpose() {
-    return { 'has-danger': !this.guestPurpose.pristine && !this.guestPurpose.valid };
+    return {'has-danger': !this.guestPurpose.pristine && !this.guestPurpose.valid};
   }
+
   setClassGuestNumber() {
-    return { 'has-danger': !this.guestNumber.pristine && !this.guestNumber.valid };
+    return {'has-danger': !this.guestNumber.pristine && !this.guestNumber.valid};
   }
 
   checkin() {
@@ -192,15 +196,15 @@ export class CheckinComponent implements OnInit {
       res => {
         // connect between the guest to the room (for History)
         this.guestService.getActiveGuest(this.auth.currentUser._id).subscribe((guest) => {
-            this.newGuet = guest;
-            this.newGuet.roomId = this.roomId;
-            this.guestService.editGuest(this.newGuet).subscribe(
-              (res) => {
-                this.auth.checkIn();
-                console.log('roomid in user saved!');
-              },
-              error => console.log(error)
-            );
+          this.newGuet = guest;
+          this.newGuet.roomId = this.roomId;
+          this.guestService.editGuest(this.newGuet).subscribe(
+            (res) => {
+              this.auth.checkIn();
+              console.log('roomid in user saved!');
+            },
+            error => console.log(error)
+          );
         }, (err) => {
           console.log(err);
         });
@@ -212,5 +216,5 @@ export class CheckinComponent implements OnInit {
       error => this.toast.setMessage('email already exists', 'danger')
     );
 
-    }
+  }
 }
