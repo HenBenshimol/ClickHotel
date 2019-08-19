@@ -26,12 +26,14 @@ import { RoomsServicesComponent } from './pages/roomsServices/roomsServices.comp
 import { ServicesDetailsComponent } from './pages/servicesDetails/servicesDetails.component';
 import { OrderComponent } from './layout/order/order.component';
 import { GuestAnalyticsComponent } from './pages/guestAnalytics/guestAnalytics.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'hotels', component: HotelsComponent, canActivate: [AuthGuardLogin] },
   { path: 'guestAnalytics', component: GuestAnalyticsComponent, canActivate: [AuthGuardLogin] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardLogin] },
   { path: 'room', component: RoomComponent, canActivate: [AuthGuardLogin] },
   { path: 'service', component: ServiceComponent, canActivate: [AuthGuardLogin] },
   { path: 'register', component: RegisterComponent },

@@ -1,6 +1,10 @@
 // Angular
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { JwtModule } from '@auth0/angular-jwt';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -19,6 +23,7 @@ import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { AppComponent } from './app.component';
 import { HotelsComponent } from './pages/hotels/hotels.component';
 import { GuestAnalyticsComponent } from './pages/guestAnalytics/guestAnalytics.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RoomComponent } from './pages/room/room.component';
 import { ServiceComponent } from './pages/service/service.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -54,6 +59,7 @@ export function tokenGetter() {
     AppComponent,
     HotelsComponent,
     GuestAnalyticsComponent,
+    DashboardComponent,
     RoomComponent,
     ServiceComponent,
     AboutComponent,
@@ -77,6 +83,8 @@ export function tokenGetter() {
   ],
   imports: [
     AppRoutingModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
     SharedModule,
     BarRatingModule,
     JwtModule.forRoot({

@@ -17,7 +17,7 @@ Other tools and technologies used:
 * [Bcrypt.js](https://github.com/dcodeIO/bcrypt.js): password encryption
 
 ## Prerequisites
-1. Install [Node.js](https://nodejs.org) and [MongoDB](https://www.mongodb.com)
+1. Install [Node.js](https://nodejs.orng) and [MongoDB](https://www.mongodb.com)
 2. Install Angular CLI: `npm i -g @angular/cli`
 3. From project root folder install all the dependencies: `npm i`
 
@@ -43,3 +43,8 @@ Run `npm run lintbe` to execute the backend TS linting via [TSLint](https://gith
 Run `npm run linthtml` to execute the frontend HTML linting via [HTMLHint](https://github.com/htmlhint/HTMLHint).
 
 Run `npm run lintscss` to execute the frontend SCSS linting via [SASS-Lint](https://github.com/sasstools/sass-lint).
+
+## D3.JS
+npm i d3
+npm install @swimlane/ngx-charts --save
+

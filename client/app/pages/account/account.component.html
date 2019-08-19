@@ -24,7 +24,7 @@
         <input class="form-control" type="email" name="email"
                [(ngModel)]="user.email" placeholder="Email" required>
       </div>
-      <!-- <div class="input-group">
+      <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <i class="fa fa-black-tie"></i>
@@ -35,7 +35,7 @@
           <option value="user">User</option>
           <option value="admin">Admin</option>
         </select>
-      </div>  -->
+      </div>  
       <button class="btn btn-primary" type="submit" [disabled]="!accountForm.form.valid">
         <i class="fa fa-save"></i> Save
       </button>
