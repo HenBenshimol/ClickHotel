@@ -48,3 +48,5 @@ Run `npm run lintscss` to execute the frontend SCSS linting via [SASS-Lint](http
 npm i d3
 npm install @swimlane/ngx-charts --save
 
+## CMS Algo
+npm install count-min-sketch

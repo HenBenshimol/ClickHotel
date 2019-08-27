@@ -17,7 +17,16 @@
     [yAxisLabel]="yAxisLabel"
     (select)="onSelect($event)">
     </ngx-charts-bar-vertical-stacked>
+    <br>
+    <br>
+    
+    <div>
+        <p>% of Adults Guests: {{ a | guestAge }}</p>
+        <p>% of Youngs Guests: {{ y | guestAge }}</p>
+      </div>
   </div>
+
+
   
   
   

@@ -5,6 +5,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { GuestAgePipe } from './pages/dashboard/GuestAgePipe';
+
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -56,6 +58,7 @@ export function tokenGetter() {
 
 @NgModule({
   declarations: [
+    GuestAgePipe,
     AppComponent,
     HotelsComponent,
     GuestAnalyticsComponent,
