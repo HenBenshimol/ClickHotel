@@ -99,12 +99,9 @@ public multi = [
 
   constructor(private guestService: GuestService) {}
       guestAges: Array<number>;
-      young= new Array<number>();
-      adult = new Array<number>();
 
-      y:number;
-      a:number;
-
+      young:number;
+      adult:number;
       guestsTotal:number;
    
   ngOnInit() {
@@ -112,33 +109,23 @@ public multi = [
         this.guestAges = guestVector;
         this.guestsTotal=this.guestAges.length;
 
-
-       // console.log(this.guestAges);
-    var createCountMinSketch = require("count-min-sketch")
+        var createCountMinSketch = require("count-min-sketch")
  
-    //Create data structure
-    var sketch = createCountMinSketch()
+        //Create data structure
+        var sketch = createCountMinSketch()
 
-    for (var i=0; i<this.guestAges.length;i++)
-    {
-        if (this.guestAges[i]>18)
-            sketch.update("0",1);
-        else
-            sketch.update("1",1);
-    }
+        for (var i=0; i<this.guestAges.length;i++)
+        {
+            if (this.guestAges[i]>18){
+                sketch.update("0",1);
+            }
+            else
+                sketch.update("1",1);
+        }
      
-    //Query results
-    this.adult.push(sketch.query("0"));
-    this.adult.push(this.guestsTotal);
-
-   // console.log(this.adult);
-
-    this.young.push(sketch.query("1"));
-    this.young.push(this.guestsTotal);
-
-    this.y=sketch.query("1");
-    this.a=sketch.query("0")
-
+        //Query results
+        this.adult = sketch.query("0");
+        this.young = sketch.query("1");
 });
 
 }

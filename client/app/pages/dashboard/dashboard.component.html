@@ -21,8 +21,8 @@
     <br>
     
     <div>
-        <p>% of Adults Guests: {{ a | guestAge }}</p>
-        <p>% of Youngs Guests: {{ y | guestAge }}</p>
+        <p>% of Adults Guests: {{ adult | guestAge:guestsTotal }}</p>
+        <p>% of Youngs Guests: {{ young | guestAge:guestsTotal }}</p>
       </div>
   </div>
 
