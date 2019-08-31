@@ -50,3 +50,6 @@ npm install @swimlane/ngx-charts --save
 
 ## CMS Algo
 npm install count-min-sketch
+
+## Angular Google Map (AGM)
+npm install @agm/core

@@ -27,6 +27,7 @@ import { ServicesDetailsComponent } from './pages/servicesDetails/servicesDetail
 import { OrderComponent } from './layout/order/order.component';
 import { GuestAnalyticsComponent } from './pages/guestAnalytics/guestAnalytics.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { GeneralInfoComponent } from './pages/generalInfo/generalInfo.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'hotels', component: HotelsComponent, canActivate: [AuthGuardLogin] },
   { path: 'guestAnalytics', component: GuestAnalyticsComponent, canActivate: [AuthGuardLogin] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardLogin] },
+  { path: 'generalInfo', component: GeneralInfoComponent },
   { path: 'room', component: RoomComponent, canActivate: [AuthGuardLogin] },
   { path: 'service', component: ServiceComponent, canActivate: [AuthGuardLogin] },
   { path: 'register', component: RegisterComponent },

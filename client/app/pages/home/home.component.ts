@@ -24,6 +24,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  getInfo(data){
+    console.log(data);
+    this.router.navigate(['/generalInfo'], { queryParams: { hotel: data } });
+  }
+
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: '', centered: true}).result.then((result) => {
     }, (err) => {

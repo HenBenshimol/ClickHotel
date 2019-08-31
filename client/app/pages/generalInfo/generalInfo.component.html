@@ -1,0 +1,32 @@
+<div class="generalInfo-page-container">
+    <section class="intro">
+        <div class="generalInfo-page-background-image"></div>
+        <img class="logo-roof animated pulse" src="../../../assets/images/hotelLogo.png">
+        <img class="logo-pic" src="../../../assets/images/hotelLogo.png">
+        <h4  class="title animated pulse">FAST | SAFE | EASY | 24/7</h4>
+    </section>
+    <section class="part info">
+        <div class="card" style="width: 3500px; height: 280px;" >
+            <div class="card-body">
+                <p class="card-text"> Gym Hours:  {{hotel.gymOpen}} - {{hotel.gymClose}}</p>
+                <p class="card-text"> Pool Hours:  {{hotel.poolOpen}} - {{hotel.poolClose}}</p>
+                <p class="card-text"> Resturant Hours:  {{hotel.resturantOpen}} - {{hotel.resturantClose}}</p>
+                <p class="card-text"> Spa Hours:  {{hotel.spaOpen}} - {{hotel.spaClose}}</p>
+                <p class="card-text"> Phone Number:  {{hotel.phone}}</p>
+                <p class="card-text"> Spa Hours:  {{hotel.spaOpen}} - {{hotel.spaClose}}</p>
+            </div>
+        </div>
+        <div class="card" style="width: 3500px; height: 280px;">
+            <div class="card-body">
+                    <img src="{{hotel.attractionBoardImage}}" width="360px" height="250px" > 
+            </div>
+        </div>
+        <div class="card" style="width: 3500px; height: 280px;" id="map">
+            <div class="card-body">
+                <agm-map [latitude]="lat" [longitude]="lng">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+            </div>
+        </div>
+    </section>
+</div>

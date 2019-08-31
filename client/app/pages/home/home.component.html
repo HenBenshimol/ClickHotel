@@ -21,7 +21,7 @@
     </div>
   </section>
   <section class="part hotels">
-    <div class="card" *ngFor="let hotel of hotels" style="width: 300px;" >
+    <div class="card" *ngFor="let hotel of hotels" style="width: 300px;" (click)="getInfo(hotel.name)">
       <img class="card-img-top" src="{{hotel.hotelImage}}" >
       <div class="card-body">
         <p class="card-text">{{hotel.name}}</p>

@@ -1,11 +1,15 @@
 // Angular
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { JwtModule } from '@auth0/angular-jwt';
-
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Pipe
 import { GuestAgePipe } from './pages/dashboard/GuestAgePipe';
+
+// Angular Google map
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +30,7 @@ import { AppComponent } from './app.component';
 import { HotelsComponent } from './pages/hotels/hotels.component';
 import { GuestAnalyticsComponent } from './pages/guestAnalytics/guestAnalytics.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { GeneralInfoComponent } from './pages/generalInfo/generalInfo.component';
 import { RoomComponent } from './pages/room/room.component';
 import { ServiceComponent } from './pages/service/service.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -63,6 +68,7 @@ export function tokenGetter() {
     HotelsComponent,
     GuestAnalyticsComponent,
     DashboardComponent,
+    GeneralInfoComponent,
     RoomComponent,
     ServiceComponent,
     AboutComponent,
@@ -87,6 +93,10 @@ export function tokenGetter() {
   imports: [
     AppRoutingModule,
     NgxChartsModule,
+    BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDyX7WHT5gmL02pftalnXRWcJIwfCRN9q0'
+    }),
     BrowserAnimationsModule,
     SharedModule,
     BarRatingModule,
@@ -108,7 +118,8 @@ export function tokenGetter() {
     OrderService,
     UserService,
     GuestService,
-    RankingService
+    RankingService,
+    GoogleMapsAPIWrapper
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
