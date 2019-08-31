@@ -29,6 +29,10 @@ export class RankingService {
     return this.http.get<Ranking>(`/api/ranking/${ranking._id}`);
   }
 
+  getRankingByDate(checkinDate: Date, checkoutDate: Date): Observable<String[]> {
+    return this.http.get<String[]>(`/api/searchHotel/${checkinDate}/${checkoutDate}`);
+  }
+
   editRanking(ranking: Ranking): Observable<any> {
     return this.http.put(`/api/ranking/${ranking._id}`, ranking, { responseType: 'text' });
   }

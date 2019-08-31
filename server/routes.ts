@@ -72,6 +72,7 @@ export default function setRoutes(app) {
   router.route('/ranking/:id').get(rankingCtrl.get);
   router.route('/ranking/:id').put(rankingCtrl.update);
   router.route('/ranking/:id').delete(rankingCtrl.delete);
+  router.route('/searchHotel/:checkinDate/:checkoutDate').get(rankingCtrl.getRankingByDate);  
 
   // Service
   router.route('/services').get(serviceCtrl.getAll);

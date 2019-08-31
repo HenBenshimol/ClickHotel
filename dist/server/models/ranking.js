@@ -5,6 +5,8 @@ var rankingSchema = new mongoose.Schema({
     userId: String,
     hotelName: String,
     roomId: String,
+    checkinDate: Date,
+    checkoutDate: Date,
     comment: String,
     rate: Number
 });

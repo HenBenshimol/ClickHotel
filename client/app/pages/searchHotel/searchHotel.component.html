@@ -1,0 +1,62 @@
+<div class="home-page-container">
+  <section class="intro">
+    <div class="home-page-background-image"></div>
+    <img class="logo-roof animated pulse" src="../../../assets/images/hotelLogo.png">
+    <img class="logo-pic" src="../../../assets/images/hotelLogo.png">
+    <h4  class="title animated pulse">FAST | SAFE | EASY | 24/7</h4>
+  </section>
+  <section class="part properties">
+    <form class="search-form" [formGroup]="searchForm" (ngSubmit)="search()">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-users"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="numRanks"
+               formControlName="numRanks" placeholder="Number Of Ranks" autofocus>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-users"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="avgRate"
+               formControlName="avgRate" placeholder="Average Rate" autofocus>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-calendar"></i>
+          </span>
+        </div>
+        <input class="form-control" type="date" name="checkinDate"
+               formControlName="checkinDate" placeholder="checkinDate">
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-calendar"></i>
+          </span>
+        </div>
+        <input class="form-control" type="date" name="checkoutDate"
+               formControlName="checkoutDate" placeholder="checkoutDate">
+      </div>
+      <div class="buttons-wrapper">
+        <button mat-raised-button type="submit" color="accent" [disabled]="!searchForm.valid">
+          חיפוש
+        </button>
+      </div>
+    </form>
+  </section>
+  <section class="part hotels">
+    <div class="card" *ngFor="let hotel of hotels" style="width: 300px;">
+      <img class="card-img-top" src="{{hotel.hotelImage}}" >
+      <div class="card-body">
+        <p class="card-text">{{hotel.name}}</p>
+        <p class="card-text">{{hotel.description}}</p>
+      </div>
+    </div>
+  </section>
+</div>

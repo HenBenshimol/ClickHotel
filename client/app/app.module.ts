@@ -31,6 +31,7 @@ import { HotelsComponent } from './pages/hotels/hotels.component';
 import { GuestAnalyticsComponent } from './pages/guestAnalytics/guestAnalytics.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GeneralInfoComponent } from './pages/generalInfo/generalInfo.component';
+import { SearchHotelComponent } from './pages/searchHotel/searchHotel.component';
 import { RoomComponent } from './pages/room/room.component';
 import { ServiceComponent } from './pages/service/service.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -69,6 +70,7 @@ export function tokenGetter() {
     GuestAnalyticsComponent,
     DashboardComponent,
     GeneralInfoComponent,
+    SearchHotelComponent,
     RoomComponent,
     ServiceComponent,
     AboutComponent,

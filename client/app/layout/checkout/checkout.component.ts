@@ -31,6 +31,8 @@ export class CheckoutComponent implements OnInit {
   rate =  new FormControl('', []);
   hotelName = this.auth.currentGuest.hotelName;
   roomId = this.auth.currentGuest.roomId;
+  checkinDate = this.auth.currentGuest.checkinDate;
+  checkoutDate = this.auth.currentGuest.checkoutDate;
 
   room = new Room();
   newGuest = new Guest();
@@ -47,6 +49,8 @@ export class CheckoutComponent implements OnInit {
   ngOnInit() {
     this.checkoutForm = this.formBuilder.group({
       userId: this.userId,
+      checkinDate: this.checkinDate,
+      checkoutDate: this.checkoutDate,
       hotelName: this.hotelName,
       roomId: this.roomId,
       comment: this.comment,
