@@ -57,6 +57,7 @@ function setRoutes(app) {
     router.route('/getAllGuestPurpose').get(guestCtrl.getAllGuestPurpose);
     router.route('/getAllGuestStatus').get(guestCtrl.getAllGuestStatus);
     router.route('/getAllVacationLength').get(guestCtrl.getAllVacationLength);
+    router.route('/dashboard').get(guestCtrl.getAllGuestsByHotelandYear);
     // Ranking
     router.route('/rankings').get(rankingCtrl.getAll);
     router.route('/rankings/count').get(rankingCtrl.count);

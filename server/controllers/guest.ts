@@ -40,6 +40,34 @@ export default class GuestCtrl extends BaseCtrl {
     }
   }
 
+  // Get guest by year and hotel
+  // Groupby
+  getAllGuestsByHotelandYear = async (req, res) => {
+    try {
+      var arrRooms = [];
+      const obj = await this.model.aggregate([{ 
+                  $group : {
+                          _id : { year: { $year: "$checkoutDate" }, 
+                                  hotelName: "$hotelName"},
+                          count: { $sum: 1 }}}]);
+      var i = 0;
+      obj.forEach(element => {
+        arrRooms[i] = {
+          "name": element._id.hotelName,
+          "series": [
+            {
+              "name" : element._id.year,
+              "value": element.count
+            }
+          ]};
+          i++
+      });
+      res.status(200).json(arrRooms);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+  }
+
   // Get all guest family status
   getAllGuestStatus = async (req, res) => {
     try {

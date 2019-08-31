@@ -1,32 +1,32 @@
-
 <div class="admin-container">
     <br>
     <br>
     <app-loading></app-loading>
-    <div class="graph-title">How many Room in each hotel?</div>
-    <ngx-charts-bar-vertical-stacked
-    [view]="view"
-    [scheme]="colorScheme"
-    [results]="multi"
-    [gradient]="gradient"
-    [xAxis]="showXAxis"
-    [yAxis]="showYAxis"
-    [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
-    (select)="onSelect($event)">
-    </ngx-charts-bar-vertical-stacked>
-    <br>
-    <br>
-    
-    <div>
-        <p>% of Adults Guests: {{ adult | guestAge:guestsTotal }}</p>
-        <p>% of Youngs Guests: {{ young | guestAge:guestsTotal }}</p>
-      </div>
-  </div>
 
-
-  
-  
-  
+    <div class="card mb-3" *ngIf="!isLoading">
+        <h4 class="card-header">Rooms Statistic</h4>
+        <div class="card-body">
+            <div class="graph-title">How many Room in each hotel per year?</div>
+                <ngx-charts-bar-vertical-stacked
+                [view]="view"
+                [scheme]="colorScheme"
+                [results]="multi"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel">
+                </ngx-charts-bar-vertical-stacked>
+        </div>
+    </div>
+    <div class="card mb-3" *ngIf="!isLoading">
+        <h4 class="card-header">Guest Statistic</h4>
+        <div class="card-body">
+            <div>How many Room in each hotel per year?</div>
+            <p>% of Adults Guests: {{ adult | guestAge:guestsTotal }}</p>
+            <p>% of Youngs Guests: {{ young | guestAge:guestsTotal }}</p>   
+        </div>
+    </div>
+  </div> 

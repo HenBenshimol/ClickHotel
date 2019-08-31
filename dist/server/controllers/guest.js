@@ -70,9 +70,49 @@ var GuestCtrl = /** @class */ (function (_super) {
                 }
             });
         }); };
+        // Get guest by year and hotel
+        // Groupby
+        _this.getAllGuestsByHotelandYear = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+            var arrRooms, obj, i, err_4;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        arrRooms = [];
+                        return [4 /*yield*/, this.model.aggregate([{
+                                    $group: {
+                                        _id: { year: { $year: "$checkoutDate" },
+                                            hotelName: "$hotelName" },
+                                        count: { $sum: 1 }
+                                    }
+                                }])];
+                    case 1:
+                        obj = _a.sent();
+                        i = 0;
+                        obj.forEach(function (element) {
+                            arrRooms[i] = {
+                                "name": element._id.hotelName,
+                                "series": [
+                                    {
+                                        "name": element._id.year,
+                                        "value": element.count
+                                    }
+                                ]
+                            };
+                            i++;
+                        });
+                        res.status(200).json(arrRooms);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        err_4 = _a.sent();
+                        return [2 /*return*/, res.status(500).json({ error: err_4.message })];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        }); };
         // Get all guest family status
         _this.getAllGuestStatus = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var arrGuestStatus_1, obj, err_4;
+            var arrGuestStatus_1, obj, err_5;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -98,15 +138,15 @@ var GuestCtrl = /** @class */ (function (_super) {
                         res.status(200).json(arrGuestStatus_1);
                         return [3 /*break*/, 3];
                     case 2:
-                        err_4 = _a.sent();
-                        return [2 /*return*/, res.status(500).json({ error: err_4.message })];
+                        err_5 = _a.sent();
+                        return [2 /*return*/, res.status(500).json({ error: err_5.message })];
                     case 3: return [2 /*return*/];
                 }
             });
         }); };
         // Get all guest purpose
         _this.getAllGuestPurpose = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var arrPurpose_1, obj, err_5;
+            var arrPurpose_1, obj, err_6;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -128,15 +168,15 @@ var GuestCtrl = /** @class */ (function (_super) {
                         res.status(200).json(arrPurpose_1);
                         return [3 /*break*/, 3];
                     case 2:
-                        err_5 = _a.sent();
-                        return [2 /*return*/, res.status(500).json({ error: err_5.message })];
+                        err_6 = _a.sent();
+                        return [2 /*return*/, res.status(500).json({ error: err_6.message })];
                     case 3: return [2 /*return*/];
                 }
             });
         }); };
         // Get all guest vacation length
         _this.getAllVacationLength = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var oneDay_1, vacationLength_1, dates, err_6;
+            var oneDay_1, vacationLength_1, dates, err_7;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -152,14 +192,14 @@ var GuestCtrl = /** @class */ (function (_super) {
                         res.status(200).json(vacationLength_1);
                         return [3 /*break*/, 3];
                     case 2:
-                        err_6 = _a.sent();
-                        return [2 /*return*/, res.status(500).json({ error: err_6.message })];
+                        err_7 = _a.sent();
+                        return [2 /*return*/, res.status(500).json({ error: err_7.message })];
                     case 3: return [2 /*return*/];
                 }
             });
         }); };
         _this.getGuestVector = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var oneDay_2, vector_1, i_1, vacationLength_2, status_1, purpose_1, guest, err_7;
+            var oneDay_2, vector_1, i_1, vacationLength_2, status_1, purpose_1, guest, err_8;
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -201,8 +241,8 @@ var GuestCtrl = /** @class */ (function (_super) {
                         res.status(200).json(vector_1);
                         return [3 /*break*/, 3];
                     case 2:
-                        err_7 = _a.sent();
-                        return [2 /*return*/, res.status(500).json({ error: err_7.message })];
+                        err_8 = _a.sent();
+                        return [2 /*return*/, res.status(500).json({ error: err_8.message })];
                     case 3: return [2 /*return*/];
                 }
             });
