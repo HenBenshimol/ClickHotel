@@ -2,6 +2,8 @@ export class Hotel {
   _id?: string;
   name?: string;
   location?: string;
+  lat?: number;
+  lng?: number;
   description?: string;
   phone?: string;
   gymOpen?: string;
