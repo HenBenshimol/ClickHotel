@@ -9,6 +9,12 @@ import {Hotel} from '../../shared/models/hotel.model';
 import { app } from 'server/app';
 
 
+interface AgeProp {
+  ageType: string;
+  propType: string;
+  count: number;
+}
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -41,11 +47,21 @@ export class DashboardComponent implements OnInit {
   };
 
   // Var definition
+  public propArray = [];
   public multi = [];
   guestAges: Array<number>;
   young:number;
   adult:number;
   guestsTotal:number;
+  public ageProp = [];
+  adultType= "adults";
+  YoungType= "youngs";
+  bType = "buisness";
+  pType = "pleasure";
+  abCount = 0;
+  apCount = 0;
+  ybCount = 0;
+  ypCount = 0;
 
   constructor(private guestService: GuestService) {}
       
@@ -55,6 +71,26 @@ export class DashboardComponent implements OnInit {
       this.multi = guest;
       console.log(this.multi);
     });
+
+    // get guest Prop by age
+    //mapreduce
+    this.guestService.getAdultGuestProp().subscribe((prop) => {
+      this.propArray = prop["results"];
+      
+      this.propArray.forEach(element => {
+        if(element._id == "adultBuisness")
+          this.abCount = element.value;
+        else if(element._id == "adultPleasure")
+          this.apCount = element.value;
+        else if(element._id == "youngBuisness")
+          this.ybCount = element.value;
+        else if(element._id == "youngPleasure")
+          this.ypCount = element.value;
+      });
+    });
+
+    console.log(this.ageProp);
+
 
     // get guests ages statiatic
     this.guestService.getAllGuestAge().subscribe((guestVector) => {

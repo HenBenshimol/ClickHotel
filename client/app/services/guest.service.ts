@@ -25,6 +25,10 @@ export class GuestService {
     return this.http.get<String[]>(`/api/dashboard`);
   }
 
+  getAdultGuestProp(): Observable<String[]> {
+    return this.http.get<String[]>(`/api/getAdultGuestProp`);
+  }
+
   getActiveGuest(userId: String): Observable<Guest> {
     return this.http.get<Guest>(`/api/activeGuest/${userId}`);
   }
