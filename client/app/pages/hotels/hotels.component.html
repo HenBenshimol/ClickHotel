@@ -12,6 +12,8 @@
       <thead class="thead-light col">
         <tr class="col">
           <th scope="col">Name</th>
+          <th scope="col">Lat</th>
+          <th scope="col">Lng</th>
           <th scope="col">Location</th>
           <th scope="col">Description</th>
           <th scope="col">Phone</th>
@@ -37,6 +39,8 @@
         <tr class="col" *ngFor="let hotel of hotels">
           <td class="col">{{hotel.name}}</td>
           <td class="col">{{hotel.location}}</td>
+          <td class="col">{{hotel.lat}}</td>
+          <td class="col">{{hotel.lng}}</td>
           <td class="col" >{{hotel.description}}</td>
           <td class="col" >{{hotel.phone}}</td>
           <td class="col" >{{hotel.gymOpen}}</td>
@@ -68,6 +72,10 @@
                      [(ngModel)]="hotel.name" placeholder="Name" required>
               <input class="form-control mr-2" type="text" name="location"
                      [(ngModel)]="hotel.location" placeholder="Location" min="0" required>
+              <input class="form-control mr-2" type="text" name="lat"
+                     [(ngModel)]="hotel.lat" placeholder="Lat"  required>
+              <input class="form-control mr-2" type="text" name="lng"
+                     [(ngModel)]="hotel.lng" placeholder="lng"  required>
               <input class="form-control mr-2" type="text" name="description"
                      [(ngModel)]="hotel.description" placeholder="Description" required>
               <input class="form-control mr-2" type="text" name="phone"
@@ -116,6 +124,10 @@
              formControlName="name" placeholder="Name">
       <input class="form-control mr-2" type="text" name="location"
              formControlName="location" placeholder="Location" min="0">
+       <input class="form-control mr-2" type="text" name="lat"
+             formControlName="lat" placeholder="lat" min="0">
+       <input class="form-control mr-2" type="text" name="lng"
+             formControlName="lng" placeholder="lng" min="0">
       <input class="form-control mr-2" type="text" name="description"
              formControlName="description" placeholder="Description" step="any" min="0">
        <input class="form-control mr-2" type="text" name="phone"

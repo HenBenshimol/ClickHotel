@@ -20,6 +20,8 @@ export class HotelsComponent implements OnInit {
   addHotelForm: FormGroup;
   name = new FormControl('', Validators.required);
   location = new FormControl('', Validators.required);
+  lat = new FormControl('', Validators.required);
+  lng = new FormControl('', Validators.required);
   description = new FormControl('', Validators.required);
   phone = new FormControl('', Validators.required);
   gymOpen = new FormControl('', Validators.required);
@@ -45,6 +47,8 @@ export class HotelsComponent implements OnInit {
     this.addHotelForm = this.formBuilder.group({
       name: this.name,
       location: this.location,
+      lat: this.lat,
+      lng: this.resturantClose,
       description: this.description,
       phone: this.phone,
       gymOpen: this.gymOpen,
