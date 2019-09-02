@@ -29,4 +29,13 @@
             <p>% of Youngs Guests: {{ young | guestAge:guestsTotal }}</p>   
         </div>
     </div>
+    <div class="card mb-3" *ngIf="!isLoading">
+        <h4 class="card-header">Guest Age vs Purpose</h4>
+        <div class="card-body">
+            <p>The vacation purpose of {{abCount}} {{adultType}} guests is {{bType}}</p>
+            <p>The vacation purpose of {{apCount}} {{adultType}} guests is {{pType}}</p>
+            <p>The vacation purpose of {{ybCount}} {{YoungType}} guests is {{bType}}</p>
+            <p>The vacation purpose of {{ypCount}} {{YoungType}} guests is {{pType}}</p>
+        </div>
+    </div>
   </div> 

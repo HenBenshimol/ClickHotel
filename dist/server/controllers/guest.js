@@ -70,6 +70,32 @@ var GuestCtrl = /** @class */ (function (_super) {
                 }
             });
         }); };
+        _this.getAdultGuestProp = function (req, res) {
+            var o = {};
+            o["map"] = function () {
+                var type;
+                if (this.age > 18) {
+                    if (this.guestPurpose == "Buisness")
+                        type = "adultBuisness";
+                    else
+                        type = "adultPleasure";
+                }
+                else {
+                    if (this.guestPurpose == "Buisness")
+                        type = "youngBuisness";
+                    else
+                        type = "youngPleasure";
+                }
+                emit(type, 1);
+            };
+            o["reduce"] = function (k, vals) { return vals.length; };
+            _this.model.mapReduce(o, function (err, docs) {
+                if (err) {
+                    return console.error(err);
+                }
+                res.status(200).json(docs);
+            });
+        };
         // Get guest by year and hotel
         // Groupby
         _this.getAllGuestsByHotelandYear = function (req, res) { return tslib_1.__awaiter(_this, void 0, void 0, function () {

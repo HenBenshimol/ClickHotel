@@ -64,6 +64,7 @@ export default function setRoutes(app) {
   router.route('/getAllGuestStatus').get(guestCtrl.getAllGuestStatus);
   router.route('/getAllVacationLength').get(guestCtrl.getAllVacationLength);
   router.route('/dashboard').get(guestCtrl.getAllGuestsByHotelandYear);
+  router.route('/getAdultGuestProp').get(guestCtrl.getAdultGuestProp);
 
   // Ranking
   router.route('/rankings').get(rankingCtrl.getAll);

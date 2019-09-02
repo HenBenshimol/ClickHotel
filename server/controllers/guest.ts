@@ -2,6 +2,9 @@ import Guest from '../models/guest';
 import BaseCtrl from './base';
 import {forEach} from '@angular/router/src/utils/collection';
 
+declare function emit (val: any);
+declare function emit (key: any, value: any);
+
 export default class GuestCtrl extends BaseCtrl {
   model = Guest;
 
@@ -25,7 +28,7 @@ export default class GuestCtrl extends BaseCtrl {
       return res.status(500).json({ error: err.message });
     }
   }
-
+  
   // Get all guest ages
   getAllGuestAge = async (req, res) => {
     try {
@@ -38,6 +41,37 @@ export default class GuestCtrl extends BaseCtrl {
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }
+  }
+
+  getAdultGuestProp = (req, res) => {
+    var o = {};
+
+    o["map"] = function () {
+      var type;
+
+      if(this.age > 18)
+      {
+        if(this.guestPurpose == "Buisness")
+          type = "adultBuisness";
+        else
+          type = "adultPleasure";
+      }
+      else{
+        if(this.guestPurpose == "Buisness")
+          type = "youngBuisness";
+        else
+          type = "youngPleasure";
+      }
+
+      emit(type, 1) 
+    };
+
+    o["reduce"] = function (k, vals) { return vals.length };
+
+    this.model.mapReduce(o, function (err, docs) {
+      if (err) { return console.error(err); }
+      res.status(200).json(docs);
+    })
   }
 
   // Get guest by year and hotel
