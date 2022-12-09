@@ -48,7 +48,7 @@
     "count-min-sketch": "^0.1.1",
     "d3": "^5.11.0",
     "dotenv": "^6.2.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.0",
     "jsonwebtoken": "^8.4.0",
